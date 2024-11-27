@@ -1,0 +1,615 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A2091320-71FB-40A8-B6FF-0EE3F45FA02B}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WMSMobileClient</RootNamespace>
+    <AssemblyName>WMSRetailClient</AssemblyName>
+    <ProjectTypeGuids>{4D628B5B-2FBC-4AA6-8C16-197242AEB884};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <PlatformFamilyName>PocketPC</PlatformFamilyName>
+    <PlatformID>b2c48bd2-963d-4549-9169-1fa021dce484</PlatformID>
+    <OSVersion>5.02</OSVersion>
+    <DeployDirSuffix>Storage Card\WMSmobileClient</DeployDirSuffix>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <NativePlatformName>Windows Mobile 6 Professional SDK</NativePlatformName>
+    <FormFactorID>
+    </FormFactorID>
+    <DeployDirPrefix>\</DeployDirPrefix>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;$(PlatformFamilyName)</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <FileAlignment>512</FileAlignment>
+    <WarningLevel>4</WarningLevel>
+    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;$(PlatformFamilyName)</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <FileAlignment>512</FileAlignment>
+    <WarningLevel>4</WarningLevel>
+    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.WindowsCE.Forms" />
+    <Reference Include="mscorlib" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.SqlClient, Version=3.0.3600.0, Culture=neutral, PublicKeyToken=3be235df1c8d2ad3, processorArchitecture=MSIL" />
+    <Reference Include="System.Data.SqlServerCe, Version=3.5.0.0, Culture=neutral, PublicKeyToken=3be235df1c8d2ad3, processorArchitecture=MSIL" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WMSDBCollections, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>.\WMSDBCollections.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AppForms\FrmInventoryOnline.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AppForms\FrmInventoryOnline.designer.cs">
+      <DependentUpon>FrmInventoryOnline.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AppForms\FrmSelectInventoryHeaderOnline.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AppForms\FrmSelectInventoryHeaderOnline.Designer.cs">
+      <DependentUpon>FrmSelectInventoryHeaderOnline.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AppForms\FrmReceiveView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AppForms\FrmReceiveView.Designer.cs">
+      <DependentUpon>FrmReceiveView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AppForms\FrmReceivesHeader.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AppForms\FrmReceivesHeader.Designer.cs">
+      <DependentUpon>FrmReceivesHeader.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AppForms\FrmCreateTradeCode.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AppForms\FrmCreateTradeCode.Designer.cs">
+      <DependentUpon>FrmCreateTradeCode.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AppForms\FrmExportPackingList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AppForms\FrmExportPackingList.Designer.cs">
+      <DependentUpon>FrmExportPackingList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AppForms\FrmPackingList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AppForms\FrmPackingList.designer.cs">
+      <DependentUpon>FrmPackingList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AppForms\FrmPackingListView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AppForms\FrmPackingListView.Designer.cs">
+      <DependentUpon>FrmPackingListView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AppForms\FrmPackingListHeader.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AppForms\FrmPackingListHeader.designer.cs">
+      <DependentUpon>FrmPackingListHeader.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AppForms\FrmSelectPackingList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AppForms\FrmSelectPackingList.Designer.cs">
+      <DependentUpon>FrmSelectPackingList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AppForms\FrmExportInventory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AppForms\FrmExportInventory.Designer.cs">
+      <DependentUpon>FrmExportInventory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AppForms\FrmInventoryHeader.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AppForms\FrmInventoryHeader.designer.cs">
+      <DependentUpon>FrmInventoryHeader.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AppForms\FrmInventoryView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AppForms\FrmInventoryView.Designer.cs">
+      <DependentUpon>FrmInventoryView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AppForms\FrmOfflineSettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AppForms\FrmOfflineSettings.designer.cs">
+      <DependentUpon>FrmOfflineSettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AppForms\FrmDBSettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AppForms\FrmDBSettings.designer.cs">
+      <DependentUpon>FrmDBSettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AppForms\FrmInventory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AppForms\FrmInventory.designer.cs">
+      <DependentUpon>FrmInventory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AppForms\FrmSelectInventoryHeader.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AppForms\FrmSelectInventoryHeader.Designer.cs">
+      <DependentUpon>FrmSelectInventoryHeader.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AppForms\FrmSettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AppForms\FrmSettings.Designer.cs">
+      <DependentUpon>FrmSettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Components\models.cs" />
+    <Compile Include="Components\CompactDataController.cs" />
+    <Compile Include="Components\CompactDB.cs" />
+    <Compile Include="Components\ServiceCalls.cs" />
+    <Compile Include="Components\Settings.cs" />
+    <Compile Include="Components\wsvcdata.cs" />
+    <Compile Include="MenuForms\FrmMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MenuForms\FrmMenu.Designer.cs">
+      <DependentUpon>FrmMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Components\MobImageButton.cs">
+      <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\WMSservice\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\WMSSyncService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\bclabelimg_sm.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\bg.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\db.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\delete.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\ENTER.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\enter_disable.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\error.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\error1.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\ESC.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\loadgifanim.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\msgbox.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\newrecord.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\newrecord_disable.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\ok.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\settings.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\settings_focus.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\settings_init.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\settings_off.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\sync.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\textbox.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\textbox_focus.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\textbox_small.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\textbox_small_focus.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\textbox_xsmall.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\textbox_xsmall_focus.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\view.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\view_disable.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\view_small.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\shippment.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="MenuForms\FrmMenu.resx">
+      <DependentUpon>FrmMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\shippment_off.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\palette_off.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\palette.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\receiving_off.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\receiving.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\putaway_off.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\putaway.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\picking.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\picking_off.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\inventory.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="AppForms\FrmDBSettings.resx">
+      <DependentUpon>FrmDBSettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AppForms\FrmInventory.resx">
+      <DependentUpon>FrmInventory.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AppForms\FrmSettings.resx">
+      <DependentUpon>FrmSettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\inventory_off.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="dbchanges.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="MyConfig.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <EmbeddedResource Include="AppForms\FrmInventoryOnline.resx">
+      <DependentUpon>FrmInventoryOnline.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AppForms\FrmSelectInventoryHeaderOnline.resx">
+      <DependentUpon>FrmSelectInventoryHeaderOnline.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AppForms\FrmReceiveView.resx">
+      <DependentUpon>FrmReceiveView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AppForms\FrmReceivesHeader.resx">
+      <DependentUpon>FrmReceivesHeader.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AppForms\FrmCreateTradeCode.resx">
+      <DependentUpon>FrmCreateTradeCode.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AppForms\FrmExportPackingList.resx">
+      <DependentUpon>FrmExportPackingList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AppForms\FrmPackingList.resx">
+      <DependentUpon>FrmPackingList.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AppForms\FrmPackingListView.resx">
+      <DependentUpon>FrmPackingListView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AppForms\FrmPackingListHeader.resx">
+      <DependentUpon>FrmPackingListHeader.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AppForms\FrmSelectPackingList.resx">
+      <DependentUpon>FrmSelectPackingList.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AppForms\FrmExportInventory.resx">
+      <DependentUpon>FrmExportInventory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AppForms\FrmInventoryHeader.resx">
+      <DependentUpon>FrmInventoryHeader.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AppForms\FrmInventoryView.resx">
+      <DependentUpon>FrmInventoryView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AppForms\FrmOfflineSettings.resx">
+      <DependentUpon>FrmOfflineSettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AppForms\FrmSelectInventoryHeader.resx">
+      <DependentUpon>FrmSelectInventoryHeader.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\MobImageButton.resx">
+      <DependentUpon>MobImageButton.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\menubar.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <None Include="Resources\buttonback.png" />
+    <None Include="Resources\buttonback_on.png" />
+    <EmbeddedResource Include="Resources\msgbox_error.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\buttonsave.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\buttonsave_on.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\leftarrow.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\db_on.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\delete_on.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <None Include="Resources\add_on.png" />
+    <None Include="Resources\add.png" />
+    <Content Include="Resources\enterselected.png" />
+    <Content Include="Resources\enterselected_on.png" />
+    <Content Include="Resources\exports.png" />
+    <Content Include="Resources\exports_big.png" />
+    <Content Include="Resources\exports_big_off.png" />
+    <Content Include="Resources\exports_off.png" />
+    <Content Include="Resources\picking_big.png" />
+    <Content Include="Resources\picking_big_off.png" />
+    <Content Include="Resources\putaway_big.png" />
+    <Content Include="Resources\putaway_big_off.png" />
+    <Content Include="Resources\receiving_big.png" />
+    <None Include="Resources\receiving_big_off.png" />
+    <EmbeddedResource Include="Resources\rightarrow.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <Content Include="Resources\settings_big.png" />
+    <Content Include="Resources\settings_big_off.png" />
+    <Content Include="Resources\softkeybicon.png" />
+    <None Include="Resources\syncicon.png" />
+    <Content Include="Resources\sql.wce5.x86.CAB" />
+    <EmbeddedResource Include="Resources\transfer.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\transfer_on.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <Content Include="Resources\view_on.png" />
+    <Content Include="STORES.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="Web References\WMSservice\ERPItem.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WMSservice\ERPLot.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WMSservice\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\WMSservice\ResultWithMessage.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WMSservice\SyncInfo.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WMSservice\TItemLot.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WMSservice\TItems.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WMSservice\TransCodeDetail.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WMSservice\WebService.disco" />
+    <None Include="Web References\WMSservice\WebService.wsdl" />
+    <None Include="Web References\WMSSyncService\Customer.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WMSSyncService\ERPMunit.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WMSSyncService\ERPStore.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WMSSyncService\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\WMSSyncService\SyncERPItem.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WMSSyncService\SyncInfo.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WMSSyncService\SyncLot.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WMSSyncService\TOrderDetails.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WMSSyncService\TransCodeDetail.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WMSSyncService\TransCodeHeader.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WMSSyncService\WMSSyncService.disco" />
+    <None Include="Web References\WMSSyncService\WMSSyncService.wsdl" />
+    <EmbeddedResource Include="Resources\shippment_big_off.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\shippment_big.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\inventory_big.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\inventory_big_off.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\downarrow.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\uparrow.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="http://10.1.10.29/WMSSyncServ">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\WMSSyncService\</RelPath>
+      <UpdateFromURL>http://10.1.10.29/WMSSyncServ</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>
+      </CachedAppSettingsObjectName>
+      <CachedSettingsPropName>
+      </CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://localhost/WMSMiniWebService/WebService.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\WMSservice\</RelPath>
+      <UpdateFromURL>http://localhost/WMSMiniWebService/WebService.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>
+      </CachedAppSettingsObjectName>
+      <CachedSettingsPropName>
+      </CachedSettingsPropName>
+    </WebReferenceUrl>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CompactFramework.CSharp.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}">
+        <HostingProcess disable="1" />
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

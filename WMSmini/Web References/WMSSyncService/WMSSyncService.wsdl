@@ -1,0 +1,1710 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://WMSSyncService.intranet.albio.gr/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://WMSSyncService.intranet.albio.gr/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://WMSSyncService.intranet.albio.gr/">
+      <s:element name="SOA_TestLogFile">
+        <s:complexType />
+      </s:element>
+      <s:element name="SOA_TestLogFileResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="SOA_WebServiceVersion">
+        <s:complexType />
+      </s:element>
+      <s:element name="SOA_WebServiceVersionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SOA_WebServiceVersionResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="OrderDetailsList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="dsrnumber" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="compid" type="s:short" />
+            <s:element minOccurs="1" maxOccurs="1" name="branchid" type="s:short" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="OrderDetailsListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="OrderDetailsListResult" type="tns:ArrayOfTOrderDetails" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfTOrderDetails">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="TOrderDetails" nillable="true" type="tns:TOrderDetails" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="TOrderDetails">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="orderdtlid" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="compid" type="s:short" />
+          <s:element minOccurs="1" maxOccurs="1" name="orderid" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="itemid" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="itemlotid" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="itemqtyprimary" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="munitprimary" type="s:short" />
+          <s:element minOccurs="1" maxOccurs="1" name="itemqtysecondary" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="munitsecondary" type="s:short" />
+          <s:element minOccurs="0" maxOccurs="1" name="dateentry" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="orderdate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="requesteddelivdate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="promiseddelivdate" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="orderdtlstatus" type="s:short" />
+          <s:element minOccurs="1" maxOccurs="1" name="priceperunit" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="moneytype" type="s:short" />
+          <s:element minOccurs="1" maxOccurs="1" name="itemqtyprice" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="itemlength" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="itemcolorid" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="painted" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="itemcolorid2" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="orderdtlcomments" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="packtype" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="hardness" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="accerpitemid" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="erporderdtlid" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="prdiscount" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="specialprice" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="weborderdtlid" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="weborderid" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="weekshipping" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="dbreccreatehost" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="dbreccreatedate" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="dbreccreateuser" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="dbrecmoddate" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="dbrecmoduser" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="dbrecmodhost" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="servbranchid" type="s:short" />
+          <s:element minOccurs="0" maxOccurs="1" name="itemcode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="itemdesc" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="colordesc" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="munitdecimals" type="s:short" />
+          <s:element minOccurs="0" maxOccurs="1" name="ordercode" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="customerid" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="customertitle" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="itemrequestedqty" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="itempqtyfree" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="itemdoneqty" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="shippedpqty" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="itemqtybalance" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="itemqtyshippbalance" type="s:decimal" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ConnectionStatus">
+        <s:complexType />
+      </s:element>
+      <s:element name="ConnectionStatusResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ConnectionStatusResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTransCodeHeader">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ftrid" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTransCodeHeaderResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetTransCodeHeaderResult" type="tns:TransCodeHeader" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="TransCodeHeader">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="FtrID" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="compid" type="s:short" />
+          <s:element minOccurs="1" maxOccurs="1" name="branchid" type="s:short" />
+          <s:element minOccurs="0" maxOccurs="1" name="tradecode" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="fromstoreid" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="tostoreid" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="branchname" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="transdate" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetTransCodeDetails">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ftrid" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTransCodeDetailsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetTransCodeDetailsResult" type="tns:ArrayOfTransCodeDetail" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfTransCodeDetail">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="TransCodeDetail" nillable="true" type="tns:TransCodeDetail" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="TransCodeDetail">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="FtrID" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="TransID" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="ReceiveID" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="ItemID" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="LotID" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="munitprimary" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="munitsecondary" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ItemQtyPrimary" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="ItemQtySecondary" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="Zwidth" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="Zlength" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="zcolor" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="zdraft" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="lotcode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="itemcode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="itemdesc" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="Test">
+        <s:complexType />
+      </s:element>
+      <s:element name="TestResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TestResult" type="tns:TransCodeDetail" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AwakeDB">
+        <s:complexType />
+      </s:element>
+      <s:element name="AwakeDBResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="getclasses">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="serpitem" type="tns:SyncERPItem" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="SyncERPItem">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ItemID" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="CompID" type="s:short" />
+          <s:element minOccurs="1" maxOccurs="1" name="BranchID" type="s:short" />
+          <s:element minOccurs="1" maxOccurs="1" name="StoreID" type="s:short" />
+          <s:element minOccurs="0" maxOccurs="1" name="ItemCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ItemDesc" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="MUnitPrimary" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="MUnitSecondary" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="MUnitsRelation" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="MUnitDesc1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MUnitDesc2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EntryDate" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="getclassesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="getclassesResult" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SOA_CreateItemData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="StoreID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="getzeroqtys" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="lastsyncdate" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SOA_CreateItemDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SOA_CreateItemDataResult" type="tns:SyncInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="SyncInfo">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="MinItemID" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="MaxItemID" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="MinItemRowid" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="MaxItemRowid" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="ItemsRowsCount" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="MinLotID" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="MaxLotID" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="MinLotRowID" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="MaxLotRowID" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="LotRowsCount" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="Comments" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SOA_CreateLotData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="StoreID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="getzeroqtys" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="lastsyncdate" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SOA_CreateLotDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SOA_CreateLotDataResult" type="tns:SyncInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SOA_GetNewItems">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="StoreID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="lastsyncdate" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SOA_GetNewItemsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SOA_GetNewItemsResult" type="tns:ArrayOfSyncERPItem" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfSyncERPItem">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="SyncERPItem" nillable="true" type="tns:SyncERPItem" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SOA_GetNewLots">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="StoreID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="lastsyncdate" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SOA_GetNewLotsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SOA_GetNewLotsResult" type="tns:ArrayOfSyncLot" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfSyncLot">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="SyncLot" nillable="true" type="tns:SyncLot" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SyncLot">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="LotID" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="ItemID" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="CompID" type="s:short" />
+          <s:element minOccurs="1" maxOccurs="1" name="BranchID" type="s:short" />
+          <s:element minOccurs="1" maxOccurs="1" name="StoreID" type="s:short" />
+          <s:element minOccurs="0" maxOccurs="1" name="LotCode" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Width" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="Length" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="Color" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Draft" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ItemPrimaryQty" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="ItemSecondaryQty" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="EntryDate" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="TestERPcon">
+        <s:complexType />
+      </s:element>
+      <s:element name="TestERPconResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="TestERPconResult" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SOA_ClearTemporaryData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="StoreID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SOA_ClearTemporaryDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SOA_ClearTemporaryDataResult" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ImportPackingListCType">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pack" type="tns:ArrayOfPackingListDetail" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfPackingListDetail">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="PackingListDetail" nillable="true" type="tns:PackingListDetail" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="PackingListDetail">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="PackingListHeaderID" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="PackingListDTLID" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="ItemID" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="LotID" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="ItemCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LotCode" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ItemQTYprimary" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="ItemQTYsecondary" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="ItemMunitPrimary" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ItemMunitSecondary" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Color" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Draft" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Width" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="Length" type="s:decimal" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ImportPackingListCTypeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ImportPackingListCTypeResult" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateTradeCodeOnTheFly">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="packheader" type="tns:PackingListHeader" />
+            <s:element minOccurs="0" maxOccurs="1" name="pack" type="tns:ArrayOfPackingListDetail" />
+            <s:element minOccurs="1" maxOccurs="1" name="compid" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="branchid" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="storeid" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="dsrid" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="fpa" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="PackingListHeader">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="PackingListHeaderID" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="Packinglistserverid" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="Packinglistcomments" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="PackingListStatus" type="s:short" />
+          <s:element minOccurs="0" maxOccurs="1" name="CustomerCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CustomerTitle" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PackingListDate" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Compid" type="s:short" />
+          <s:element minOccurs="1" maxOccurs="1" name="Branchid" type="s:short" />
+          <s:element minOccurs="1" maxOccurs="1" name="StoreID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="StoreName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Kindid" type="s:short" />
+          <s:element minOccurs="1" maxOccurs="1" name="TransType" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="TransCode" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="OrderID" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="OrderDtlID" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="DSRID" type="s:long" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="CreateTradeCodeOnTheFlyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CreateTradeCodeOnTheFlyResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ImportPackingListHeaderCType">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="packhdr" type="tns:PackingListHeader" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ImportPackingListHeaderCTypeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ImportPackingListHeaderCTypeResult" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SOA_CreateTemporaryData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="StoreID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SOA_CreateTemporaryDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SOA_CreateTemporaryDataResult" type="tns:SyncInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetERPOrderID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="dsrnumber" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetERPOrderIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetERPOrderIDResult" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SOA_GetMUnits">
+        <s:complexType />
+      </s:element>
+      <s:element name="SOA_GetMUnitsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SOA_GetMUnitsResult" type="tns:ArrayOfERPMunit" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfERPMunit">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ERPMunit" nillable="true" type="tns:ERPMunit" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ERPMunit">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="munitID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="compID" type="s:short" />
+          <s:element minOccurs="0" maxOccurs="1" name="mUnit" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="munitDecimals" type="s:short" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SOA_GetStores">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CompID" type="s:short" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SOA_GetStoresResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SOA_GetStoresResult" type="tns:ArrayOfERPStore" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfERPStore">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ERPStore" nillable="true" type="tns:ERPStore" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ERPStore">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="storeID" type="s:short" />
+          <s:element minOccurs="0" maxOccurs="1" name="storeName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="compID" type="s:short" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SOA_GetNewItem">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="itemid" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SOA_GetNewItemResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SOA_GetNewItemResult" type="tns:SyncERPItem" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SOA_GetNewLot">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="lotid" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SOA_GetNewLotResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SOA_GetNewLotResult" type="tns:SyncLot" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SOA_GetNewLotbyCode">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="lotcode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SOA_GetNewLotbyCodeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SOA_GetNewLotbyCodeResult" type="tns:SyncLot" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SOA_GetInventoryLots">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="StoreID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="StartID" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="EndID" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SOA_GetInventoryLotsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SOA_GetInventoryLotsResult" type="tns:ArrayOfSyncLot" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SOA_GetInventoryItems">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="StoreID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="StartID" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="EndID" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SOA_GetInventoryItemsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SOA_GetInventoryItemsResult" type="tns:ArrayOfSyncERPItem" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SOA_GetItemsList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="storeid" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="branchid" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="startindex" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="endindex" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SOA_GetItemsListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SOA_GetItemsListResult" type="tns:ArrayOfSyncERPItem" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SOA_GetLotsList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="storeid" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="branchid" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="startindex" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="endindex" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SOA_GetLotsListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SOA_GetLotsListResult" type="tns:ArrayOfSyncLot" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ClearGItemList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="branchid" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ClearGItemListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ClearGItemListResult" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ClearGLotList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="branchid" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ClearGLotListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ClearGLotListResult" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CarpetCleaningTrans">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="storetranslist" type="tns:ArrayOfCarpetTrans" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfCarpetTrans">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="CarpetTrans" nillable="true" type="tns:CarpetTrans" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CarpetTrans">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="TRANSID" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="ERPCompID" type="s:short" />
+          <s:element minOccurs="1" maxOccurs="1" name="ERPBRACHID" type="s:short" />
+          <s:element minOccurs="1" maxOccurs="1" name="AlpisStoreTransID" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="WMSTRANSID" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="AlpisStoreTransDate" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ERPTransSeriesID" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="ERPCustomerID" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="ERPSupplierID" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="ERPFromStoreID" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="ERPToStoreID" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="ERPItemID" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="ERPItemMUnit" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="ERPItemSMUnit" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="ERPItemQty" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="ERPITEMSQTY" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="ERPItemUnitPrice" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="ERPItemQtyPrice" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="EXTRASERVICE" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ERPTRANSCODE" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="DOCTYPE" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="isnew" type="s:short" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="CarpetCleaningTransResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CarpetCleaningTransResult" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCustomerbycode">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="customercode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCustomerbycodeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCustomerbycodeResult" type="tns:Customer" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Customer">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="erpCustomerID" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="CustomerCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CustomerTitle" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Occupation" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="STREET1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ZIPCODE1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CITY1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="phone1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="phone2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FAX1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ZALPISCODE" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="CarpetCleaningCancelTrans">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="wmstransid" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CarpetCleaningCancelTransResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CarpetCleaningCancelTransResult" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="SOA_TestLogFileSoapIn">
+    <wsdl:part name="parameters" element="tns:SOA_TestLogFile" />
+  </wsdl:message>
+  <wsdl:message name="SOA_TestLogFileSoapOut">
+    <wsdl:part name="parameters" element="tns:SOA_TestLogFileResponse" />
+  </wsdl:message>
+  <wsdl:message name="SOA_WebServiceVersionSoapIn">
+    <wsdl:part name="parameters" element="tns:SOA_WebServiceVersion" />
+  </wsdl:message>
+  <wsdl:message name="SOA_WebServiceVersionSoapOut">
+    <wsdl:part name="parameters" element="tns:SOA_WebServiceVersionResponse" />
+  </wsdl:message>
+  <wsdl:message name="OrderDetailsListSoapIn">
+    <wsdl:part name="parameters" element="tns:OrderDetailsList" />
+  </wsdl:message>
+  <wsdl:message name="OrderDetailsListSoapOut">
+    <wsdl:part name="parameters" element="tns:OrderDetailsListResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConnectionStatusSoapIn">
+    <wsdl:part name="parameters" element="tns:ConnectionStatus" />
+  </wsdl:message>
+  <wsdl:message name="ConnectionStatusSoapOut">
+    <wsdl:part name="parameters" element="tns:ConnectionStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTransCodeHeaderSoapIn">
+    <wsdl:part name="parameters" element="tns:GetTransCodeHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetTransCodeHeaderSoapOut">
+    <wsdl:part name="parameters" element="tns:GetTransCodeHeaderResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTransCodeDetailsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetTransCodeDetails" />
+  </wsdl:message>
+  <wsdl:message name="GetTransCodeDetailsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetTransCodeDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="TestSoapIn">
+    <wsdl:part name="parameters" element="tns:Test" />
+  </wsdl:message>
+  <wsdl:message name="TestSoapOut">
+    <wsdl:part name="parameters" element="tns:TestResponse" />
+  </wsdl:message>
+  <wsdl:message name="AwakeDBSoapIn">
+    <wsdl:part name="parameters" element="tns:AwakeDB" />
+  </wsdl:message>
+  <wsdl:message name="AwakeDBSoapOut">
+    <wsdl:part name="parameters" element="tns:AwakeDBResponse" />
+  </wsdl:message>
+  <wsdl:message name="getclassesSoapIn">
+    <wsdl:part name="parameters" element="tns:getclasses" />
+  </wsdl:message>
+  <wsdl:message name="getclassesSoapOut">
+    <wsdl:part name="parameters" element="tns:getclassesResponse" />
+  </wsdl:message>
+  <wsdl:message name="SOA_CreateItemDataSoapIn">
+    <wsdl:part name="parameters" element="tns:SOA_CreateItemData" />
+  </wsdl:message>
+  <wsdl:message name="SOA_CreateItemDataSoapOut">
+    <wsdl:part name="parameters" element="tns:SOA_CreateItemDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="SOA_CreateLotDataSoapIn">
+    <wsdl:part name="parameters" element="tns:SOA_CreateLotData" />
+  </wsdl:message>
+  <wsdl:message name="SOA_CreateLotDataSoapOut">
+    <wsdl:part name="parameters" element="tns:SOA_CreateLotDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="SOA_GetNewItemsSoapIn">
+    <wsdl:part name="parameters" element="tns:SOA_GetNewItems" />
+  </wsdl:message>
+  <wsdl:message name="SOA_GetNewItemsSoapOut">
+    <wsdl:part name="parameters" element="tns:SOA_GetNewItemsResponse" />
+  </wsdl:message>
+  <wsdl:message name="SOA_GetNewLotsSoapIn">
+    <wsdl:part name="parameters" element="tns:SOA_GetNewLots" />
+  </wsdl:message>
+  <wsdl:message name="SOA_GetNewLotsSoapOut">
+    <wsdl:part name="parameters" element="tns:SOA_GetNewLotsResponse" />
+  </wsdl:message>
+  <wsdl:message name="TestERPconSoapIn">
+    <wsdl:part name="parameters" element="tns:TestERPcon" />
+  </wsdl:message>
+  <wsdl:message name="TestERPconSoapOut">
+    <wsdl:part name="parameters" element="tns:TestERPconResponse" />
+  </wsdl:message>
+  <wsdl:message name="SOA_ClearTemporaryDataSoapIn">
+    <wsdl:part name="parameters" element="tns:SOA_ClearTemporaryData" />
+  </wsdl:message>
+  <wsdl:message name="SOA_ClearTemporaryDataSoapOut">
+    <wsdl:part name="parameters" element="tns:SOA_ClearTemporaryDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="ImportPackingListCTypeSoapIn">
+    <wsdl:part name="parameters" element="tns:ImportPackingListCType" />
+  </wsdl:message>
+  <wsdl:message name="ImportPackingListCTypeSoapOut">
+    <wsdl:part name="parameters" element="tns:ImportPackingListCTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="CreateTradeCodeOnTheFlySoapIn">
+    <wsdl:part name="parameters" element="tns:CreateTradeCodeOnTheFly" />
+  </wsdl:message>
+  <wsdl:message name="CreateTradeCodeOnTheFlySoapOut">
+    <wsdl:part name="parameters" element="tns:CreateTradeCodeOnTheFlyResponse" />
+  </wsdl:message>
+  <wsdl:message name="ImportPackingListHeaderCTypeSoapIn">
+    <wsdl:part name="parameters" element="tns:ImportPackingListHeaderCType" />
+  </wsdl:message>
+  <wsdl:message name="ImportPackingListHeaderCTypeSoapOut">
+    <wsdl:part name="parameters" element="tns:ImportPackingListHeaderCTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="SOA_CreateTemporaryDataSoapIn">
+    <wsdl:part name="parameters" element="tns:SOA_CreateTemporaryData" />
+  </wsdl:message>
+  <wsdl:message name="SOA_CreateTemporaryDataSoapOut">
+    <wsdl:part name="parameters" element="tns:SOA_CreateTemporaryDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetERPOrderIDSoapIn">
+    <wsdl:part name="parameters" element="tns:GetERPOrderID" />
+  </wsdl:message>
+  <wsdl:message name="GetERPOrderIDSoapOut">
+    <wsdl:part name="parameters" element="tns:GetERPOrderIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="SOA_GetMUnitsSoapIn">
+    <wsdl:part name="parameters" element="tns:SOA_GetMUnits" />
+  </wsdl:message>
+  <wsdl:message name="SOA_GetMUnitsSoapOut">
+    <wsdl:part name="parameters" element="tns:SOA_GetMUnitsResponse" />
+  </wsdl:message>
+  <wsdl:message name="SOA_GetStoresSoapIn">
+    <wsdl:part name="parameters" element="tns:SOA_GetStores" />
+  </wsdl:message>
+  <wsdl:message name="SOA_GetStoresSoapOut">
+    <wsdl:part name="parameters" element="tns:SOA_GetStoresResponse" />
+  </wsdl:message>
+  <wsdl:message name="SOA_GetNewItemSoapIn">
+    <wsdl:part name="parameters" element="tns:SOA_GetNewItem" />
+  </wsdl:message>
+  <wsdl:message name="SOA_GetNewItemSoapOut">
+    <wsdl:part name="parameters" element="tns:SOA_GetNewItemResponse" />
+  </wsdl:message>
+  <wsdl:message name="SOA_GetNewLotSoapIn">
+    <wsdl:part name="parameters" element="tns:SOA_GetNewLot" />
+  </wsdl:message>
+  <wsdl:message name="SOA_GetNewLotSoapOut">
+    <wsdl:part name="parameters" element="tns:SOA_GetNewLotResponse" />
+  </wsdl:message>
+  <wsdl:message name="SOA_GetNewLotbyCodeSoapIn">
+    <wsdl:part name="parameters" element="tns:SOA_GetNewLotbyCode" />
+  </wsdl:message>
+  <wsdl:message name="SOA_GetNewLotbyCodeSoapOut">
+    <wsdl:part name="parameters" element="tns:SOA_GetNewLotbyCodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="SOA_GetInventoryLotsSoapIn">
+    <wsdl:part name="parameters" element="tns:SOA_GetInventoryLots" />
+  </wsdl:message>
+  <wsdl:message name="SOA_GetInventoryLotsSoapOut">
+    <wsdl:part name="parameters" element="tns:SOA_GetInventoryLotsResponse" />
+  </wsdl:message>
+  <wsdl:message name="SOA_GetInventoryItemsSoapIn">
+    <wsdl:part name="parameters" element="tns:SOA_GetInventoryItems" />
+  </wsdl:message>
+  <wsdl:message name="SOA_GetInventoryItemsSoapOut">
+    <wsdl:part name="parameters" element="tns:SOA_GetInventoryItemsResponse" />
+  </wsdl:message>
+  <wsdl:message name="SOA_GetItemsListSoapIn">
+    <wsdl:part name="parameters" element="tns:SOA_GetItemsList" />
+  </wsdl:message>
+  <wsdl:message name="SOA_GetItemsListSoapOut">
+    <wsdl:part name="parameters" element="tns:SOA_GetItemsListResponse" />
+  </wsdl:message>
+  <wsdl:message name="SOA_GetLotsListSoapIn">
+    <wsdl:part name="parameters" element="tns:SOA_GetLotsList" />
+  </wsdl:message>
+  <wsdl:message name="SOA_GetLotsListSoapOut">
+    <wsdl:part name="parameters" element="tns:SOA_GetLotsListResponse" />
+  </wsdl:message>
+  <wsdl:message name="ClearGItemListSoapIn">
+    <wsdl:part name="parameters" element="tns:ClearGItemList" />
+  </wsdl:message>
+  <wsdl:message name="ClearGItemListSoapOut">
+    <wsdl:part name="parameters" element="tns:ClearGItemListResponse" />
+  </wsdl:message>
+  <wsdl:message name="ClearGLotListSoapIn">
+    <wsdl:part name="parameters" element="tns:ClearGLotList" />
+  </wsdl:message>
+  <wsdl:message name="ClearGLotListSoapOut">
+    <wsdl:part name="parameters" element="tns:ClearGLotListResponse" />
+  </wsdl:message>
+  <wsdl:message name="CarpetCleaningTransSoapIn">
+    <wsdl:part name="parameters" element="tns:CarpetCleaningTrans" />
+  </wsdl:message>
+  <wsdl:message name="CarpetCleaningTransSoapOut">
+    <wsdl:part name="parameters" element="tns:CarpetCleaningTransResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCustomerbycodeSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCustomerbycode" />
+  </wsdl:message>
+  <wsdl:message name="GetCustomerbycodeSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCustomerbycodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="CarpetCleaningCancelTransSoapIn">
+    <wsdl:part name="parameters" element="tns:CarpetCleaningCancelTrans" />
+  </wsdl:message>
+  <wsdl:message name="CarpetCleaningCancelTransSoapOut">
+    <wsdl:part name="parameters" element="tns:CarpetCleaningCancelTransResponse" />
+  </wsdl:message>
+  <wsdl:portType name="WMSSyncServiceSoap">
+    <wsdl:operation name="SOA_TestLogFile">
+      <wsdl:input message="tns:SOA_TestLogFileSoapIn" />
+      <wsdl:output message="tns:SOA_TestLogFileSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SOA_WebServiceVersion">
+      <wsdl:input message="tns:SOA_WebServiceVersionSoapIn" />
+      <wsdl:output message="tns:SOA_WebServiceVersionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="OrderDetailsList">
+      <wsdl:input message="tns:OrderDetailsListSoapIn" />
+      <wsdl:output message="tns:OrderDetailsListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConnectionStatus">
+      <wsdl:input message="tns:ConnectionStatusSoapIn" />
+      <wsdl:output message="tns:ConnectionStatusSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTransCodeHeader">
+      <wsdl:input message="tns:GetTransCodeHeaderSoapIn" />
+      <wsdl:output message="tns:GetTransCodeHeaderSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTransCodeDetails">
+      <wsdl:input message="tns:GetTransCodeDetailsSoapIn" />
+      <wsdl:output message="tns:GetTransCodeDetailsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Test">
+      <wsdl:input message="tns:TestSoapIn" />
+      <wsdl:output message="tns:TestSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AwakeDB">
+      <wsdl:input message="tns:AwakeDBSoapIn" />
+      <wsdl:output message="tns:AwakeDBSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getclasses">
+      <wsdl:input message="tns:getclassesSoapIn" />
+      <wsdl:output message="tns:getclassesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SOA_CreateItemData">
+      <wsdl:input message="tns:SOA_CreateItemDataSoapIn" />
+      <wsdl:output message="tns:SOA_CreateItemDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SOA_CreateLotData">
+      <wsdl:input message="tns:SOA_CreateLotDataSoapIn" />
+      <wsdl:output message="tns:SOA_CreateLotDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SOA_GetNewItems">
+      <wsdl:input message="tns:SOA_GetNewItemsSoapIn" />
+      <wsdl:output message="tns:SOA_GetNewItemsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SOA_GetNewLots">
+      <wsdl:input message="tns:SOA_GetNewLotsSoapIn" />
+      <wsdl:output message="tns:SOA_GetNewLotsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TestERPcon">
+      <wsdl:input message="tns:TestERPconSoapIn" />
+      <wsdl:output message="tns:TestERPconSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SOA_ClearTemporaryData">
+      <wsdl:input message="tns:SOA_ClearTemporaryDataSoapIn" />
+      <wsdl:output message="tns:SOA_ClearTemporaryDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ImportPackingListCType">
+      <wsdl:input message="tns:ImportPackingListCTypeSoapIn" />
+      <wsdl:output message="tns:ImportPackingListCTypeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateTradeCodeOnTheFly">
+      <wsdl:input message="tns:CreateTradeCodeOnTheFlySoapIn" />
+      <wsdl:output message="tns:CreateTradeCodeOnTheFlySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ImportPackingListHeaderCType">
+      <wsdl:input message="tns:ImportPackingListHeaderCTypeSoapIn" />
+      <wsdl:output message="tns:ImportPackingListHeaderCTypeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SOA_CreateTemporaryData">
+      <wsdl:input message="tns:SOA_CreateTemporaryDataSoapIn" />
+      <wsdl:output message="tns:SOA_CreateTemporaryDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetERPOrderID">
+      <wsdl:input message="tns:GetERPOrderIDSoapIn" />
+      <wsdl:output message="tns:GetERPOrderIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SOA_GetMUnits">
+      <wsdl:input message="tns:SOA_GetMUnitsSoapIn" />
+      <wsdl:output message="tns:SOA_GetMUnitsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SOA_GetStores">
+      <wsdl:input message="tns:SOA_GetStoresSoapIn" />
+      <wsdl:output message="tns:SOA_GetStoresSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SOA_GetNewItem">
+      <wsdl:input message="tns:SOA_GetNewItemSoapIn" />
+      <wsdl:output message="tns:SOA_GetNewItemSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SOA_GetNewLot">
+      <wsdl:input message="tns:SOA_GetNewLotSoapIn" />
+      <wsdl:output message="tns:SOA_GetNewLotSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SOA_GetNewLotbyCode">
+      <wsdl:input message="tns:SOA_GetNewLotbyCodeSoapIn" />
+      <wsdl:output message="tns:SOA_GetNewLotbyCodeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SOA_GetInventoryLots">
+      <wsdl:input message="tns:SOA_GetInventoryLotsSoapIn" />
+      <wsdl:output message="tns:SOA_GetInventoryLotsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SOA_GetInventoryItems">
+      <wsdl:input message="tns:SOA_GetInventoryItemsSoapIn" />
+      <wsdl:output message="tns:SOA_GetInventoryItemsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SOA_GetItemsList">
+      <wsdl:input message="tns:SOA_GetItemsListSoapIn" />
+      <wsdl:output message="tns:SOA_GetItemsListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SOA_GetLotsList">
+      <wsdl:input message="tns:SOA_GetLotsListSoapIn" />
+      <wsdl:output message="tns:SOA_GetLotsListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ClearGItemList">
+      <wsdl:input message="tns:ClearGItemListSoapIn" />
+      <wsdl:output message="tns:ClearGItemListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ClearGLotList">
+      <wsdl:input message="tns:ClearGLotListSoapIn" />
+      <wsdl:output message="tns:ClearGLotListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CarpetCleaningTrans">
+      <wsdl:input message="tns:CarpetCleaningTransSoapIn" />
+      <wsdl:output message="tns:CarpetCleaningTransSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomerbycode">
+      <wsdl:input message="tns:GetCustomerbycodeSoapIn" />
+      <wsdl:output message="tns:GetCustomerbycodeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CarpetCleaningCancelTrans">
+      <wsdl:input message="tns:CarpetCleaningCancelTransSoapIn" />
+      <wsdl:output message="tns:CarpetCleaningCancelTransSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WMSSyncServiceSoap" type="tns:WMSSyncServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SOA_TestLogFile">
+      <soap:operation soapAction="http://WMSSyncService.intranet.albio.gr/SOA_TestLogFile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SOA_WebServiceVersion">
+      <soap:operation soapAction="http://WMSSyncService.intranet.albio.gr/SOA_WebServiceVersion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OrderDetailsList">
+      <soap:operation soapAction="http://WMSSyncService.intranet.albio.gr/OrderDetailsList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConnectionStatus">
+      <soap:operation soapAction="http://WMSSyncService.intranet.albio.gr/ConnectionStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTransCodeHeader">
+      <soap:operation soapAction="http://WMSSyncService.intranet.albio.gr/GetTransCodeHeader" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTransCodeDetails">
+      <soap:operation soapAction="http://WMSSyncService.intranet.albio.gr/GetTransCodeDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Test">
+      <soap:operation soapAction="http://WMSSyncService.intranet.albio.gr/Test" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AwakeDB">
+      <soap:operation soapAction="http://WMSSyncService.intranet.albio.gr/AwakeDB" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getclasses">
+      <soap:operation soapAction="http://WMSSyncService.intranet.albio.gr/getclasses" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SOA_CreateItemData">
+      <soap:operation soapAction="http://WMSSyncService.intranet.albio.gr/SOA_CreateItemData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SOA_CreateLotData">
+      <soap:operation soapAction="http://WMSSyncService.intranet.albio.gr/SOA_CreateLotData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SOA_GetNewItems">
+      <soap:operation soapAction="http://WMSSyncService.intranet.albio.gr/SOA_GetNewItems" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SOA_GetNewLots">
+      <soap:operation soapAction="http://WMSSyncService.intranet.albio.gr/SOA_GetNewLots" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TestERPcon">
+      <soap:operation soapAction="http://WMSSyncService.intranet.albio.gr/TestERPcon" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SOA_ClearTemporaryData">
+      <soap:operation soapAction="http://WMSSyncService.intranet.albio.gr/SOA_ClearTemporaryData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ImportPackingListCType">
+      <soap:operation soapAction="http://WMSSyncService.intranet.albio.gr/ImportPackingListCType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateTradeCodeOnTheFly">
+      <soap:operation soapAction="http://WMSSyncService.intranet.albio.gr/CreateTradeCodeOnTheFly" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ImportPackingListHeaderCType">
+      <soap:operation soapAction="http://WMSSyncService.intranet.albio.gr/ImportPackingListHeaderCType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SOA_CreateTemporaryData">
+      <soap:operation soapAction="http://WMSSyncService.intranet.albio.gr/SOA_CreateTemporaryData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetERPOrderID">
+      <soap:operation soapAction="http://WMSSyncService.intranet.albio.gr/GetERPOrderID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SOA_GetMUnits">
+      <soap:operation soapAction="http://WMSSyncService.intranet.albio.gr/SOA_GetMUnits" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SOA_GetStores">
+      <soap:operation soapAction="http://WMSSyncService.intranet.albio.gr/SOA_GetStores" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SOA_GetNewItem">
+      <soap:operation soapAction="http://WMSSyncService.intranet.albio.gr/SOA_GetNewItem" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SOA_GetNewLot">
+      <soap:operation soapAction="http://WMSSyncService.intranet.albio.gr/SOA_GetNewLot" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SOA_GetNewLotbyCode">
+      <soap:operation soapAction="http://WMSSyncService.intranet.albio.gr/SOA_GetNewLotbyCode" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SOA_GetInventoryLots">
+      <soap:operation soapAction="http://WMSSyncService.intranet.albio.gr/SOA_GetInventoryLots" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SOA_GetInventoryItems">
+      <soap:operation soapAction="http://WMSSyncService.intranet.albio.gr/SOA_GetInventoryItems" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SOA_GetItemsList">
+      <soap:operation soapAction="http://WMSSyncService.intranet.albio.gr/SOA_GetItemsList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SOA_GetLotsList">
+      <soap:operation soapAction="http://WMSSyncService.intranet.albio.gr/SOA_GetLotsList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ClearGItemList">
+      <soap:operation soapAction="http://WMSSyncService.intranet.albio.gr/ClearGItemList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ClearGLotList">
+      <soap:operation soapAction="http://WMSSyncService.intranet.albio.gr/ClearGLotList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CarpetCleaningTrans">
+      <soap:operation soapAction="http://WMSSyncService.intranet.albio.gr/CarpetCleaningTrans" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomerbycode">
+      <soap:operation soapAction="http://WMSSyncService.intranet.albio.gr/GetCustomerbycode" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CarpetCleaningCancelTrans">
+      <soap:operation soapAction="http://WMSSyncService.intranet.albio.gr/CarpetCleaningCancelTrans" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WMSSyncServiceSoap12" type="tns:WMSSyncServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SOA_TestLogFile">
+      <soap12:operation soapAction="http://WMSSyncService.intranet.albio.gr/SOA_TestLogFile" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SOA_WebServiceVersion">
+      <soap12:operation soapAction="http://WMSSyncService.intranet.albio.gr/SOA_WebServiceVersion" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OrderDetailsList">
+      <soap12:operation soapAction="http://WMSSyncService.intranet.albio.gr/OrderDetailsList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConnectionStatus">
+      <soap12:operation soapAction="http://WMSSyncService.intranet.albio.gr/ConnectionStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTransCodeHeader">
+      <soap12:operation soapAction="http://WMSSyncService.intranet.albio.gr/GetTransCodeHeader" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTransCodeDetails">
+      <soap12:operation soapAction="http://WMSSyncService.intranet.albio.gr/GetTransCodeDetails" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Test">
+      <soap12:operation soapAction="http://WMSSyncService.intranet.albio.gr/Test" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AwakeDB">
+      <soap12:operation soapAction="http://WMSSyncService.intranet.albio.gr/AwakeDB" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getclasses">
+      <soap12:operation soapAction="http://WMSSyncService.intranet.albio.gr/getclasses" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SOA_CreateItemData">
+      <soap12:operation soapAction="http://WMSSyncService.intranet.albio.gr/SOA_CreateItemData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SOA_CreateLotData">
+      <soap12:operation soapAction="http://WMSSyncService.intranet.albio.gr/SOA_CreateLotData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SOA_GetNewItems">
+      <soap12:operation soapAction="http://WMSSyncService.intranet.albio.gr/SOA_GetNewItems" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SOA_GetNewLots">
+      <soap12:operation soapAction="http://WMSSyncService.intranet.albio.gr/SOA_GetNewLots" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TestERPcon">
+      <soap12:operation soapAction="http://WMSSyncService.intranet.albio.gr/TestERPcon" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SOA_ClearTemporaryData">
+      <soap12:operation soapAction="http://WMSSyncService.intranet.albio.gr/SOA_ClearTemporaryData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ImportPackingListCType">
+      <soap12:operation soapAction="http://WMSSyncService.intranet.albio.gr/ImportPackingListCType" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateTradeCodeOnTheFly">
+      <soap12:operation soapAction="http://WMSSyncService.intranet.albio.gr/CreateTradeCodeOnTheFly" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ImportPackingListHeaderCType">
+      <soap12:operation soapAction="http://WMSSyncService.intranet.albio.gr/ImportPackingListHeaderCType" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SOA_CreateTemporaryData">
+      <soap12:operation soapAction="http://WMSSyncService.intranet.albio.gr/SOA_CreateTemporaryData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetERPOrderID">
+      <soap12:operation soapAction="http://WMSSyncService.intranet.albio.gr/GetERPOrderID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SOA_GetMUnits">
+      <soap12:operation soapAction="http://WMSSyncService.intranet.albio.gr/SOA_GetMUnits" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SOA_GetStores">
+      <soap12:operation soapAction="http://WMSSyncService.intranet.albio.gr/SOA_GetStores" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SOA_GetNewItem">
+      <soap12:operation soapAction="http://WMSSyncService.intranet.albio.gr/SOA_GetNewItem" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SOA_GetNewLot">
+      <soap12:operation soapAction="http://WMSSyncService.intranet.albio.gr/SOA_GetNewLot" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SOA_GetNewLotbyCode">
+      <soap12:operation soapAction="http://WMSSyncService.intranet.albio.gr/SOA_GetNewLotbyCode" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SOA_GetInventoryLots">
+      <soap12:operation soapAction="http://WMSSyncService.intranet.albio.gr/SOA_GetInventoryLots" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SOA_GetInventoryItems">
+      <soap12:operation soapAction="http://WMSSyncService.intranet.albio.gr/SOA_GetInventoryItems" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SOA_GetItemsList">
+      <soap12:operation soapAction="http://WMSSyncService.intranet.albio.gr/SOA_GetItemsList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SOA_GetLotsList">
+      <soap12:operation soapAction="http://WMSSyncService.intranet.albio.gr/SOA_GetLotsList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ClearGItemList">
+      <soap12:operation soapAction="http://WMSSyncService.intranet.albio.gr/ClearGItemList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ClearGLotList">
+      <soap12:operation soapAction="http://WMSSyncService.intranet.albio.gr/ClearGLotList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CarpetCleaningTrans">
+      <soap12:operation soapAction="http://WMSSyncService.intranet.albio.gr/CarpetCleaningTrans" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomerbycode">
+      <soap12:operation soapAction="http://WMSSyncService.intranet.albio.gr/GetCustomerbycode" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CarpetCleaningCancelTrans">
+      <soap12:operation soapAction="http://WMSSyncService.intranet.albio.gr/CarpetCleaningCancelTrans" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WMSSyncService">
+    <wsdl:port name="WMSSyncServiceSoap" binding="tns:WMSSyncServiceSoap">
+      <soap:address location="http://10.1.10.29/WMSSyncServ/WMSSyncService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WMSSyncServiceSoap12" binding="tns:WMSSyncServiceSoap12">
+      <soap12:address location="http://10.1.10.29/WMSSyncServ/WMSSyncService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

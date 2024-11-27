@@ -1,0 +1,12 @@
+E:\!WORK\Projects\Biokarpet\WMSmini\AtlantisInventorySync\bin\Debug\AtlantisInventorySync.dll.config
+E:\!WORK\Projects\Biokarpet\WMSmini\AtlantisInventorySync\bin\Debug\AtlantisInventorySync.dll
+E:\!WORK\Projects\Biokarpet\WMSmini\AtlantisInventorySync\bin\Debug\AtlantisInventorySync.pdb
+E:\!WORK\Projects\Biokarpet\WMSmini\AtlantisInventorySync\obj\Debug\ResolveAssemblyReference.cache
+E:\!WORK\Projects\Biokarpet\WMSmini\AtlantisInventorySync\obj\Debug\AtlantisInventorySync.dll
+E:\!WORK\Projects\Biokarpet\WMSmini\AtlantisInventorySync\obj\Debug\AtlantisInventorySync.pdb
+D:\!WORK\Projects\Biokarpet\WMSmini\AtlantisInventorySync\bin\Debug\AtlantisInventorySync.dll.config
+D:\!WORK\Projects\Biokarpet\WMSmini\AtlantisInventorySync\bin\Debug\AtlantisInventorySync.dll
+D:\!WORK\Projects\Biokarpet\WMSmini\AtlantisInventorySync\bin\Debug\AtlantisInventorySync.pdb
+D:\!WORK\Projects\Biokarpet\WMSmini\AtlantisInventorySync\obj\Debug\ResolveAssemblyReference.cache
+D:\!WORK\Projects\Biokarpet\WMSmini\AtlantisInventorySync\obj\Debug\AtlantisInventorySync.dll
+D:\!WORK\Projects\Biokarpet\WMSmini\AtlantisInventorySync\obj\Debug\AtlantisInventorySync.pdb

@@ -1,0 +1,10 @@
+D:\@Ody\Projects\BIOKARPET\WmsMini\SyncServer\WMSSyncService\WMSSyncService\bin\WMSSyncService.dll
+D:\@Ody\Projects\BIOKARPET\WmsMini\SyncServer\WMSSyncService\WMSSyncService\bin\WMSSyncService.pdb
+D:\@Ody\Projects\BIOKARPET\WmsMini\SyncServer\WMSSyncService\WMSSyncService\obj\Release\ResolveAssemblyReference.cache
+D:\@Ody\Projects\BIOKARPET\WmsMini\SyncServer\WMSSyncService\WMSSyncService\obj\Release\WMSSyncService.dll
+D:\@Ody\Projects\BIOKARPET\WmsMini\SyncServer\WMSSyncService\WMSSyncService\obj\Release\WMSSyncService.pdb
+D:\!WORK\Projects\Biokarpet\WMSmini\WMSSyncService\bin\WMSSyncService.dll
+D:\!WORK\Projects\Biokarpet\WMSmini\WMSSyncService\bin\WMSSyncService.pdb
+D:\!WORK\Projects\Biokarpet\WMSmini\WMSSyncService\obj\Release\ResolveAssemblyReference.cache
+D:\!WORK\Projects\Biokarpet\WMSmini\WMSSyncService\obj\Release\WMSSyncService.dll
+D:\!WORK\Projects\Biokarpet\WMSmini\WMSSyncService\obj\Release\WMSSyncService.pdb

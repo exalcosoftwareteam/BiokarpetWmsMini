@@ -1,0 +1,6 @@
+D:\!WORK\Projects\Biokarpet\WMSmini\AtlantisInventorySync\bin\Release\AtlantisInventorySync.dll.config
+D:\!WORK\Projects\Biokarpet\WMSmini\AtlantisInventorySync\bin\Release\AtlantisInventorySync.dll
+D:\!WORK\Projects\Biokarpet\WMSmini\AtlantisInventorySync\bin\Release\AtlantisInventorySync.pdb
+D:\!WORK\Projects\Biokarpet\WMSmini\AtlantisInventorySync\obj\Release\ResolveAssemblyReference.cache
+D:\!WORK\Projects\Biokarpet\WMSmini\AtlantisInventorySync\obj\Release\AtlantisInventorySync.dll
+D:\!WORK\Projects\Biokarpet\WMSmini\AtlantisInventorySync\obj\Release\AtlantisInventorySync.pdb

@@ -1,0 +1,11 @@
+D:\@Ody\Projects\BIOKARPET\WmsMini\SyncServer\WMSSyncClient\bin\Release\WMSSyncClient.exe.config
+D:\@Ody\Projects\BIOKARPET\WmsMini\SyncServer\WMSSyncClient\bin\Release\WMSSyncClient.exe
+D:\@Ody\Projects\BIOKARPET\WmsMini\SyncServer\WMSSyncClient\bin\Release\WMSSyncClient.XmlSerializers.dll
+D:\@Ody\Projects\BIOKARPET\WmsMini\SyncServer\WMSSyncClient\bin\Release\WMSSyncClient.pdb
+D:\@Ody\Projects\BIOKARPET\WmsMini\SyncServer\WMSSyncClient\obj\Release\ResolveAssemblyReference.cache
+D:\@Ody\Projects\BIOKARPET\WmsMini\SyncServer\WMSSyncClient\obj\Release\WMSSyncClient.FrmMain.resources
+D:\@Ody\Projects\BIOKARPET\WmsMini\SyncServer\WMSSyncClient\obj\Release\WMSSyncClient.Properties.Resources.resources
+D:\@Ody\Projects\BIOKARPET\WmsMini\SyncServer\WMSSyncClient\obj\Release\WMSSyncClient.csproj.GenerateResource.Cache
+D:\@Ody\Projects\BIOKARPET\WmsMini\SyncServer\WMSSyncClient\obj\Release\WMSSyncClient.exe
+D:\@Ody\Projects\BIOKARPET\WmsMini\SyncServer\WMSSyncClient\obj\Release\WMSSyncClient.pdb
+D:\@Ody\Projects\BIOKARPET\WmsMini\SyncServer\WMSSyncClient\obj\Release\WMSSyncClient.XmlSerializers.dll

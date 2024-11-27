@@ -1,0 +1,12 @@
+D:\!WORK\Projects\Biokarpet\WMSmini\SyncItemAndLots\bin\Release\SyncItemAndLots.exe.config
+D:\!WORK\Projects\Biokarpet\WMSmini\SyncItemAndLots\bin\Release\SyncItemAndLots.exe.manifest
+D:\!WORK\Projects\Biokarpet\WMSmini\SyncItemAndLots\bin\Release\SyncItemAndLots.application
+D:\!WORK\Projects\Biokarpet\WMSmini\SyncItemAndLots\bin\Release\SyncItemAndLots.exe
+D:\!WORK\Projects\Biokarpet\WMSmini\SyncItemAndLots\bin\Release\SyncItemAndLots.XmlSerializers.dll
+D:\!WORK\Projects\Biokarpet\WMSmini\SyncItemAndLots\bin\Release\SyncItemAndLots.pdb
+D:\!WORK\Projects\Biokarpet\WMSmini\SyncItemAndLots\obj\Release\ResolveAssemblyReference.cache
+D:\!WORK\Projects\Biokarpet\WMSmini\SyncItemAndLots\obj\Release\SyncItemAndLots.exe.manifest
+D:\!WORK\Projects\Biokarpet\WMSmini\SyncItemAndLots\obj\Release\SyncItemAndLots.application
+D:\!WORK\Projects\Biokarpet\WMSmini\SyncItemAndLots\obj\Release\SyncItemAndLots.exe
+D:\!WORK\Projects\Biokarpet\WMSmini\SyncItemAndLots\obj\Release\SyncItemAndLots.pdb
+D:\!WORK\Projects\Biokarpet\WMSmini\SyncItemAndLots\obj\Release\SyncItemAndLots.XmlSerializers.dll

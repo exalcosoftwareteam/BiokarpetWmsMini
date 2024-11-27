@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<INFO>
+  <Configuration Settings="Default">
+    <URL>http://10.1.10.29/SOAMobWmsProvider/WebMobWMService.asmx</URL>
+    <Department>Warehouse</Department>
+    <Language>el</Language>
+    <CompID>1</CompID>
+    <BranchID>1</BranchID>
+    <Terminal>Demo</Terminal>
+    <WhBuilding>1</WhBuilding>
+    <WhCode>1</WhCode>
+    <CardID>0</CardID>
+    <TransBinCode>0</TransBinCode>
+  </Configuration>
+</INFO>

@@ -1,0 +1,63 @@
+<wap-provisioningdoc>
+<characteristic type="Install">
+<parm name="InstallPhase" value="install" />
+<parm name="OSVersionMin" value="4.0" />
+<parm name="OSVersionMax" value="6.99" />
+<parm name="BuildNumberMin" value="0" />
+<parm name="BuildNumberMax" value="-536870912" />
+<parm name="AppName" value="ALBIODATA S.A WMSRetailClientCAB" />
+<parm name="InstallDir" value="%CE1%\WMSRetailClientCAB" translation="install" />
+<parm name="NumDirs" value="2" />
+<parm name="NumFiles" value="8" />
+<parm name="NumRegKeys" value="0" />
+<parm name="NumRegVals" value="0" />
+<parm name="NumShortcuts" value="0" />
+</characteristic>
+<characteristic type="FileOperation">
+<characteristic type="%InstallDir%" translation="install">
+<characteristic type="MakeDir" />
+<characteristic type="System.Data.SqlClient.dll" translation="install">
+<characteristic type="Extract">
+<parm name="Source" value="SYSTEM~1.001" />
+</characteristic>
+</characteristic>
+<characteristic type="mscorlib.dll" translation="install">
+<characteristic type="Extract">
+<parm name="Source" value="mscorlib.002" />
+</characteristic>
+</characteristic>
+<characteristic type="mscorlib.tlb" translation="install">
+<characteristic type="Extract">
+<parm name="Source" value="mscorlib.003" />
+</characteristic>
+</characteristic>
+<characteristic type="MyConfig.xml" translation="install">
+<characteristic type="Extract">
+<parm name="Source" value="MyConfig.004" />
+</characteristic>
+</characteristic>
+<characteristic type="STORES.xml" translation="install">
+<characteristic type="Extract">
+<parm name="Source" value="00STORES.005" />
+</characteristic>
+</characteristic>
+<characteristic type="WMSDBCollections.dll" translation="install">
+<characteristic type="Extract">
+<parm name="Source" value="WMSDBC~1.006" />
+</characteristic>
+</characteristic>
+<characteristic type="dbchanges.txt" translation="install">
+<characteristic type="Extract">
+<parm name="Source" value="DBCHAN~1.007" />
+</characteristic>
+</characteristic>
+<characteristic type="WMSRetailClient.exe" translation="install">
+<characteristic type="Extract">
+<parm name="Source" value="WMSRET~1.008" />
+</characteristic>
+</characteristic>
+</characteristic>
+</characteristic>
+<characteristic type="Registry">
+</characteristic>
+</wap-provisioningdoc>

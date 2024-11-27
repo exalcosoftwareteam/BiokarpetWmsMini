@@ -1,0 +1,8 @@
+D:\@Ody\Projects\BIOKARPET\WmsMini\SyncServer\WMSSyncService\TestService\bin\Debug\TestService.exe.config
+D:\@Ody\Projects\BIOKARPET\WmsMini\SyncServer\WMSSyncService\TestService\bin\Debug\TestService.exe
+D:\@Ody\Projects\BIOKARPET\WmsMini\SyncServer\WMSSyncService\TestService\bin\Debug\TestService.pdb
+D:\@Ody\Projects\BIOKARPET\WmsMini\SyncServer\WMSSyncService\TestService\obj\Debug\ResolveAssemblyReference.cache
+D:\@Ody\Projects\BIOKARPET\WmsMini\SyncServer\WMSSyncService\TestService\obj\Debug\TestService.Properties.Resources.resources
+D:\@Ody\Projects\BIOKARPET\WmsMini\SyncServer\WMSSyncService\TestService\obj\Debug\TestService.csproj.GenerateResource.Cache
+D:\@Ody\Projects\BIOKARPET\WmsMini\SyncServer\WMSSyncService\TestService\obj\Debug\TestService.exe
+D:\@Ody\Projects\BIOKARPET\WmsMini\SyncServer\WMSSyncService\TestService\obj\Debug\TestService.pdb

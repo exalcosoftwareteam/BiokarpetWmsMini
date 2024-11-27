@@ -1,0 +1,9 @@
+D:\!WORK\Projects\Biokarpet\WMSmini\WMSMiniWebService\bin\WMSMiniWebService.dll
+D:\!WORK\Projects\Biokarpet\WMSmini\WMSMiniWebService\bin\WMSMiniWebService.XmlSerializers.dll
+D:\!WORK\Projects\Biokarpet\WMSmini\WMSMiniWebService\bin\WMSMiniWebService.pdb
+D:\!WORK\Projects\Biokarpet\WMSmini\WMSMiniWebService\bin\AtlantisInventorySync.dll
+D:\!WORK\Projects\Biokarpet\WMSmini\WMSMiniWebService\bin\AtlantisInventorySync.pdb
+D:\!WORK\Projects\Biokarpet\WMSmini\WMSMiniWebService\obj\Release\ResolveAssemblyReference.cache
+D:\!WORK\Projects\Biokarpet\WMSmini\WMSMiniWebService\obj\Release\WMSMiniWebService.dll
+D:\!WORK\Projects\Biokarpet\WMSmini\WMSMiniWebService\obj\Release\WMSMiniWebService.pdb
+D:\!WORK\Projects\Biokarpet\WMSmini\WMSMiniWebService\obj\Release\WMSMiniWebService.XmlSerializers.dll

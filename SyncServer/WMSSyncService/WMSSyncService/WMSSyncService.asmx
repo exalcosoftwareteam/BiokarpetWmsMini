@@ -1,0 +1,1 @@
+﻿<%@ WebService Language="C#" CodeBehind="WMSSyncService.asmx.cs" Class="WMSSyncService.WMSSyncService" %>

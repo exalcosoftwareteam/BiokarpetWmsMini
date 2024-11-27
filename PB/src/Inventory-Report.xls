@@ -1,0 +1,941 @@
+﻿<title></title>
+<TABLE BORDER=1 WIDTH=528>
+
+<TR><TD WIDTH=99><TD WIDTH=165><TD WIDTH=77><TD WIDTH=55><TD WIDTH=77><TD WIDTH=55></TR>
+<TR>
+    <TH>Κωδικός</TH>
+    <TH ALIGN=left>Περιγραφή</TH>
+    <TH>Ποσότητα&nbsp;1</TH>
+    <TH>ΜΜ1</TH>
+    <TH>Ποσότητα&nbsp;2</TH>
+    <TH>ΜΜ2</TH>
+</TR>
+<TR>
+    <TD>94-20-01-8134</TD>
+    <TD></TD>
+    <TD ALIGN=right>129,16</TD>
+    <TD>M2</TD>
+    <TD ALIGN=right>23</TD>
+    <TD>ΤΕΜ</TD>
+</TR>
+<TR>
+    <TD>94-20-01-8147</TD>
+    <TD></TD>
+    <TD ALIGN=right>30,00</TD>
+    <TD>M2</TD>
+    <TD ALIGN=right>5</TD>
+    <TD>ΤΕΜ</TD>
+</TR>
+<TR>
+    <TD>94-20-01-8150</TD>
+    <TD></TD>
+    <TD ALIGN=right>31,02</TD>
+    <TD>M2</TD>
+    <TD ALIGN=right>8</TD>
+    <TD>ΤΕΜ</TD>
+</TR>
+<TR>
+    <TD>94-20-01-8152</TD>
+    <TD></TD>
+    <TD ALIGN=right>54,76</TD>
+    <TD>M2</TD>
+    <TD ALIGN=right>12</TD>
+    <TD>ΤΕΜ</TD>
+</TR>
+<TR>
+    <TD>94-20-01-8154</TD>
+    <TD></TD>
+    <TD ALIGN=right>7,36</TD>
+    <TD>M2</TD>
+    <TD ALIGN=right>2</TD>
+    <TD>ΤΕΜ</TD>
+</TR>
+<TR>
+    <TD>94-20-01-8155</TD>
+    <TD></TD>
+    <TD ALIGN=right>7,36</TD>
+    <TD>M2</TD>
+    <TD ALIGN=right>2</TD>
+    <TD>ΤΕΜ</TD>
+</TR>
+<TR>
+    <TD>94-20-01-8157</TD>
+    <TD></TD>
+    <TD ALIGN=right>3,76</TD>
+    <TD>M2</TD>
+    <TD ALIGN=right>1</TD>
+    <TD>ΤΕΜ</TD>
+</TR>
+<TR>
+    <TD>94-20-01-8160</TD>
+    <TD>ΤΑΠΗΣ THUNDER</TD>
+    <TD ALIGN=right>37,60</TD>
+    <TD>M2</TD>
+    <TD ALIGN=right>10</TD>
+    <TD>ΤΕΜ</TD>
+</TR>
+<TR>
+    <TD>94-20-01-8174</TD>
+    <TD>ΤΑΠΗΣ ZUCCERO</TD>
+    <TD ALIGN=right>51,52</TD>
+    <TD>M2</TD>
+    <TD ALIGN=right>14</TD>
+    <TD>ΤΕΜ</TD>
+</TR>
+<TR>
+    <TD>94-20-01-8175</TD>
+    <TD></TD>
+    <TD ALIGN=right>14,72</TD>
+    <TD>M2</TD>
+    <TD ALIGN=right>4</TD>
+    <TD>ΤΕΜ</TD>
+</TR>
+<TR>
+    <TD>94-20-01-8176</TD>
+    <TD></TD>
+    <TD ALIGN=right>28,56</TD>
+    <TD>M2</TD>
+    <TD ALIGN=right>7</TD>
+    <TD>ΤΕΜ</TD>
+</TR>
+<TR>
+    <TD>94-20-01-8177</TD>
+    <TD></TD>
+    <TD ALIGN=right>3,68</TD>
+    <TD>M2</TD>
+    <TD ALIGN=right>1</TD>
+    <TD>ΤΕΜ</TD>
+</TR>
+<TR>
+    <TD>94-20-01-8749</TD>
+    <TD></TD>
+    <TD ALIGN=right>57,28</TD>
+    <TD>M2</TD>
+    <TD ALIGN=right>11</TD>
+    <TD>ΤΕΜ</TD>
+</TR>
+<TR>
+    <TD>94-20-01-8756</TD>
+    <TD></TD>
+    <TD ALIGN=right>32,12</TD>
+    <TD>M2</TD>
+    <TD ALIGN=right>7</TD>
+    <TD>ΤΕΜ</TD>
+</TR>
+<TR>
+    <TD>94-20-01-8798</TD>
+    <TD></TD>
+    <TD ALIGN=right>7,36</TD>
+    <TD>M2</TD>
+    <TD ALIGN=right>2</TD>
+    <TD>ΤΕΜ</TD>
+</TR>
+<TR>
+    <TD>94-20-01-8799</TD>
+    <TD></TD>
+    <TD ALIGN=right>53,36</TD>
+    <TD>M2</TD>
+    <TD ALIGN=right>12</TD>
+    <TD>ΤΕΜ</TD>
+</TR>
+<TR>
+    <TD>94-20-01-8800</TD>
+    <TD></TD>
+    <TD ALIGN=right>12,00</TD>
+    <TD>M2</TD>
+    <TD ALIGN=right>2</TD>
+    <TD>ΤΕΜ</TD>
+</TR>
+<TR>
+    <TD>94-20-01-8804</TD>
+    <TD></TD>
+    <TD ALIGN=right>104,52</TD>
+    <TD>M2</TD>
+    <TD ALIGN=right>22</TD>
+    <TD>ΤΕΜ</TD>
+</TR>
+<TR>
+    <TD>94-20-01-8866</TD>
+    <TD></TD>
+    <TD ALIGN=right>6,60</TD>
+    <TD>M2</TD>
+    <TD ALIGN=right>2</TD>
+    <TD>ΤΕΜ</TD>
+</TR>
+<TR>
+    <TD>94-20-01-8870</TD>
+    <TD></TD>
+    <TD ALIGN=right>41,04</TD>
+    <TD>M2</TD>
+    <TD ALIGN=right>8</TD>
+    <TD>ΤΕΜ</TD>
+</TR>
+<TR>
+    <TD>94-20-01-8898</TD>
+    <TD></TD>
+    <TD ALIGN=right>22,08</TD>
+    <TD>M2</TD>
+    <TD ALIGN=right>6</TD>
+    <TD>ΤΕΜ</TD>
+</TR>
+<TR>
+    <TD>94-20-01-8900</TD>
+    <TD>ΤΑΠΗΣ COMTESSE</TD>
+    <TD ALIGN=right>44,16</TD>
+    <TD>M2</TD>
+    <TD ALIGN=right>12</TD>
+    <TD>ΤΕΜ</TD>
+</TR>
+<TR>
+    <TD>94-20-01-8904</TD>
+    <TD></TD>
+    <TD ALIGN=right>96,69</TD>
+    <TD>M2</TD>
+    <TD ALIGN=right>22</TD>
+    <TD>ΤΕΜ</TD>
+</TR>
+<TR>
+    <TD>94-20-01-8906</TD>
+    <TD></TD>
+    <TD ALIGN=right>94,24</TD>
+    <TD>M2</TD>
+    <TD ALIGN=right>21</TD>
+    <TD>ΤΕΜ</TD>
+</TR>
+<TR>
+    <TD>94-20-01-8929</TD>
+    <TD></TD>
+    <TD ALIGN=right>38,32</TD>
+    <TD>M2</TD>
+    <TD ALIGN=right>7</TD>
+    <TD>ΤΕΜ</TD>
+</TR>
+<TR>
+    <TD>94-20-01-8930</TD>
+    <TD></TD>
+    <TD ALIGN=right>4,08</TD>
+    <TD>M2</TD>
+    <TD ALIGN=right>1</TD>
+    <TD>ΤΕΜ</TD>
+</TR>
+<TR>
+    <TD>94-20-01-8932</TD>
+    <TD>ΤΑΠΗΣ VELVET ART ΑΓΟΡΑΣ</TD>
+    <TD ALIGN=right>17,04</TD>
+    <TD>M2</TD>
+    <TD ALIGN=right>4</TD>
+    <TD>ΤΕΜ</TD>
+</TR>
+<TR>
+    <TD>94-20-01-8935</TD>
+    <TD></TD>
+    <TD ALIGN=right>6,00</TD>
+    <TD>M2</TD>
+    <TD ALIGN=right>1</TD>
+    <TD>ΤΕΜ</TD>
+</TR>
+<TR>
+    <TD>94-20-01-8946</TD>
+    <TD></TD>
+    <TD ALIGN=right>3,68</TD>
+    <TD>M2</TD>
+    <TD ALIGN=right>1</TD>
+    <TD>ΤΕΜ</TD>
+</TR>
+<TR>
+    <TD>94-20-01-8986</TD>
+    <TD></TD>
+    <TD ALIGN=right>3,68</TD>
+    <TD>M2</TD>
+    <TD ALIGN=right>1</TD>
+    <TD>ΤΕΜ</TD>
+</TR>
+<TR>
+    <TD>94-20-01-8987</TD>
+    <TD></TD>
+    <TD ALIGN=right>36,82</TD>
+    <TD>M2</TD>
+    <TD ALIGN=right>9</TD>
+    <TD>ΤΕΜ</TD>
+</TR>
+<TR>
+    <TD>94-20-01-8989</TD>
+    <TD></TD>
+    <TD ALIGN=right>46,54</TD>
+    <TD>M2</TD>
+    <TD ALIGN=right>12</TD>
+    <TD>ΤΕΜ</TD>
+</TR>
+<TR>
+    <TD>94-20-01-8990</TD>
+    <TD></TD>
+    <TD ALIGN=right>15,51</TD>
+    <TD>M2</TD>
+    <TD ALIGN=right>4</TD>
+    <TD>ΤΕΜ</TD>
+</TR>
+<TR>
+    <TD>94-20-01-8991</TD>
+    <TD>ΤΑΠΗΣ VERCALIES</TD>
+    <TD ALIGN=right>46,54</TD>
+    <TD>M2</TD>
+    <TD ALIGN=right>12</TD>
+    <TD>ΤΕΜ</TD>
+</TR>
+<TR>
+    <TD>94-20-01-9032</TD>
+    <TD></TD>
+    <TD ALIGN=right>54,26</TD>
+    <TD>M2</TD>
+    <TD ALIGN=right>13</TD>
+    <TD>ΤΕΜ</TD>
+</TR>
+<TR>
+    <TD>94-20-01-9038</TD>
+    <TD></TD>
+    <TD ALIGN=right>25,76</TD>
+    <TD>M2</TD>
+    <TD ALIGN=right>7</TD>
+    <TD>ΤΕΜ</TD>
+</TR>
+<TR>
+    <TD>94-20-01-9053</TD>
+    <TD></TD>
+    <TD ALIGN=right>27,15</TD>
+    <TD>M2</TD>
+    <TD ALIGN=right>7</TD>
+    <TD>ΤΕΜ</TD>
+</TR>
+<TR>
+    <TD>94-20-01-9059</TD>
+    <TD></TD>
+    <TD ALIGN=right>30,08</TD>
+    <TD>M2</TD>
+    <TD ALIGN=right>8</TD>
+    <TD>ΤΕΜ</TD>
+</TR>
+<TR>
+    <TD>94-20-05-5020</TD>
+    <TD></TD>
+    <TD ALIGN=right>6,12</TD>
+    <TD>M2</TD>
+    <TD ALIGN=right>1</TD>
+    <TD>ΤΕΜ</TD>
+</TR>
+<TR>
+    <TD>94-20-05-5023</TD>
+    <TD></TD>
+    <TD ALIGN=right>3,84</TD>
+    <TD>M2</TD>
+    <TD ALIGN=right>1</TD>
+    <TD>ΤΕΜ</TD>
+</TR>
+<TR>
+    <TD>94-20-05-5031</TD>
+    <TD></TD>
+    <TD ALIGN=right>2,56</TD>
+    <TD>M2</TD>
+    <TD ALIGN=right>1</TD>
+    <TD>ΤΕΜ</TD>
+</TR>
+<TR>
+    <TD>94-20-05-5043</TD>
+    <TD></TD>
+    <TD ALIGN=right>25,85</TD>
+    <TD>M2</TD>
+    <TD ALIGN=right>7</TD>
+    <TD>ΤΕΜ</TD>
+</TR>
+<TR>
+    <TD>94-20-05-5045</TD>
+    <TD></TD>
+    <TD ALIGN=right>2,62</TD>
+    <TD>M2</TD>
+    <TD ALIGN=right>1</TD>
+    <TD>ΤΕΜ</TD>
+</TR>
+<TR>
+    <TD>94-20-05-5054</TD>
+    <TD></TD>
+    <TD ALIGN=right>2,85</TD>
+    <TD>M2</TD>
+    <TD ALIGN=right>1</TD>
+    <TD>ΤΕΜ</TD>
+</TR>
+<TR>
+    <TD>94-20-05-5057</TD>
+    <TD></TD>
+    <TD ALIGN=right>2,37</TD>
+    <TD>M2</TD>
+    <TD ALIGN=right>1</TD>
+    <TD>ΤΕΜ</TD>
+</TR>
+<TR>
+    <TD>94-20-05-5077</TD>
+    <TD></TD>
+    <TD ALIGN=right>12,24</TD>
+    <TD>M2</TD>
+    <TD ALIGN=right>3</TD>
+    <TD>ΤΕΜ</TD>
+</TR>
+<TR>
+    <TD>94-20-05-5206</TD>
+    <TD></TD>
+    <TD ALIGN=right>15,38</TD>
+    <TD>M2</TD>
+    <TD ALIGN=right>3</TD>
+    <TD>ΤΕΜ</TD>
+</TR>
+<TR>
+    <TD>94-20-05-5208</TD>
+    <TD></TD>
+    <TD ALIGN=right>3,17</TD>
+    <TD>M2</TD>
+    <TD ALIGN=right>1</TD>
+    <TD>ΤΕΜ</TD>
+</TR>
+<TR>
+    <TD>94-20-05-5211</TD>
+    <TD></TD>
+    <TD ALIGN=right>9,11</TD>
+    <TD>M2</TD>
+    <TD ALIGN=right>2</TD>
+    <TD>ΤΕΜ</TD>
+</TR>
+<TR>
+    <TD>94-20-05-5231</TD>
+    <TD></TD>
+    <TD ALIGN=right>12,03</TD>
+    <TD>M2</TD>
+    <TD ALIGN=right>2</TD>
+    <TD>ΤΕΜ</TD>
+</TR>
+<TR>
+    <TD>94-20-05-5247</TD>
+    <TD></TD>
+    <TD ALIGN=right>4,20</TD>
+    <TD>M2</TD>
+    <TD ALIGN=right>1</TD>
+    <TD>ΤΕΜ</TD>
+</TR>
+<TR>
+    <TD>94-20-05-5250</TD>
+    <TD></TD>
+    <TD ALIGN=right>1,92</TD>
+    <TD>M2</TD>
+    <TD ALIGN=right>2</TD>
+    <TD>ΤΕΜ</TD>
+</TR>
+<TR>
+    <TD>94-20-05-5251</TD>
+    <TD></TD>
+    <TD ALIGN=right>24,01</TD>
+    <TD>M2</TD>
+    <TD ALIGN=right>5</TD>
+    <TD>ΤΕΜ</TD>
+</TR>
+<TR>
+    <TD>94-20-05-5255</TD>
+    <TD></TD>
+    <TD ALIGN=right>7,97</TD>
+    <TD>M2</TD>
+    <TD ALIGN=right>1</TD>
+    <TD>ΤΕΜ</TD>
+</TR>
+<TR>
+    <TD>94-20-05-5257</TD>
+    <TD></TD>
+    <TD ALIGN=right>6,06</TD>
+    <TD>M2</TD>
+    <TD ALIGN=right>2</TD>
+    <TD>ΤΕΜ</TD>
+</TR>
+<TR>
+    <TD>94-20-05-5261</TD>
+    <TD></TD>
+    <TD ALIGN=right>4,32</TD>
+    <TD>M2</TD>
+    <TD ALIGN=right>2</TD>
+    <TD>ΤΕΜ</TD>
+</TR>
+<TR>
+    <TD>94-20-05-5262</TD>
+    <TD></TD>
+    <TD ALIGN=right>4,16</TD>
+    <TD>M2</TD>
+    <TD ALIGN=right>1</TD>
+    <TD>ΤΕΜ</TD>
+</TR>
+<TR>
+    <TD>94-20-05-5283</TD>
+    <TD></TD>
+    <TD ALIGN=right>44,25</TD>
+    <TD>M2</TD>
+    <TD ALIGN=right>10</TD>
+    <TD>ΤΕΜ</TD>
+</TR>
+<TR>
+    <TD>94-20-05-5284</TD>
+    <TD></TD>
+    <TD ALIGN=right>2,03</TD>
+    <TD>M2</TD>
+    <TD ALIGN=right>1</TD>
+    <TD>ΤΕΜ</TD>
+</TR>
+<TR>
+    <TD>94-20-05-5285</TD>
+    <TD></TD>
+    <TD ALIGN=right>62,14</TD>
+    <TD>M2</TD>
+    <TD ALIGN=right>22</TD>
+    <TD>ΤΕΜ</TD>
+</TR>
+<TR>
+    <TD>94-20-05-5334</TD>
+    <TD></TD>
+    <TD ALIGN=right>5,00</TD>
+    <TD>M2</TD>
+    <TD ALIGN=right>1</TD>
+    <TD>ΤΕΜ</TD>
+</TR>
+<TR>
+    <TD>94-20-05-5338</TD>
+    <TD></TD>
+    <TD ALIGN=right>22,36</TD>
+    <TD>M2</TD>
+    <TD ALIGN=right>5</TD>
+    <TD>ΤΕΜ</TD>
+</TR>
+<TR>
+    <TD>94-20-05-5341</TD>
+    <TD></TD>
+    <TD ALIGN=right>6,25</TD>
+    <TD>M2</TD>
+    <TD ALIGN=right>1</TD>
+    <TD>ΤΕΜ</TD>
+</TR>
+<TR>
+    <TD>94-20-05-5353</TD>
+    <TD></TD>
+    <TD ALIGN=right>4,55</TD>
+    <TD>M2</TD>
+    <TD ALIGN=right>1</TD>
+    <TD>ΤΕΜ</TD>
+</TR>
+<TR>
+    <TD>94-20-05-5355</TD>
+    <TD></TD>
+    <TD ALIGN=right>6,05</TD>
+    <TD>M2</TD>
+    <TD ALIGN=right>1</TD>
+    <TD>ΤΕΜ</TD>
+</TR>
+<TR>
+    <TD>94-20-05-5402</TD>
+    <TD></TD>
+    <TD ALIGN=right>15,67</TD>
+    <TD>M2</TD>
+    <TD ALIGN=right>4</TD>
+    <TD>ΤΕΜ</TD>
+</TR>
+<TR>
+    <TD>94-20-05-5405</TD>
+    <TD></TD>
+    <TD ALIGN=right>100,87</TD>
+    <TD>M2</TD>
+    <TD ALIGN=right>26</TD>
+    <TD>ΤΕΜ</TD>
+</TR>
+<TR>
+    <TD>94-20-05-5409</TD>
+    <TD></TD>
+    <TD ALIGN=right>32,41</TD>
+    <TD>M2</TD>
+    <TD ALIGN=right>6</TD>
+    <TD>ΤΕΜ</TD>
+</TR>
+<TR>
+    <TD>94-20-05-5410</TD>
+    <TD></TD>
+    <TD ALIGN=right>48,46</TD>
+    <TD>M2</TD>
+    <TD ALIGN=right>11</TD>
+    <TD>ΤΕΜ</TD>
+</TR>
+<TR>
+    <TD>94-20-05-5429</TD>
+    <TD></TD>
+    <TD ALIGN=right>6,07</TD>
+    <TD>M2</TD>
+    <TD ALIGN=right>1</TD>
+    <TD>ΤΕΜ</TD>
+</TR>
+<TR>
+    <TD>94-20-05-5471</TD>
+    <TD></TD>
+    <TD ALIGN=right>18,40</TD>
+    <TD>M2</TD>
+    <TD ALIGN=right>5</TD>
+    <TD>ΤΕΜ</TD>
+</TR>
+<TR>
+    <TD>94-20-05-5505</TD>
+    <TD></TD>
+    <TD ALIGN=right>35,64</TD>
+    <TD>M2</TD>
+    <TD ALIGN=right>7</TD>
+    <TD>ΤΕΜ</TD>
+</TR>
+<TR>
+    <TD>94-20-05-5506</TD>
+    <TD></TD>
+    <TD ALIGN=right>31,54</TD>
+    <TD>M2</TD>
+    <TD ALIGN=right>5</TD>
+    <TD>ΤΕΜ</TD>
+</TR>
+<TR>
+    <TD>94-20-05-5508</TD>
+    <TD></TD>
+    <TD ALIGN=right>40,69</TD>
+    <TD>M2</TD>
+    <TD ALIGN=right>10</TD>
+    <TD>ΤΕΜ</TD>
+</TR>
+<TR>
+    <TD>94-20-05-5512</TD>
+    <TD></TD>
+    <TD ALIGN=right>11,84</TD>
+    <TD>M2</TD>
+    <TD ALIGN=right>3</TD>
+    <TD>ΤΕΜ</TD>
+</TR>
+<TR>
+    <TD>94-20-05-5515</TD>
+    <TD></TD>
+    <TD ALIGN=right>9,08</TD>
+    <TD>M2</TD>
+    <TD ALIGN=right>2</TD>
+    <TD>ΤΕΜ</TD>
+</TR>
+<TR>
+    <TD>94-20-05-5516</TD>
+    <TD></TD>
+    <TD ALIGN=right>4,08</TD>
+    <TD>M2</TD>
+    <TD ALIGN=right>1</TD>
+    <TD>ΤΕΜ</TD>
+</TR>
+<TR>
+    <TD>94-20-05-5519</TD>
+    <TD></TD>
+    <TD ALIGN=right>4,32</TD>
+    <TD>M2</TD>
+    <TD ALIGN=right>1</TD>
+    <TD>ΤΕΜ</TD>
+</TR>
+<TR>
+    <TD>94-20-05-5521</TD>
+    <TD></TD>
+    <TD ALIGN=right>8,16</TD>
+    <TD>M2</TD>
+    <TD ALIGN=right>2</TD>
+    <TD>ΤΕΜ</TD>
+</TR>
+<TR>
+    <TD>94-20-05-5522</TD>
+    <TD></TD>
+    <TD ALIGN=right>16,32</TD>
+    <TD>M2</TD>
+    <TD ALIGN=right>4</TD>
+    <TD>ΤΕΜ</TD>
+</TR>
+<TR>
+    <TD>94-20-05-5523</TD>
+    <TD></TD>
+    <TD ALIGN=right>8,16</TD>
+    <TD>M2</TD>
+    <TD ALIGN=right>2</TD>
+    <TD>ΤΕΜ</TD>
+</TR>
+<TR>
+    <TD>94-20-05-5524</TD>
+    <TD></TD>
+    <TD ALIGN=right>8,16</TD>
+    <TD>M2</TD>
+    <TD ALIGN=right>2</TD>
+    <TD>ΤΕΜ</TD>
+</TR>
+<TR>
+    <TD>94-20-05-5610</TD>
+    <TD></TD>
+    <TD ALIGN=right>12,29</TD>
+    <TD>M2</TD>
+    <TD ALIGN=right>13</TD>
+    <TD>ΤΕΜ</TD>
+</TR>
+<TR>
+    <TD>94-20-05-5615</TD>
+    <TD></TD>
+    <TD ALIGN=right>1,20</TD>
+    <TD>M2</TD>
+    <TD ALIGN=right>1</TD>
+    <TD>ΤΕΜ</TD>
+</TR>
+<TR>
+    <TD>94-20-05-5624</TD>
+    <TD></TD>
+    <TD ALIGN=right>4,00</TD>
+    <TD>M2</TD>
+    <TD ALIGN=right>2</TD>
+    <TD>ΤΕΜ</TD>
+</TR>
+<TR>
+    <TD>94-20-05-5639</TD>
+    <TD></TD>
+    <TD ALIGN=right>4,08</TD>
+    <TD>M2</TD>
+    <TD ALIGN=right>1</TD>
+    <TD>ΤΕΜ</TD>
+</TR>
+<TR>
+    <TD>94-20-05-5640</TD>
+    <TD></TD>
+    <TD ALIGN=right>44,88</TD>
+    <TD>M2</TD>
+    <TD ALIGN=right>11</TD>
+    <TD>ΤΕΜ</TD>
+</TR>
+<TR>
+    <TD>94-20-05-5651</TD>
+    <TD></TD>
+    <TD ALIGN=right>4,08</TD>
+    <TD>M2</TD>
+    <TD ALIGN=right>1</TD>
+    <TD>ΤΕΜ</TD>
+</TR>
+<TR>
+    <TD>94-20-05-5652</TD>
+    <TD></TD>
+    <TD ALIGN=right>11,04</TD>
+    <TD>M2</TD>
+    <TD ALIGN=right>3</TD>
+    <TD>ΤΕΜ</TD>
+</TR>
+<TR>
+    <TD>94-20-05-5653</TD>
+    <TD></TD>
+    <TD ALIGN=right>30,48</TD>
+    <TD>M2</TD>
+    <TD ALIGN=right>7</TD>
+    <TD>ΤΕΜ</TD>
+</TR>
+<TR>
+    <TD>94-20-05-5672</TD>
+    <TD></TD>
+    <TD ALIGN=right>3,28</TD>
+    <TD>M2</TD>
+    <TD ALIGN=right>7</TD>
+    <TD>ΤΕΜ</TD>
+</TR>
+<TR>
+    <TD>94-20-05-5673</TD>
+    <TD></TD>
+    <TD ALIGN=right>8,16</TD>
+    <TD>M2</TD>
+    <TD ALIGN=right>2</TD>
+    <TD>ΤΕΜ</TD>
+</TR>
+<TR>
+    <TD>94-20-05-5675</TD>
+    <TD></TD>
+    <TD ALIGN=right>4,08</TD>
+    <TD>M2</TD>
+    <TD ALIGN=right>1</TD>
+    <TD>ΤΕΜ</TD>
+</TR>
+<TR>
+    <TD>94-20-05-5677</TD>
+    <TD></TD>
+    <TD ALIGN=right>4,08</TD>
+    <TD>M2</TD>
+    <TD ALIGN=right>1</TD>
+    <TD>ΤΕΜ</TD>
+</TR>
+<TR>
+    <TD>94-20-05-5685</TD>
+    <TD></TD>
+    <TD ALIGN=right>3,68</TD>
+    <TD>M2</TD>
+    <TD ALIGN=right>1</TD>
+    <TD>ΤΕΜ</TD>
+</TR>
+<TR>
+    <TD>94-20-05-5686</TD>
+    <TD></TD>
+    <TD ALIGN=right>4,08</TD>
+    <TD>M2</TD>
+    <TD ALIGN=right>1</TD>
+    <TD>ΤΕΜ</TD>
+</TR>
+<TR>
+    <TD>94-20-06-8758</TD>
+    <TD></TD>
+    <TD ALIGN=right>4</TD>
+    <TD>ΤΕΜ</TD>
+    <TD ALIGN=right>0</TD>
+    <TD>ΤΕΜ</TD>
+</TR>
+<TR>
+    <TD>94-20-06-8759</TD>
+    <TD></TD>
+    <TD ALIGN=right>4</TD>
+    <TD>ΤΕΜ</TD>
+    <TD ALIGN=right>0</TD>
+    <TD></TD>
+</TR>
+<TR>
+    <TD>94-20-06-8766</TD>
+    <TD></TD>
+    <TD ALIGN=right>5</TD>
+    <TD>ΤΕΜ</TD>
+    <TD ALIGN=right>0</TD>
+    <TD>ΤΕΜ</TD>
+</TR>
+<TR>
+    <TD>94-20-06-8767</TD>
+    <TD></TD>
+    <TD ALIGN=right>3</TD>
+    <TD>ΤΕΜ</TD>
+    <TD ALIGN=right>0</TD>
+    <TD>ΤΕΜ</TD>
+</TR>
+<TR>
+    <TD>94-20-11-0038</TD>
+    <TD></TD>
+    <TD ALIGN=right>3</TD>
+    <TD>ΤΕΜ</TD>
+    <TD ALIGN=right>0</TD>
+    <TD></TD>
+</TR>
+<TR>
+    <TD>94-20-11-0039</TD>
+    <TD></TD>
+    <TD ALIGN=right>2</TD>
+    <TD>ΤΕΜ</TD>
+    <TD ALIGN=right>0</TD>
+    <TD></TD>
+</TR>
+<TR>
+    <TD>94-20-11-0041</TD>
+    <TD></TD>
+    <TD ALIGN=right>6</TD>
+    <TD>ΤΕΜ</TD>
+    <TD ALIGN=right>0</TD>
+    <TD></TD>
+</TR>
+<TR>
+    <TD>94-20-11-0042</TD>
+    <TD></TD>
+    <TD ALIGN=right>10</TD>
+    <TD>ΤΕΜ</TD>
+    <TD ALIGN=right>0</TD>
+    <TD>ΤΕΜ</TD>
+</TR>
+<TR>
+    <TD>94-20-11-0043</TD>
+    <TD></TD>
+    <TD ALIGN=right>2</TD>
+    <TD>ΤΕΜ</TD>
+    <TD ALIGN=right>0</TD>
+    <TD></TD>
+</TR>
+<TR>
+    <TD>94-20-11-0044</TD>
+    <TD></TD>
+    <TD ALIGN=right>1</TD>
+    <TD>ΤΕΜ</TD>
+    <TD ALIGN=right>0</TD>
+    <TD></TD>
+</TR>
+<TR>
+    <TD>94-20-11-0210</TD>
+    <TD></TD>
+    <TD ALIGN=right>8</TD>
+    <TD>ΤΕΜ</TD>
+    <TD ALIGN=right>0</TD>
+    <TD>ΤΕΜ</TD>
+</TR>
+<TR>
+    <TD>94-20-11-0211</TD>
+    <TD></TD>
+    <TD ALIGN=right>4</TD>
+    <TD>ΤΕΜ</TD>
+    <TD ALIGN=right>0</TD>
+    <TD>ΤΕΜ</TD>
+</TR>
+<TR>
+    <TD>94-20-11-0253</TD>
+    <TD></TD>
+    <TD ALIGN=right>4</TD>
+    <TD>ΤΕΜ</TD>
+    <TD ALIGN=right>0</TD>
+    <TD>ΤΕΜ</TD>
+</TR>
+<TR>
+    <TD>94-20-11-0363</TD>
+    <TD></TD>
+    <TD ALIGN=right>3</TD>
+    <TD>ΤΕΜ</TD>
+    <TD ALIGN=right>0</TD>
+    <TD>ΤΕΜ</TD>
+</TR>
+<TR>
+    <TD>94-21-02-7021</TD>
+    <TD>ΤΑΠΗΣ KNOSSOS ART ΕΤ.</TD>
+    <TD ALIGN=right>14,16</TD>
+    <TD>M2</TD>
+    <TD ALIGN=right>3</TD>
+    <TD>ΤΕΜ</TD>
+</TR>
+<TR>
+    <TD>94-21-02-7116</TD>
+    <TD></TD>
+    <TD ALIGN=right>136,36</TD>
+    <TD>M2</TD>
+    <TD ALIGN=right>26</TD>
+    <TD>ΤΕΜ</TD>
+</TR>
+<TR>
+    <TD>94-21-02-7117</TD>
+    <TD></TD>
+    <TD ALIGN=right>29,55</TD>
+    <TD>M2</TD>
+    <TD ALIGN=right>5</TD>
+    <TD>ΤΕΜ</TD>
+</TR>
+<TR>
+    <TD>94-21-02-7125</TD>
+    <TD></TD>
+    <TD ALIGN=right>54,00</TD>
+    <TD>M2</TD>
+    <TD ALIGN=right>9</TD>
+    <TD>ΤΕΜ</TD>
+</TR>
+<TR>
+    <TD>94-21-02-7224</TD>
+    <TD></TD>
+    <TD ALIGN=right>10,08</TD>
+    <TD>M2</TD>
+    <TD ALIGN=right>2</TD>
+    <TD>ΤΕΜ</TD>
+</TR>
+<TR>
+    <TD>#115</TD>
+    <TD ALIGN=right>Σ</TD>
+    <TD ALIGN=right>2.472</TD>
+    <TD></TD>
+    <TD ALIGN=right>572</TD>
+    <TD></TD>
+</TR>
+</TABLE>

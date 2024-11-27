@@ -1,0 +1,36 @@
+
+Log Entry : 10:29:43 μμ Πέμπτη, 7 Ιουλίου 2005
+  :
+  :>>GetPartiallyItems.GetDataset():System.Web.Services.Protocols.SoapException: Δεν ήταν δυνατή η επεξεργασία της αίτησης από τον διακομιστή. ---> Οι τιμές μετατόπισης και μήκους ήταν εκτός των ορίων του πίνακα ή η μέτρηση υπερβαίνει τον αριθμό των στοιχείων από το ευρετήριο έως το τέλος της συλλογής προέλευσης.
+σε System.Web.Services.Protocols.SoapHttpClientProtocol.doInvoke(String methodName, Object[] parameters, WebClientAsyncResult asyncResult)
+σε WMSRetailClient.SOARetailWMSMiniProvider.SOARetailWMSMiniProvider.SOA_GetItemsList(Int32 storeid, Int32 startindex, Int32 range)
+σε WMSRetailClient.Components.ImportData.GetPartiallyItems(Int32 startpoint, Int32 endpoint)
+σε WMSRetailClient.FrmOfflineSettings.ImportItems()
+σε WMSRetailClient.FrmOfflineSettings.ImportData()
+σε WMSRetailClient.FrmOfflineSettings.BtnSyncData_Click(Object sender, EventArgs e)
+σε System.Windows.Forms.Control.OnClick(EventArgs e)
+σε System.Windows.Forms.Button.OnClick(EventArgs e)
+σε System.Windows.Forms.ButtonBase.WnProc(WM wm, Int32 wParam, Int32 lParam)
+σε System.Windows.Forms.Control._InternalWnProc(WM wm, Int32 wParam, Int32 lParam)
+σε Microsoft.AGL.Forms.EVL.EnterMainLoop(IntPtr hwnMain)
+σε System.Windows.Forms.Application.Run(Form fm)
+σε WMSRetailClient.Program.Main()
+
+-------------------------------
+
+Log Entry : 10:29:44 μμ Πέμπτη, 7 Ιουλίου 2005
+  :
+  :>>GetPartiallyItems.UpdateItem(itemhandler.Parse(Ds.Tables[0].Rows[i])):System.NullReferenceException: NullReferenceException
+σε WMSRetailClient.Components.ImportData.GetPartiallyItems(Int32 startpoint, Int32 endpoint)
+σε WMSRetailClient.FrmOfflineSettings.ImportItems()
+σε WMSRetailClient.FrmOfflineSettings.ImportData()
+σε WMSRetailClient.FrmOfflineSettings.BtnSyncData_Click(Object sender, EventArgs e)
+σε System.Windows.Forms.Control.OnClick(EventArgs e)
+σε System.Windows.Forms.Button.OnClick(EventArgs e)
+σε System.Windows.Forms.ButtonBase.WnProc(WM wm, Int32 wParam, Int32 lParam)
+σε System.Windows.Forms.Control._InternalWnProc(WM wm, Int32 wParam, Int32 lParam)
+σε Microsoft.AGL.Forms.EVL.EnterMainLoop(IntPtr hwnMain)
+σε System.Windows.Forms.Application.Run(Form fm)
+σε WMSRetailClient.Program.Main()
+
+-------------------------------

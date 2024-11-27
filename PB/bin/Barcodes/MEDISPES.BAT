@@ -1,0 +1,1 @@
+COPY MEDIS.txt+MEDIS.PCX LPT1 /b

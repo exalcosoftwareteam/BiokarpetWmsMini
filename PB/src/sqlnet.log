@@ -1,0 +1,20 @@
+
+
+***********************************************************************
+Fatal NI connect error 12541, connecting to:
+ (DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=odyxp)(PORT=1521))(CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME=ORCL)(CID=(PROGRAM=C:\Program Files\Sybase\PowerBuilder 10.0\Pb100.exe)(HOST=ODYXP)(USER=Ody))))
+
+  VERSION INFORMATION:
+	TNS for 32-bit Windows: Version 9.2.0.1.0 - Production
+	Windows NT TCP/IP NT Protocol Adapter for 32-bit Windows: Version 9.2.0.1.0 - Production
+  Time: 09-ΣΕΠ-2010 09:57:57
+  Tracing not turned on.
+  Tns error struct:
+    nr err code: 0
+    ns main err code: 12541
+    TNS-12541: TNS:δεν υπάρχει διεργασία ακρόασης
+    ns secondary err code: 12560
+    nt main err code: 511
+    TNS-00511: Δεν υπάρχει διεργασία ακρόασης
+    nt secondary err code: 61
+    nt OS err code: 0
