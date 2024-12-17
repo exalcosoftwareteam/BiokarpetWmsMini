@@ -243,7 +243,7 @@ namespace WMSMobileClient
         {
             if (MessageBox.Show("Νέα Απογραφή;", "Επιβεβαίωαση", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) == DialogResult.Yes)
             {
-                WMSForms.FrmInventoryHeader = new FrmInventoryHeader();
+                WMSForms.FrmInventoryHeader = new FrmInventoryHeader(true);
                 WMSForms.FrmInventoryHeader.Show();
                 this.Close();
 

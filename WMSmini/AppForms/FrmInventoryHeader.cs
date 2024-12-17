@@ -13,12 +13,15 @@ namespace WMSMobileClient
     {
         bool iDateEntered = false;
         bool iCommentsEntered = false;
+        private readonly bool online = false;
 
         InventoryHeader invhdr = new InventoryHeader();
         InventoryHeaderHandler invhdrhandler = new InventoryHeaderHandler();
 
-        public FrmInventoryHeader()
+        public FrmInventoryHeader(bool isonline)
         {
+            online = isonline;
+
             InitializeComponent();
             GetDate();
             ShowMessageBox("ΠΡΟΣΟΧΗ , πρέπει να είστε online για να δημιουργήσετε νέα απογραφή");
@@ -218,8 +221,6 @@ namespace WMSMobileClient
         {
             long result;
             
-
-
             if (!(TBInvHeaderComments.Text.Length > 0))
                 TBInvHeaderComments.Text = "...";
             try { invhdr.Branchid = (short)AppGeneralSettings.BranchID; }
@@ -237,34 +238,37 @@ namespace WMSMobileClient
             Cursor.Current = Cursors.WaitCursor;
             ShowMessageBox("Παρακαλώ περιμένετε ... ");
             Application.DoEvents();
-            if (cb_forcedelete.Checked)
-            {
-                if (!(MessageBox.Show("Έχετε επιλέξει να γίνει επανενημέρωση του καταλόγου Atlantis,είστε βέβαιοι ?", "Επιβεβαίωση", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk, MessageBoxDefaultButton.Button1) == DialogResult.Yes))
-                {
-                    HideMessageBox();
-                    Cursor.Current = Cursors.Default;
-                    return;
-                }
-               result= invhdrhandler.GetAtlantisCurrentInventory(true);
-            }
-            else
-            {
-               result= invhdrhandler.GetAtlantisCurrentInventory(false);
-            }
 
-            if (result < 0)
-            {
 
-                ShowMessageBox("Συνέβη κάποιο σφάλμα,Ελέγξτε την συνδεσιμότητα");
-                Cursor.Current = Cursors.Default;
-                return;
+            //if (cb_forcedelete.Checked)
+            //{
+            //    if (!(MessageBox.Show("Έχετε επιλέξει να γίνει επανενημέρωση του καταλόγου Atlantis,είστε βέβαιοι ?", "Επιβεβαίωση", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk, MessageBoxDefaultButton.Button1) == DialogResult.Yes))
+            //    {
+            //        HideMessageBox();
+            //        Cursor.Current = Cursors.Default;
+            //        return;
+            //    }
+            //   result= invhdrhandler.GetAtlantisCurrentInventory(true);
+            //}
+            //else
+            //{
+            //   result= invhdrhandler.GetAtlantisCurrentInventory(false);
+            //}
 
-            }
+            //if (result < 0)
+            //{
+
+            //    ShowMessageBox("Συνέβη κάποιο σφάλμα,Ελέγξτε την συνδεσιμότητα");
+            //    Cursor.Current = Cursors.Default;
+            //    return;
+
+            //}
             HideMessageBox();
             Cursor.Current = Cursors.Default;
- 
-            long newinvhdrid= invhdrhandler.UpdateInventoryHeader(invhdr) ;
 
+
+
+            long newinvhdrid = online ? invhdrhandler.UpdateInventoryHeaderOnline(invhdr) : invhdrhandler.UpdateInventoryHeader(invhdr);
 
 
             if (newinvhdrid > 0)

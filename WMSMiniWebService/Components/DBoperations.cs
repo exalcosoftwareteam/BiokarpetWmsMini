@@ -1220,7 +1220,7 @@ namespace WMSMiniWebService
         {
             try
             {
-                    return InsertRecord(inv);
+            return InsertRecord(inv);
             }
             catch (Exception ex) { db.f_sqlerrorlog(0, "UpdateInventory>>" + inv.ItemCode, ex.ToString(), ">>", "Webservice", ">>"); }
             return -1;

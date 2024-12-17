@@ -973,6 +973,36 @@ namespace WMSMobileClient.Components
             return lot;
         }
 
+        public Lot LotByCodeOnline(string lotcode, long invhdrid)
+        {
+            Lot lot = new Lot();
+            try
+            {
+                var onlineLot = AppGeneralSettings.WebSyncServiceProvider.SOA_GetNewLotbyCode(lotcode);
+
+                lot.Color = onlineLot.Color;
+                lot.CompID = onlineLot.CompID;
+                lot.Draft = onlineLot.Draft;
+                lot.EntryDate = onlineLot.EntryDate;
+                lot.ErpQty = onlineLot.ItemPrimaryQty;
+                lot.ErpQty2 = onlineLot.ItemSecondaryQty;
+                lot.ItemID = onlineLot.ItemID;
+                lot.Length = onlineLot.Length;
+                lot.ItemPrimaryQty = onlineLot.ItemPrimaryQty;
+                lot.ItemSecondaryQty = onlineLot.ItemSecondaryQty;
+                lot.LotCode = onlineLot.LotCode;
+                lot.LotID = onlineLot.LotID;
+                lot.Width = onlineLot.Width;
+
+
+               // if (invhdrid > 0) lot.ErpQty2 = decimal.Round(db.DBGeDecimalResultConON("select sum(invqtysecondary) from tinventory where lotid = " + lot.LotID + " and invhdrid=" + invhdrid.ToString()), 2);
+
+            }
+            catch { }
+
+            return lot;
+        }
+
         public string UpdateLot(Lot lot,bool newdb)
         {
 
@@ -1111,6 +1141,14 @@ namespace WMSMobileClient.Components
                 return InsertRecord(invhdr);
         }
 
+        public long UpdateInventoryHeaderOnline(InventoryHeader invhdr)
+        {
+            if (invhdr.InvHdrID > 0 && db.DBGetNumResultFromSQLSelect("SELECT InvHdrID FROM TInventoryHeader WHERE InvHdrID=" + invhdr.InvHdrID.ToString()) > 0)
+                return UpdateRecord(invhdr);
+            else
+                return InsertRecord(invhdr);
+        }
+
         long InsertRecord(InventoryHeader invhdr)
         {
             StringBuilder sqlstr = new StringBuilder();
@@ -1239,12 +1277,29 @@ namespace WMSMobileClient.Components
 
         public long UpdateInventoryOnline(MInventory inv)
         {
-            if (!(inv.InvQty > 0)) return -1;
 
-            if (db.DBGetNumResultFromSQLSelect("SELECT InvID FROM TInventory WHERE InvID=" + inv.InvID.ToString()) > 0)
-                return UpdateRecord(inv);
-            else
-                return InsertRecord(inv);
+            TInventory invRecord = new TInventory();
+            invRecord.BranchID = inv.BranchID;
+            invRecord.CompID = inv.CompID;
+            invRecord.ERPQty = inv.ERPQty;
+            invRecord.InvDate = inv.InvDate;
+            invRecord.InvHdrID = inv.InvHdrID;
+            invRecord.InvHdrIDServer = inv.InvHdrID;
+            invRecord.InvID = inv.InvID;
+            invRecord.InvQty = inv.InvQty;
+            invRecord.InvQtySecondary = inv.InvQtySecondary;
+            invRecord.ItemCode = inv.ItemCode;
+            invRecord.ItemID = inv.ItemID;
+            invRecord.LotCode = inv.LotCode;
+            invRecord.LotID = inv.LotID;
+            invRecord.MUnitPrimary = inv.MUnitPrimary;
+            invRecord.MUnitSecondary = inv.MUnitSecondary;
+            invRecord.SerialNumber = inv.SerialNumber;
+            invRecord.StoreID = inv.StoreID;
+
+            var response = AppGeneralSettings.webServiceProvider.ImportInventoryOnline(invRecord);
+
+            return response;
         }
 
 

@@ -487,14 +487,14 @@ namespace WMSMobileClient
             {
                 lot = new Lot();
                 iLotCodeEntered = false;
-                lot = lothandler.LotByCode(TBLotCode.Text.Trim(), Program.iInvHeader.InvHdrID);
+                lot = lothandler.LotByCodeOnline(TBLotCode.Text.Trim(), Program.iInvHeader.InvHdrID);
                 if (lot.LotID > 0)
                 {
                     inv.LotID = lot.LotID;
                     inv.LotCode = lot.LotCode;
                     lbcolor.Text = lot.Color;
                     lbdraft.Text = "Σχέδιο : " + lot.Draft;
-                    lb_erpqty.Text = "Σ "+ lot.ErpQty2.ToString();
+                    //lb_erpqty.Text = "Σ "+ lot.ErpQty2.ToString();
                     if (lot.Width > 0)
                     {
                         LBAlterMunit.Visible = true;
@@ -715,7 +715,7 @@ namespace WMSMobileClient
                 inv.BranchID = AppGeneralSettings.BranchID;
                 inv.StoreID =(short) AppGeneralSettings.StoreID;
 
-                if (InvHandler.UpdateInventory(inv) > 0)
+                if (InvHandler.UpdateInventoryOnline(inv) > 0)
                 {
                     InitEntry();
                     TBLotCode.Focus();

@@ -583,10 +583,10 @@
       <CachedSettingsPropName>
       </CachedSettingsPropName>
     </WebReferenceUrl>
-    <WebReferenceUrl Include="http://localhost/WMSMiniWebService/WebService.asmx">
-      <UrlBehavior>Dynamic</UrlBehavior>
+    <WebReferenceUrl Include="http://10.1.10.46/WMSMiniWebService/WebService.asmx">
+      <UrlBehavior>Static</UrlBehavior>
       <RelPath>Web References\WMSservice\</RelPath>
-      <UpdateFromURL>http://localhost/WMSMiniWebService/WebService.asmx</UpdateFromURL>
+      <UpdateFromURL>http://10.1.10.46/WMSMiniWebService/WebService.asmx</UpdateFromURL>
       <ServiceLocationURL>
       </ServiceLocationURL>
       <CachedDynamicPropName>

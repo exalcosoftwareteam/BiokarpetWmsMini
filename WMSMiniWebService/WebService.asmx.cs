@@ -233,6 +233,25 @@ namespace WMSMiniWebService
         }
 
 
+
+        [WebMethod]
+        public long ImportInventoryOnline(TInventory inv)
+        {
+            InventoryHandler invhandler = new InventoryHandler();
+
+            long affectrows = 0;
+            try
+            {
+             affectrows += invhandler.UpdateInventory(inv);
+            }
+            catch (Exception ex)
+            {
+                invhandler.db.f_sqlerrorlog(1, "ImportInventoryOline>>inv.lotcode=" + inv.LotCode.ToString() + "itemcode:" + inv.ItemCode, ex.ToString());
+            }
+            return affectrows;
+        }
+
+
         [WebMethod]
         public long ImportInventoryCTypeList(List<TInventory> inv, bool clearprevious)
         {
