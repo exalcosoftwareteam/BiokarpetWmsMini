@@ -369,6 +369,13 @@ namespace WMSSyncService
             return syncdata.FGetLotbyCode(lotcode);
 
         }
+
+        [WebMethod]
+        public SyncLot SOA_GetLotbyCodeInventory(string lotcode)
+        {
+            return syncdata.FGetLotbyCodeInventory(lotcode);
+
+        }
         
         [WebMethod]
         public List<SyncLot> SOA_GetInventoryLots(int StoreID, long StartID, long EndID)

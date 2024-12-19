@@ -1220,7 +1220,15 @@ namespace WMSMiniWebService
         {
             try
             {
-            return InsertRecord(inv);
+                if (inv.InvID > 0)
+                {
+                    return UpdateRecord2(inv);
+                }
+                else 
+                {
+                    return InsertRecord(inv);              
+                }
+
             }
             catch (Exception ex) { db.f_sqlerrorlog(0, "UpdateInventory>>" + inv.ItemCode, ex.ToString(), ">>", "Webservice", ">>"); }
             return -1;
@@ -1264,6 +1272,7 @@ namespace WMSMiniWebService
             return rtrn;
         }
 
+
         long UpdateRecord(TInventory inv)
         {
             StringBuilder sqlstr = new StringBuilder();
@@ -1283,6 +1292,22 @@ namespace WMSMiniWebService
             return rtrn;
         }
 
+        //19/12/2024
+        //NOT SURE IF THE ABOVE IS USED
+        long UpdateRecord2(TInventory inv)
+        {
+            StringBuilder sqlstr = new StringBuilder();
+            long rtrn = 0;
+            sqlstr.Append("UPDATE TWMSInventory SET ");
+            if (inv.InvQty > 0) sqlstr.Append("InvQty=" + inv.InvQty.ToString().Replace(",", ".") + ","); else sqlstr.Append("InvQty=NULL,");
+            if (inv.InvQtySecondary > 0) sqlstr.Append("InvQtySecondary=" + inv.InvQtySecondary.ToString().Replace(",", ".") ); else sqlstr.Append("InvQtySecondary=NULL");
+            sqlstr.Append(" WHERE InvID=" + inv.InvID.ToString());
+
+            rtrn = db.DBExecuteSQLCmd(sqlstr.ToString());
+            return rtrn;
+        }
+
+
         public long InventoryHeaderExists(long InvHdrID) 
         {
 
@@ -1295,11 +1320,46 @@ namespace WMSMiniWebService
         public DataTable GetInventoryTasks(int branchid)
         {
             string sqlstr;
-            sqlstr = "SELECT CONVERT(NVARCHAR(10), invdate, 103) as invdate,";
-            sqlstr += "Compid,Branchid,InvHdrID,Storeid,StoreName,InvComments,InvSyncID FROM TWMSInventoryHeader WHERE Branchid=" + branchid.ToString();
+            sqlstr = "SELECT InvHdrID as InvHdrID, CONVERT(NVARCHAR(10), invdate, 103) as InvDate,InvComments as InvComments,";
+            sqlstr += "invRecords FROM VINVENTORYHEADERSTATS WHERE Branchid=" + branchid.ToString();
             sqlstr += " AND ISNULL(CONFIRMED,0) < 2 ORDER BY InvHdrID DESC";
 
             return db.DBFillDataTable(sqlstr, "TINV");
+        }
+
+        public DataTable GetInventoryRecords(long invHDRid,string itemfilter,bool last10items)
+        {
+            StringBuilder sqlstr = new StringBuilder();
+            string top10rows = last10items ? " TOP(10) " : "";
+
+            sqlstr.Append(" SELECT "+top10rows+" InvID,ItemID,ItemCode,LotCode,LotID,InvQty as InvQtyPrimary,InvQtySecondary FROM TWMSInventory WHERE InvHdrID= "+invHDRid.ToString()+" ");
+            if (!string.IsNullOrEmpty(itemfilter) && !last10items)
+            {
+                sqlstr.Append(" AND (ItemCode LIKE '%" + itemfilter + "%' OR LotCode LIKE '%" + itemfilter + "%')");
+            }
+ 
+            sqlstr.Append(" ORDER BY InvID DESC");
+
+            return db.DBFillDataTable(sqlstr.ToString(), "DTINVENTORY");
+        }
+
+        public DataTable GetInventoryRecord(long invid)
+        {
+            StringBuilder sqlstr = new StringBuilder();
+
+            sqlstr.Append(" SELECT  InvID,InvHdrID,ItemID,ItemCode,LotCode,LotID,InvQty as InvQtyPrimary,InvQtySecondary, ");
+            sqlstr.Append(" Munitprimary as InvMunitPrimary,MunitSecondary,InvDate as InvMunitSecondary");
+            
+            sqlstr.Append(" FROM TWMSInventory WHERE InvID= " + invid.ToString() + " ");
+
+            return db.DBFillDataTable(sqlstr.ToString(), "DTINVENTORY");
+        }
+
+
+        public long DeleteInventoryRecord(long invid)
+        {
+
+            return db.DBExecuteSQLCmd("DELETE FROM TWMSInventory WHERE InvID = " + invid.ToString());
         }
 
     }
@@ -1410,6 +1470,8 @@ namespace WMSMiniWebService
                 return -1;
 
         }
+
+
 
 
     }

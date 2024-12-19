@@ -305,6 +305,16 @@ namespace WMSMobileClient
                 cb_alterinvexport.Checked = false;
             }
 
+            if (AppGeneralSettings.OnlineMode)
+            {
+                cb_onlinemode.Checked = true;
+            }else
+            {
+                cb_onlinemode.Checked = false;
+            }
+
+            
+
             LLbUpdate.Text = "Download Update";
            
         }
@@ -339,15 +349,9 @@ namespace WMSMobileClient
             if (AppGeneralSettings.KindID > 0) settings.KindID = AppGeneralSettings.KindID;
             if (AppGeneralSettings.TransType > 0) settings.TransType = AppGeneralSettings.TransType;
             if (AppGeneralSettings.DSRID > 0) settings.DSRID = AppGeneralSettings.DSRID;
+            AppGeneralSettings.ALTERINVEXPORT = cb_alterinvexport.Checked;
+            AppGeneralSettings.OnlineMode = cb_onlinemode.Checked;
 
-            if (cb_alterinvexport.Checked)
-            {
-                AppGeneralSettings.ALTERINVEXPORT = true;
-            }
-            else 
-            {
-                AppGeneralSettings.ALTERINVEXPORT = false;
-            }
 
             if (settings.SaveSettings() > 0)
             {

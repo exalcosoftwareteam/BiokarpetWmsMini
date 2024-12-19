@@ -353,3 +353,4 @@ D:\!WORK\Projects\Biokarpet\WMSmini\WMSmini\obj\Debug\WMSRetailClient.exe
 D:\!WORK\Projects\Biokarpet\WMSmini\WMSmini\obj\Debug\WMSRetailClient.pdb
 D:\!WORK\Projects\Biokarpet\WMSmini\WMSmini\obj\Debug\WMSMobileClient.FrmSelectInventoryHeaderOnline.resources
 D:\!WORK\Projects\Biokarpet\WMSmini\WMSmini\obj\Debug\WMSMobileClient.FrmInventoryOnline.resources
+D:\!WORK\Projects\Biokarpet\WMSmini\WMSmini\obj\Debug\WMSMobileClient.FrmInventoryViewOnline.resources

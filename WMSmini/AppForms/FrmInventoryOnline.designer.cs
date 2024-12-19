@@ -57,6 +57,7 @@
             this.lbcolor = new System.Windows.Forms.Label();
             this.lbdraft = new System.Windows.Forms.Label();
             this.lb_erpqty = new System.Windows.Forms.Label();
+            this.lb_lastbarcode = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // TBLotCode
@@ -73,7 +74,6 @@
             this.TBLotCode.TextChanged += new System.EventHandler(this.TBLotCode_TextChanged);
             this.TBLotCode.GotFocus += new System.EventHandler(this.TBLotCode_GotFocus);
             this.TBLotCode.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TBLotCode_KeyDown);
-            this.TBLotCode.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBLotCode_KeyPress);
             this.TBLotCode.LostFocus += new System.EventHandler(this.TBLotCode_LostFocus);
             // 
             // LBLotCode
@@ -89,6 +89,7 @@
             this.TBItemCode.AcceptsReturn = true;
             this.TBItemCode.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
             this.TBItemCode.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.TBItemCode.Enabled = false;
             this.TBItemCode.Font = new System.Drawing.Font("Tahoma", 13F, System.Drawing.FontStyle.Regular);
             this.TBItemCode.Location = new System.Drawing.Point(11, 69);
             this.TBItemCode.MaxLength = 20;
@@ -151,7 +152,7 @@
             this.LBMsgBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(235)))), ((int)(((byte)(163)))));
             this.LBMsgBox.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
             this.LBMsgBox.ForeColor = System.Drawing.Color.Brown;
-            this.LBMsgBox.Location = new System.Drawing.Point(12, 217);
+            this.LBMsgBox.Location = new System.Drawing.Point(12, 231);
             this.LBMsgBox.Name = "LBMsgBox";
             this.LBMsgBox.Size = new System.Drawing.Size(212, 30);
             this.LBMsgBox.Visible = false;
@@ -248,7 +249,7 @@
             // PBoxMessage
             // 
             this.PBoxMessage.Image = ((System.Drawing.Image)(resources.GetObject("PBoxMessage.Image")));
-            this.PBoxMessage.Location = new System.Drawing.Point(6, 214);
+            this.PBoxMessage.Location = new System.Drawing.Point(6, 228);
             this.PBoxMessage.Name = "PBoxMessage";
             this.PBoxMessage.Size = new System.Drawing.Size(228, 38);
             this.PBoxMessage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -307,13 +308,23 @@
             this.lb_erpqty.Name = "lb_erpqty";
             this.lb_erpqty.Size = new System.Drawing.Size(122, 14);
             // 
-            // FrmInventory
+            // lb_lastbarcode
+            // 
+            this.lb_lastbarcode.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Regular);
+            this.lb_lastbarcode.ForeColor = System.Drawing.Color.DimGray;
+            this.lb_lastbarcode.Location = new System.Drawing.Point(17, 212);
+            this.lb_lastbarcode.Name = "lb_lastbarcode";
+            this.lb_lastbarcode.Size = new System.Drawing.Size(213, 11);
+            this.lb_lastbarcode.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // FrmInventoryOnline
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(240, 320);
             this.ControlBox = false;
+            this.Controls.Add(this.lb_lastbarcode);
             this.Controls.Add(this.lb_erpqty);
             this.Controls.Add(this.lbdraft);
             this.Controls.Add(this.lbcolor);
@@ -340,7 +351,7 @@
             this.Controls.Add(this.PBoxLotCode);
             this.Controls.Add(this.PBoxMessage);
             this.Controls.Add(this.PBMenuBar);
-            this.Name = "FrmInventory";
+            this.Name = "FrmInventoryOnline";
             this.Text = "Απογραφή";
             this.Load += new System.EventHandler(this.FrmInventory_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmInventory_KeyDown);
@@ -376,5 +387,6 @@
         private System.Windows.Forms.Label lbcolor;
         private System.Windows.Forms.Label lbdraft;
         private System.Windows.Forms.Label lb_erpqty;
+        private System.Windows.Forms.Label lb_lastbarcode;
     }
 }

@@ -312,7 +312,7 @@ namespace WMSMiniWebService
             //
             try
             {
-                if (long.Parse(CmdResultNum) > 0) { return long.Parse(CmdResultNum); } else { return -1; }
+                if (long.Parse(CmdResultNum) >= 0) { return long.Parse(CmdResultNum); } else { return -1; }
             }
             catch
             {

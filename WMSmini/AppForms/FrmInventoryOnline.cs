@@ -6,6 +6,7 @@ using System.Text;
 using System.Windows.Forms;
 using WMSMobileClient;
 using WMSMobileClient.Components;
+using WMSMobileClient.WMSservice;
 
 
 namespace WMSMobileClient
@@ -14,12 +15,12 @@ namespace WMSMobileClient
     {
 
         bool iLotCodeEntered = false;
-        bool iItemCodeEntered = false;
         bool iQtyEntered = false;
         bool iLotChecked = false;
-        short caller = 0;
-        Item item = new Item();
+        bool isEditEntry = false;
+       
         Lot lot = new Lot();
+        InventoryInfo inventoryInfo;
 
         MInventory inv = new MInventory();
         LotHandler lothandler = new LotHandler();
@@ -33,26 +34,31 @@ namespace WMSMobileClient
         public FrmInventoryOnline(long parminvid)
         {
             InitializeComponent();
-            inv.InvNo = int.Parse(InvHandler.GetInventoryCounter(Program.iInvHeader.InvHdrID)) + 1;
-            lbcounter.Text = "#" + (inv.InvNo - 1).ToString();
-
+ 
             if (parminvid > 0)
             {
+                TBLotCode.Enabled = false;
+                isEditEntry = true;
                 GetInventoryRecord(parminvid);
-                caller = 1;
+                Text = "Record #" + parminvid.ToString();
             }
         }
 
         private void FrmInventory_Load(object sender, EventArgs e)
         {
             
-             FixResolutionIssues();
+            FixResolutionIssues();
 
             EnableUseLot();
 
             CheckInventoryHeaderID();
             GetInvMunitSettings();
-            
+
+            if (!isEditEntry)
+            {
+                InitEntry();          
+            }
+
         }
              
         #region Form Events"
@@ -95,14 +101,12 @@ namespace WMSMobileClient
         private void TBItemCode_LostFocus(object sender, EventArgs e)
         {           
             PBoxITemCode.Image = Properties.Resources.textbox;
-            if (TBLotCode.Text.Length > 0) iItemCodeEntered = true;
         }
 
         private void TBQty_GotFocus(object sender, EventArgs e)
         {            
             PBoxQty.Image = Properties.Resources.textbox_small_focus;
             CheckQty();
-            CheckItemCode();
         }
 
         private void TBQty_LostFocus(object sender, EventArgs e)
@@ -164,29 +168,26 @@ namespace WMSMobileClient
                 GoBack();
         }
 
-        private void TBLotCode_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == (char)13)
-            {
-                if (!iLotChecked)
-                {
-                    CheckLotCode();
-                }
-            }
-            else if (e.KeyChar == (char)27) GoBack();
+        //private void TBLotCode_KeyPress(object sender, KeyPressEventArgs e)
+        //{
+        //    if (e.KeyChar == (char)13)
+        //    {
+        //        if (!iLotChecked)
+        //        {
+        //            CheckLotCode();
+        //        }
+        //    }
+        //    else if (e.KeyChar == (char)27) GoBack();
                  
  
 
-        }
+        //}
 
         private void TBItemCode_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {
-                if (CheckItemCode())
-                    TBQty.Focus();
-                else
-                    TBItemCode.Focus();
+                TBQty.Focus();
             }
             if (e.KeyCode == Keys.Escape)
                 GoBack();
@@ -204,7 +205,6 @@ namespace WMSMobileClient
         {
             iLotCodeEntered = true;
             iQtyEntered = false;
-            iItemCodeEntered = false;
             iLotChecked = false;
             HideMessageBox();
             
@@ -212,7 +212,6 @@ namespace WMSMobileClient
 
         private void TBItemCode_TextChanged(object sender, EventArgs e)
         {
-            iItemCodeEntered = true;
             iLotCodeEntered = false;
             iQtyEntered = false;
             HideMessageBox();
@@ -221,7 +220,6 @@ namespace WMSMobileClient
         private void TBQty_TextChanged(object sender, EventArgs e)
         {
             iQtyEntered = true;
-            iItemCodeEntered = false;
             iLotCodeEntered = false;
             HideMessageBox();
         }
@@ -285,12 +283,13 @@ namespace WMSMobileClient
 
         protected void GetInventoryRecord(long pinvid)
         {
+            Cursor.Current = Cursors.WaitCursor;
             decimal tempqty;
             LBMunitQty.Visible = true;
             LBAlterMunit.Visible = true;
             LBDimensions.Visible = true;
 
-            inv = InvHandler.InventoryRecord(pinvid);
+            inv = InvHandler.InventoryRecordOnline(pinvid);
             if (inv.InvID > 0)
             {
                 BtnDelete.Visible = true;               
@@ -299,29 +298,29 @@ namespace WMSMobileClient
 
                 if (inv.ItemID > 0)
                 {
-                    item = itemhandler.ItemByID(inv.ItemID);
+                    //item = itemhandler.ItemByID(inv.ItemID);
                     LBItemDesc.Visible = true;
-                    LBItemDesc.Text = item.ItemDesc;
+                    LBItemDesc.Text = lot.ItemDesc;
                     
                 }
                 if (inv.LotID > 0) 
                 {
-                    lot = lothandler.LotByID(inv.LotID);
+                    lot = lothandler.LotByCodeOnline(inv.LotCode);
                    
                     LBDimensions.Text = Math.Round(lot.Width, 2).ToString() + " X " + Math.Round(lot.Length, 2).ToString();
                 }
 
-                if (InvMunitPrimary.MunitID == item.MUnitPrimary)
+                if (InvMunitPrimary.MunitID == lot.MUnitPrimary)
                 {
-                    if (!(inv.MUnitPrimary > 0)) inv.MUnitPrimary = (short)item.MUnitPrimary;
+                    if (!(inv.MUnitPrimary > 0)) inv.MUnitPrimary = (short)lot.MUnitPrimary;
                 }
-                else if (InvMunitPrimary.MunitID == item.MUnitSecondary)
+                else if (InvMunitPrimary.MunitID == lot.MUnitSecondary)
                 {
-                    if (!(inv.MUnitSecondary > 0)) inv.MUnitSecondary = (short)item.MUnitSecondary;
+                    if (!(inv.MUnitSecondary > 0)) inv.MUnitSecondary = (short)lot.MUnitSecondary;
                 }
 
                // 05/02/2013 if ((lot.Width > 0)
-                if ((lot.Width > 0) && (item.MUnitPrimary == 12))
+                if ((lot.Width > 0) && (lot.MUnitPrimary == 12))
                 {
 
                     TBQty.Text = Math.Round(inv.InvQtySecondary, 0).ToString();
@@ -341,6 +340,7 @@ namespace WMSMobileClient
                 //if (inv.InvQtySecondary > 0) LBAlterQty.Text = Math.Round(inv.InvQtySecondary, 2).ToString();
                  
             }
+            Cursor.Current = Cursors.Default;
             TBQty.Focus();
         }
 
@@ -398,20 +398,18 @@ namespace WMSMobileClient
 
         protected void GoBack()
         {
-            if (caller == 0)
-            {
-                WMSForms.FrmSelectInventoryHeader = new FrmSelectInventoryHeader();
-                WMSForms.FrmSelectInventoryHeader.Show();
-                this.Close();
-            }
-            else {
-
-                WMSForms.FrmInventoryView = new FrmInventoryView();
-                WMSForms.FrmInventoryView.Show();
-                this.Close();
-            
-            
-            }         
+                if (isEditEntry)
+                {
+                    WMSForms.FrmInventoryViewOnline = new FrmInventoryViewOnline();
+                    WMSForms.FrmInventoryViewOnline.Show();
+                    this.Close();   
+                }
+                else 
+                {
+                    WMSForms.FrmSelectInventoryHeaderOnline = new FrmSelectInventoryHeaderOnline();
+                    WMSForms.FrmSelectInventoryHeaderOnline.Show();
+                    this.Close();             
+                }
         }
 
         protected void GoSelectInventoryTask()
@@ -443,7 +441,6 @@ namespace WMSMobileClient
         protected void InitEntry()
         {
             iLotCodeEntered = false;
-            iItemCodeEntered = false;
             iLotChecked = false;
 
             iQtyEntered = false;
@@ -467,19 +464,26 @@ namespace WMSMobileClient
           
             TBQty.Text = "";
             lot = null;
-            item = null;
-            inv = null;
+               inv = null;
 
             inv = new MInventory();
             lot = new Lot();
-            item = new Item();
-            inv.InvNo = int.Parse(InvHandler.GetInventoryCounter(Program.iInvHeader.InvHdrID)) + 1;
-            lbcounter.Text = "#" + (inv.InvNo - 1).ToString();
-            
+
+
+            inventoryInfo = InvHandler.GetInventoryInfoOnline(Program.iInvHeader.InvHdrID);
+            inv.InvNo = inventoryInfo.InvCount;
+
+
+            lbcounter.Text = "#" + inv.InvNo.ToString();
+            lb_lastbarcode.Text = inventoryInfo.LastBarcode + " [ " + inventoryInfo.LastInvdate.ToString("dd/MM/yyyy HH:mm") + " ] ";
             DisableSave();
 
             inv.InvHdrID = Program.iInvHeader.InvHdrID;
+
+            Text = "JOB #"+inv.InvHdrID.ToString();
         }
+
+
 
         protected void CheckLotCode()
         {
@@ -487,14 +491,16 @@ namespace WMSMobileClient
             {
                 lot = new Lot();
                 iLotCodeEntered = false;
-                lot = lothandler.LotByCodeOnline(TBLotCode.Text.Trim(), Program.iInvHeader.InvHdrID);
+                Cursor.Current = Cursors.WaitCursor;
+                lot = lothandler.LotByCodeOnline(TBLotCode.Text.Trim());
                 if (lot.LotID > 0)
                 {
+                    lot.ErpQty2 = AppGeneralSettings.webServiceProvider.GetInventoryLotQty(Program.iInvHeader.InvHdrID, lot.LotID);
                     inv.LotID = lot.LotID;
                     inv.LotCode = lot.LotCode;
                     lbcolor.Text = lot.Color;
                     lbdraft.Text = "Σχέδιο : " + lot.Draft;
-                    //lb_erpqty.Text = "Σ "+ lot.ErpQty2.ToString();
+                    lb_erpqty.Text = "Σ "+ lot.ErpQty2.ToString();
                     if (lot.Width > 0)
                     {
                         LBAlterMunit.Visible = true;
@@ -508,56 +514,47 @@ namespace WMSMobileClient
                         LBAlterQty.Visible = false;
                         LBDimensions.Visible = false;
                     }
-                    if (lot.ItemID > 0)
-                    {
+
                         inv.ItemID = lot.ItemID;
-                        item = itemhandler.ItemByID(lot.ItemID);
-                        if (item.ItemID > 0)
+                        TBItemCode.Text = lot.ItemCode;
+                        LBItemDesc.Text = lot.ItemDesc;
+                        inv.MUnitPrimary = (short)lot.MUnitPrimary;
+                        inv.MUnitSecondary = (short)lot.MUnitSecondary;
+                        inv.ItemCode = lot.ItemCode;
+
+                        if (InvMunitPrimary.MunitID > 0)
+                            LBMunitQty.Text = InvMunitPrimary.MUnit;
+                        else
+                            if (!string.IsNullOrEmpty(lot.MUnitDesc1)) LBMunitQty.Text = lot.MUnitDesc1;
+
+                        if (InvMunitSecondary.MunitID > 0)
+                            LBAlterMunit.Text = InvMunitSecondary.MUnit;
+                        else
+
+                            LBAlterMunit.Text = lot.MUnitDesc2;
+
+
+                        if ((lot.Width > 0) && (lot.MUnitPrimary == 12))
                         {
-                            TBItemCode.Text = item.ItemCode;
-                            LBItemDesc.Text = item.ItemDesc;
-
-                            inv.MUnitPrimary = (short) item.MUnitPrimary;
-                            inv.MUnitSecondary = (short) item.MUnitSecondary;
-                            inv.ItemCode = item.ItemCode;
-
-                        
-
-                            if (InvMunitPrimary.MunitID > 0)
-                                LBMunitQty.Text = InvMunitPrimary.MUnit;
-                            else
-                                if (!string.IsNullOrEmpty(item.MUnitDesc1)) LBMunitQty.Text = item.MUnitDesc1;
-
-                            if (InvMunitSecondary.MunitID > 0)
-                                LBAlterMunit.Text = InvMunitSecondary.MUnit;
-                            else
-
-                                LBAlterMunit.Text = item.MUnitDesc2;
-
-
-                            if ((lot.Width > 0) && (item.MUnitPrimary == 12))
-                            {
-                                LBAlterMunit.Text = item.MUnitDesc1;
-                                LBAlterMunit.Visible = true;
-                                LBAlterQty.Visible = true;
-                                LBDimensions.Visible = true;
-                                LBDimensions.Text = Math.Round(lot.Width, 2).ToString() + " X " + Math.Round(lot.Length, 2).ToString();
-                            }
-                            else
-                            {
-                                LBAlterMunit.Text = item.MUnitDesc2;
-                                LBAlterMunit.Visible = false;
-                                LBAlterQty.Visible = false;
-                                LBDimensions.Visible = false;
-                            }
-
-
-
-                            TBQty.Text = "1";
-                            TBQty.SelectAll();
-                            TBQty.Focus();
+                            LBAlterMunit.Text = lot.MUnitDesc1;
+                            LBAlterMunit.Visible = true;
+                            LBAlterQty.Visible = true;
+                            LBDimensions.Visible = true;
+                            LBDimensions.Text = Math.Round(lot.Width, 2).ToString() + " X " + Math.Round(lot.Length, 2).ToString();
                         }
-                    }
+                        else
+                        {
+                            LBAlterMunit.Text = lot.MUnitDesc2;
+                            LBAlterMunit.Visible = false;
+                            LBAlterQty.Visible = false;
+                            LBDimensions.Visible = false;
+                        }
+
+
+
+                        TBQty.Text = "1";
+                        TBQty.SelectAll();
+                        TBQty.Focus();
                 }
                 else
                 {
@@ -565,59 +562,8 @@ namespace WMSMobileClient
                     ShowMessageBox("H Παρτίδα δεν βρέθηκε!",true);
                     TBItemCode.Focus();
                 }
+                Cursor.Current = Cursors.Default;
             }
-        }
-
-        protected bool CheckItemCode()
-        {
-            string enteredcode = null;
-
-            iLotChecked = true;
-            if (TBItemCode.Text.Length > 0 && iItemCodeEntered)
-            {
-                //               
-                enteredcode = TBItemCode.Text;               
-                //check if used wild char
-                if ((AppGeneralSettings.RemovePrefixOnScanning) && (!string.IsNullOrEmpty(AppGeneralSettings.ItemCodePrefix)) && enteredcode.Length > 4)
-                {
-                    enteredcode = enteredcode.Remove(0, AppGeneralSettings.ItemCodePrefix.Length);
-                    TBItemCode.Text = enteredcode;
-                }
-                //
-
-                iItemCodeEntered = false;
-                item = itemhandler.ItemByCode(TBItemCode.Text.Trim());
-                if (item.ItemID > 0)
-                {
-                    inv.ItemID = item.ItemID;
-                    inv.ItemCode = item.ItemCode;
-                    LBItemDesc.Text = item.ItemDesc;
-
-
-                    inv.MUnitPrimary = (short)item.MUnitPrimary;
-                    inv.MUnitSecondary = (short)item.MUnitSecondary;
-
-                    if (InvMunitPrimary.MunitID > 0)
-                        LBMunitQty.Text = InvMunitPrimary.MUnit;
-                    else
-                        if (!string.IsNullOrEmpty(item.MUnitDesc1)) LBMunitQty.Text = item.MUnitDesc1;
-
-                    if (InvMunitSecondary.MunitID > 0)
-                        LBAlterMunit.Text = InvMunitSecondary.MUnit;
-                    else
-                        LBAlterMunit.Text = item.MUnitDesc2;
-
-                    return true;
-                }
-                else
-                {
-                    inv.ItemCode = TBItemCode.Text.Trim();
-                    ShowMessageBox("Το είδος δεν βρέθηκε!",true);
-                    return false;
-                }
-            }
-
-            return false;
         }
 
         protected bool CheckQty()
@@ -634,7 +580,7 @@ namespace WMSMobileClient
                     return false;
                 }
 
-                if ((lot.Width > 0) && (item.MUnitPrimary == 12))
+                 if ((lot.Width > 0) && (lot.MUnitPrimary == 12))
                 {
                     LBAlterQty.Text = Math.Round((inv.InvQty * (lot.Width * lot.Length)),2).ToString();
                 }
@@ -647,18 +593,18 @@ namespace WMSMobileClient
 
                 if (InvMunitPrimary.MunitID > 0)
                 {
-                    if (InvMunitPrimary.MunitID == item.MUnitPrimary && (lot.Width > 0) & item.MUnitSecondary > 0)
+                    if (InvMunitPrimary.MunitID == lot.MUnitPrimary && (lot.Width > 0) & lot.MUnitSecondary > 0)
                     {
-                        inv.MUnitSecondary = (short)item.MUnitSecondary;
+                        inv.MUnitSecondary = (short)lot.MUnitSecondary;
                     }
-                    else if (InvMunitPrimary.MunitID == item.MUnitSecondary && (lot.Width > 0))
+                    else if (InvMunitPrimary.MunitID == lot.MUnitSecondary && (lot.Width > 0))
                     {
-                        inv.MUnitPrimary = (short)item.MUnitPrimary;
+                        inv.MUnitPrimary = (short)lot.MUnitPrimary;
                     }
                 }
 
 
-                if ((lot.Width > 0) && (item.MUnitPrimary == 12))
+                if ((lot.Width > 0) && (lot.MUnitPrimary == 12))
                 {
 
                     inv.InvQtySecondary = inv.InvQty;
@@ -719,6 +665,11 @@ namespace WMSMobileClient
                 {
                     InitEntry();
                     TBLotCode.Focus();
+
+                    if (isEditEntry)
+                    {
+                        GoBack();
+                    }
                 }
                 else
                 {
@@ -731,8 +682,18 @@ namespace WMSMobileClient
         {
             if (MessageBox.Show("Είστε Βέβαιοι για την Διαγραφή της Εγγραφής;", "Ερώτηση", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) == DialogResult.No)
                 return;
-            InvHandler.DeleteRecord(inv.InvID);
-            InitEntry();
+            InvHandler.DeleteRecordOnline(inv.InvID);
+
+            if (isEditEntry)
+            {
+                GoBack();
+            }
+            else 
+            {
+                InitEntry();         
+            }
+
+
         }
 
         private void PBBtnBck_Click(object sender, EventArgs e)
@@ -742,6 +703,11 @@ namespace WMSMobileClient
 
         private void BtnSave_Click(object sender, EventArgs e)
         {
+            if (isEditEntry) 
+            {
+                CheckQty();
+            }
+            
             SaveChanges();
         }
 

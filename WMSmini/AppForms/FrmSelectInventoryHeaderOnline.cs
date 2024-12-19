@@ -98,14 +98,18 @@ namespace WMSMobileClient
 
                 if (DT.Rows.Count > 0)
                 {
+
+
                     DGInvHeaderList.DataSource = DT;
 
                     DataGridTableStyle DGListStyle = new DataGridTableStyle();
-                    DGInvHeaderList.TableStyles.Clear();
+                    DGListStyle.MappingName = "TINV";
 
                     DataGridTextBoxColumn col1 = new DataGridTextBoxColumn();
                     DataGridTextBoxColumn col2 = new DataGridTextBoxColumn();
                     DataGridTextBoxColumn col3 = new DataGridTextBoxColumn();
+                    DataGridTextBoxColumn col4 = new DataGridTextBoxColumn();
+
 
                     col1.MappingName = "InvHdrID";
                     col1.HeaderText = "#";
@@ -115,17 +119,26 @@ namespace WMSMobileClient
                     col2.MappingName = "InvDate";
                     col2.HeaderText = "Ημ/νία";
                     col2.Format = "dd/MM/yy";
-                    col2.Width = 100;
+                    col2.Width = 60;
                     DGListStyle.GridColumnStyles.Add(col2);
 
                     col3.MappingName = "InvComments";
                     col3.HeaderText = "Παρατηρήσεις";
-                    col3.Width = 160;
+                    col3.Width = 60;
                     DGListStyle.GridColumnStyles.Add(col3);
 
+                    col4.MappingName = "invRecords";
+                    col4.HeaderText = "Πλήθος";
+                    col4.Width = 50;
+                    DGListStyle.GridColumnStyles.Add(col4);
+
+                    
+
+
+                    DGInvHeaderList.TableStyles.Clear();
+                    
                     DGInvHeaderList.TableStyles.Add(DGListStyle);
 
-                   // bool isselected;
                     int cnt = 0;
 
                     if (Program.iInvHeader.InvHdrID > 0)
@@ -243,7 +256,7 @@ namespace WMSMobileClient
         {
             if (MessageBox.Show("Νέα Απογραφή;", "Επιβεβαίωαση", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) == DialogResult.Yes)
             {
-                WMSForms.FrmInventoryHeader = new FrmInventoryHeader(true);
+                WMSForms.FrmInventoryHeader = new FrmInventoryHeader();
                 WMSForms.FrmInventoryHeader.Show();
                 this.Close();
 
@@ -262,8 +275,8 @@ namespace WMSMobileClient
             }
             else
             {
-                WMSForms.FrmInventoryView = new FrmInventoryView();
-                WMSForms.FrmInventoryView.Show();
+                WMSForms.FrmInventoryViewOnline = new FrmInventoryViewOnline();
+                WMSForms.FrmInventoryViewOnline.Show();
                 this.Close();
             }
 
@@ -281,8 +294,18 @@ namespace WMSMobileClient
             }
             else
             {
-                WMSForms.FrmInventory = new FrmInventory(0);
-                WMSForms.FrmInventory.Show();
+                if (AppGeneralSettings.OnlineMode)
+                {
+                    WMSForms.FrmInventoryOnline = new FrmInventoryOnline(0);
+                    WMSForms.FrmInventoryOnline.Show();
+                }
+                else {
+                    WMSForms.FrmInventory = new FrmInventory(0);
+                    WMSForms.FrmInventory.Show();            
+                }
+
+
+
                 this.Close();
             }
 

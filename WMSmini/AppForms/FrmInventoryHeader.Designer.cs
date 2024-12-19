@@ -169,6 +169,7 @@
             this.cb_forcedelete.Size = new System.Drawing.Size(217, 20);
             this.cb_forcedelete.TabIndex = 31;
             this.cb_forcedelete.Text = "Επανενημέρωση καταλόγου Atlantis";
+            this.cb_forcedelete.Visible = false;
             this.cb_forcedelete.CheckStateChanged += new System.EventHandler(this.checkBox1_CheckStateChanged);
             // 
             // FrmInventoryHeader

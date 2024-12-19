@@ -954,31 +954,15 @@ namespace WMSMobileClient.Components
             }
             catch { }
 
-
-
-            
-            //oldtimeout =AppGeneralSettings.webServiceProvider.Timeout;
-            //AppGeneralSettings.webServiceProvider.Timeout = 1500;
-            //try 
-            //{
-            //  lot.ErpQty2 =  AppGeneralSettings.webServiceProvider.SOA_GetERPLotSecondQTY(lot.LotID, AppGeneralSettings.BranchID);
-            
-            //}
-            //catch 
-            //{
-            //    AppGeneralSettings.webServiceProvider.Timeout = oldtimeout;
-            //}
-             
-
             return lot;
         }
 
-        public Lot LotByCodeOnline(string lotcode, long invhdrid)
+        public Lot LotByCodeOnline(string lotcode)
         {
             Lot lot = new Lot();
             try
             {
-                var onlineLot = AppGeneralSettings.WebSyncServiceProvider.SOA_GetNewLotbyCode(lotcode);
+                var onlineLot = AppGeneralSettings.WebSyncServiceProvider.SOA_GetLotbyCodeInventory(lotcode);
 
                 lot.Color = onlineLot.Color;
                 lot.CompID = onlineLot.CompID;
@@ -994,6 +978,12 @@ namespace WMSMobileClient.Components
                 lot.LotID = onlineLot.LotID;
                 lot.Width = onlineLot.Width;
 
+                lot.ItemCode = onlineLot.ItemCode;
+                lot.ItemDesc = onlineLot.ItemDesc;
+                lot.MUnitPrimary = onlineLot.MunitPrimary;
+                lot.MUnitSecondary = onlineLot.MunitSecondary;
+                lot.MUnitDesc1 = onlineLot.MunitDesc1;
+                lot.MUnitDesc2 = onlineLot.MunitDesc2;
 
                // if (invhdrid > 0) lot.ErpQty2 = decimal.Round(db.DBGeDecimalResultConON("select sum(invqtysecondary) from tinventory where lotid = " + lot.LotID + " and invhdrid=" + invhdrid.ToString()), 2);
 
@@ -1143,10 +1133,18 @@ namespace WMSMobileClient.Components
 
         public long UpdateInventoryHeaderOnline(InventoryHeader invhdr)
         {
-            if (invhdr.InvHdrID > 0 && db.DBGetNumResultFromSQLSelect("SELECT InvHdrID FROM TInventoryHeader WHERE InvHdrID=" + invhdr.InvHdrID.ToString()) > 0)
-                return UpdateRecord(invhdr);
-            else
-                return InsertRecord(invhdr);
+            TInventoryHeader hdr = new TInventoryHeader();
+            hdr.Branchid = invhdr.Branchid;
+            hdr.CompID = invhdr.CompID;
+            hdr.InvComments = invhdr.InvComments;
+            hdr.InvDate = invhdr.InvDate;
+            hdr.Storeid = invhdr.Storeid;
+            hdr.InvStatus = invhdr.InvStatus;
+
+
+            var ret = AppGeneralSettings.webServiceProvider.ImportInventoryHeaderCType(hdr);
+
+            return ret;
         }
 
         long InsertRecord(InventoryHeader invhdr)
@@ -1232,6 +1230,20 @@ namespace WMSMobileClient.Components
             catch { }
             return inv;
         }
+
+
+        public MInventory InventoryRecordOnline(long invid)
+        {
+            MInventory inv = new MInventory();
+            try
+            {
+                DataTable dt = AppGeneralSettings.webServiceProvider.GetInventoryRecord(invid);
+                inv = Parse(dt.Rows[0]);
+            }
+            catch { }
+            return inv;
+        }
+
 
         public MInventory Parse(DataRow Dr)
         {
@@ -1342,6 +1354,11 @@ namespace WMSMobileClient.Components
             return DT;
         }
 
+        public DataTable InventoryViewOnline(long InvHdrID, string sterm, bool getlast10rec)
+        {
+            return AppGeneralSettings.webServiceProvider.GetInventoryRecords(InvHdrID, sterm, getlast10rec);
+        }
+
         public long DeleteWholeInventory(long InvHdrID)
         {
             db.DBExecuteSQLCmd("DELETE FROM TInventory WHERE InvHdrID=" + InvHdrID.ToString());
@@ -1355,9 +1372,19 @@ namespace WMSMobileClient.Components
         
         }
 
+        public InventoryInfo GetInventoryInfoOnline(long InvHdrID)
+        {
+            return AppGeneralSettings.webServiceProvider.GetInventoryInfo(InvHdrID);
+        }
+
         public long DeleteRecord(long invid)
         {
             return db.DBExecuteSQLCmd("DELETE FROM TInventory WHERE InvID=" + invid.ToString());
+        }
+
+        public long DeleteRecordOnline(long invid)
+        {
+            return AppGeneralSettings.webServiceProvider.DeleteInventoryRecord(invid);
         }
 
         long InsertRecord(MInventory inv)

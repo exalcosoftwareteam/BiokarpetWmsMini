@@ -56,10 +56,7 @@ namespace WMSMiniWebService
             try { dt = receives.GetTransList(branchid); }
             catch { }
             
-           
-
-           return dt;
-
+            return dt;
         }
 
         [WebMethod]
@@ -94,8 +91,6 @@ namespace WMSMiniWebService
         {
             
             atlcontroller.SyncItemsAndLots();
-            
-            
         }
 
         [WebMethod]
@@ -104,17 +99,14 @@ namespace WMSMiniWebService
         {
 
             atlcontroller.GetDetailsQtyFromWmsMiniDB(branchid, storeid , comid);
-
-
         }
+
         [WebMethod]
         [SoapDocumentMethod(OneWay = true)]
         public void TESTGetDetailsQtyFromWmsMiniDB(short branchid, short storeid, short comid)
         {
             atlcontroller.TESTGetDetailsQtyFromWmsMiniDB(branchid, storeid , comid);
         }
-
-        
 
 
         [WebMethod]
@@ -174,8 +166,7 @@ namespace WMSMiniWebService
         {
             InventoryHeader invhdrhandler = new InventoryHeader();
             return invhdrhandler.UpdateInventoryHeader(invhdr);
-            
-           
+          
         }
 
         [WebMethod]
@@ -197,7 +188,6 @@ namespace WMSMiniWebService
             else {
 
                 return -1;
-            
             }
 
         }
@@ -212,8 +202,31 @@ namespace WMSMiniWebService
                 return 1;
             }
             else return -1;
-
         }
+
+
+
+        [WebMethod]
+        public InventoryInfo GetInventoryInfo(long invHeaderId)
+        {
+            StringBuilder sqlstr = new StringBuilder();
+            InventoryInfo i = new InventoryInfo();
+
+
+            IDataReader dr = db.DBReturnDatareaderResults("select * from VINVENTORYHEADERSTATS WHERE INVHDRID = " + invHeaderId.ToString());
+
+
+            while(dr.Read()){
+                i.InvCount = DbUtils.INTdr(dr["invRecords"]);
+                i.LastBarcode =  DbUtils.STRINGdr(dr["lastbarcode"]);
+                i.LastInvdate = DbUtils.DATEdr(dr["lastinvdate"]);
+            }
+            dr.Close();
+            dr.Dispose();
+
+            return i;
+        }
+
 
 
         [WebMethod]
@@ -562,12 +575,22 @@ namespace WMSMiniWebService
         {
 
             return receives.InsertNewTranscode(t); 
-        
         }
+        [WebMethod]
+        public long GetInventoryLotQty(long invHrdId,long lotid) 
+        {
+            long lotqty = db.DBGetNumResultwithZero(" select CAST(SUM(ISNULL(invqtysecondary,invqty)) AS INTEGER) from TWMSInventory where invhdrid = " + invHrdId.ToString() + " and lotid = " + lotid.ToString());
+            
+            if (lotqty >= 0)
+            {
+                return lotqty;
+            }
+            else {
 
-
-
-
+                return 0;
+            }
+       
+        }
 
         [WebMethod]
         public DataSet SOA_GetLots(int storeid, long startid, long endid)
@@ -660,6 +683,29 @@ namespace WMSMiniWebService
             return invhandler.GetInventoryTasks(branchid);
         }
 
+        [WebMethod]
+        public DataTable GetInventoryRecords(long InvHdrID,string sqlfilter,bool top10rows)
+        {
+            InventoryHandler invhandler = new InventoryHandler();
+
+            return invhandler.GetInventoryRecords(InvHdrID,sqlfilter,top10rows);
+        }
+
+        [WebMethod]
+        public DataTable GetInventoryRecord (long InvID)
+        {
+            InventoryHandler invhandler = new InventoryHandler();
+
+            return invhandler.GetInventoryRecord(InvID);
+        }
+
+        [WebMethod]
+        public long DeleteInventoryRecord(long InvID)
+        {
+            InventoryHandler invhandler = new InventoryHandler();
+
+            return invhandler.DeleteInventoryRecord(InvID);
+        }
 
     }
 

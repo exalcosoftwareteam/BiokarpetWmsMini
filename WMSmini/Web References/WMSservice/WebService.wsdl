@@ -349,6 +349,27 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="GetInventoryInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="invHeaderId" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetInventoryInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetInventoryInfoResult" type="tns:InventoryInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="InventoryInfo">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="InvCount" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="LastBarcode" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="LastInvdate" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
       <s:element name="InsertNewItem">
         <s:complexType>
           <s:sequence>
@@ -674,6 +695,21 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="GetInventoryLotQty">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="invHrdId" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="lotid" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetInventoryLotQtyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetInventoryLotQtyResult" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="SOA_GetLots">
         <s:complexType>
           <s:sequence>
@@ -789,6 +825,64 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="GetInventoryRecords">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="InvHdrID" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="sqlfilter" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="top10rows" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetInventoryRecordsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetInventoryRecordsResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetInventoryRecord">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="InvID" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetInventoryRecordResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetInventoryRecordResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteInventoryRecord">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="InvID" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteInventoryRecordResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DeleteInventoryRecordResult" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="string" nillable="true" type="s:string" />
       <s:element name="TItems" nillable="true" type="tns:TItems" />
       <s:element name="DataTable" nillable="true">
@@ -809,6 +903,7 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="InventoryInfo" nillable="true" type="tns:InventoryInfo" />
       <s:element name="SyncInfo" nillable="true" type="tns:SyncInfo" />
       <s:element name="ArrayOfERPItem" nillable="true" type="tns:ArrayOfERPItem" />
       <s:element name="ArrayOfERPLot" nillable="true" type="tns:ArrayOfERPLot" />
@@ -952,6 +1047,12 @@
   <wsdl:message name="LotExistsSoapOut">
     <wsdl:part name="parameters" element="tns:LotExistsResponse" />
   </wsdl:message>
+  <wsdl:message name="GetInventoryInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:GetInventoryInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetInventoryInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:GetInventoryInfoResponse" />
+  </wsdl:message>
   <wsdl:message name="InsertNewItemSoapIn">
     <wsdl:part name="parameters" element="tns:InsertNewItem" />
   </wsdl:message>
@@ -1054,6 +1155,12 @@
   <wsdl:message name="InsertTransCodeHeaderSoapOut">
     <wsdl:part name="parameters" element="tns:InsertTransCodeHeaderResponse" />
   </wsdl:message>
+  <wsdl:message name="GetInventoryLotQtySoapIn">
+    <wsdl:part name="parameters" element="tns:GetInventoryLotQty" />
+  </wsdl:message>
+  <wsdl:message name="GetInventoryLotQtySoapOut">
+    <wsdl:part name="parameters" element="tns:GetInventoryLotQtyResponse" />
+  </wsdl:message>
   <wsdl:message name="SOA_GetLotsSoapIn">
     <wsdl:part name="parameters" element="tns:SOA_GetLots" />
   </wsdl:message>
@@ -1089,6 +1196,24 @@
   </wsdl:message>
   <wsdl:message name="GetInventoryTasksSoapOut">
     <wsdl:part name="parameters" element="tns:GetInventoryTasksResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetInventoryRecordsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetInventoryRecords" />
+  </wsdl:message>
+  <wsdl:message name="GetInventoryRecordsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetInventoryRecordsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetInventoryRecordSoapIn">
+    <wsdl:part name="parameters" element="tns:GetInventoryRecord" />
+  </wsdl:message>
+  <wsdl:message name="GetInventoryRecordSoapOut">
+    <wsdl:part name="parameters" element="tns:GetInventoryRecordResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteInventoryRecordSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteInventoryRecord" />
+  </wsdl:message>
+  <wsdl:message name="DeleteInventoryRecordSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteInventoryRecordResponse" />
   </wsdl:message>
   <wsdl:message name="CheckDBConnectionHttpGetIn" />
   <wsdl:message name="CheckDBConnectionHttpGetOut">
@@ -1181,6 +1306,12 @@
   <wsdl:message name="LotExistsHttpGetOut">
     <wsdl:part name="Body" element="tns:long" />
   </wsdl:message>
+  <wsdl:message name="GetInventoryInfoHttpGetIn">
+    <wsdl:part name="invHeaderId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetInventoryInfoHttpGetOut">
+    <wsdl:part name="Body" element="tns:InventoryInfo" />
+  </wsdl:message>
   <wsdl:message name="SqlerrorlogHttpGetIn" />
   <wsdl:message name="SqlerrorlogHttpGetOut">
     <wsdl:part name="Body" element="tns:long" />
@@ -1221,6 +1352,13 @@
   <wsdl:message name="ClearlotlistHttpGetOut">
     <wsdl:part name="Body" element="tns:long" />
   </wsdl:message>
+  <wsdl:message name="GetInventoryLotQtyHttpGetIn">
+    <wsdl:part name="invHrdId" type="s:string" />
+    <wsdl:part name="lotid" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetInventoryLotQtyHttpGetOut">
+    <wsdl:part name="Body" element="tns:long" />
+  </wsdl:message>
   <wsdl:message name="SOA_GetLotsHttpGetIn">
     <wsdl:part name="storeid" type="s:string" />
     <wsdl:part name="startid" type="s:string" />
@@ -1253,6 +1391,26 @@
   </wsdl:message>
   <wsdl:message name="GetInventoryTasksHttpGetOut">
     <wsdl:part name="Body" element="tns:DataTable" />
+  </wsdl:message>
+  <wsdl:message name="GetInventoryRecordsHttpGetIn">
+    <wsdl:part name="InvHdrID" type="s:string" />
+    <wsdl:part name="sqlfilter" type="s:string" />
+    <wsdl:part name="top10rows" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetInventoryRecordsHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataTable" />
+  </wsdl:message>
+  <wsdl:message name="GetInventoryRecordHttpGetIn">
+    <wsdl:part name="InvID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetInventoryRecordHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataTable" />
+  </wsdl:message>
+  <wsdl:message name="DeleteInventoryRecordHttpGetIn">
+    <wsdl:part name="InvID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DeleteInventoryRecordHttpGetOut">
+    <wsdl:part name="Body" element="tns:long" />
   </wsdl:message>
   <wsdl:message name="CheckDBConnectionHttpPostIn" />
   <wsdl:message name="CheckDBConnectionHttpPostOut">
@@ -1345,6 +1503,12 @@
   <wsdl:message name="LotExistsHttpPostOut">
     <wsdl:part name="Body" element="tns:long" />
   </wsdl:message>
+  <wsdl:message name="GetInventoryInfoHttpPostIn">
+    <wsdl:part name="invHeaderId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetInventoryInfoHttpPostOut">
+    <wsdl:part name="Body" element="tns:InventoryInfo" />
+  </wsdl:message>
   <wsdl:message name="SqlerrorlogHttpPostIn" />
   <wsdl:message name="SqlerrorlogHttpPostOut">
     <wsdl:part name="Body" element="tns:long" />
@@ -1385,6 +1549,13 @@
   <wsdl:message name="ClearlotlistHttpPostOut">
     <wsdl:part name="Body" element="tns:long" />
   </wsdl:message>
+  <wsdl:message name="GetInventoryLotQtyHttpPostIn">
+    <wsdl:part name="invHrdId" type="s:string" />
+    <wsdl:part name="lotid" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetInventoryLotQtyHttpPostOut">
+    <wsdl:part name="Body" element="tns:long" />
+  </wsdl:message>
   <wsdl:message name="SOA_GetLotsHttpPostIn">
     <wsdl:part name="storeid" type="s:string" />
     <wsdl:part name="startid" type="s:string" />
@@ -1417,6 +1588,26 @@
   </wsdl:message>
   <wsdl:message name="GetInventoryTasksHttpPostOut">
     <wsdl:part name="Body" element="tns:DataTable" />
+  </wsdl:message>
+  <wsdl:message name="GetInventoryRecordsHttpPostIn">
+    <wsdl:part name="InvHdrID" type="s:string" />
+    <wsdl:part name="sqlfilter" type="s:string" />
+    <wsdl:part name="top10rows" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetInventoryRecordsHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataTable" />
+  </wsdl:message>
+  <wsdl:message name="GetInventoryRecordHttpPostIn">
+    <wsdl:part name="InvID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetInventoryRecordHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataTable" />
+  </wsdl:message>
+  <wsdl:message name="DeleteInventoryRecordHttpPostIn">
+    <wsdl:part name="InvID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DeleteInventoryRecordHttpPostOut">
+    <wsdl:part name="Body" element="tns:long" />
   </wsdl:message>
   <wsdl:portType name="WebServiceSoap">
     <wsdl:operation name="CheckDBConnection">
@@ -1491,6 +1682,10 @@
       <wsdl:input message="tns:LotExistsSoapIn" />
       <wsdl:output message="tns:LotExistsSoapOut" />
     </wsdl:operation>
+    <wsdl:operation name="GetInventoryInfo">
+      <wsdl:input message="tns:GetInventoryInfoSoapIn" />
+      <wsdl:output message="tns:GetInventoryInfoSoapOut" />
+    </wsdl:operation>
     <wsdl:operation name="InsertNewItem">
       <wsdl:input message="tns:InsertNewItemSoapIn" />
       <wsdl:output message="tns:InsertNewItemSoapOut" />
@@ -1559,6 +1754,10 @@
       <wsdl:input message="tns:InsertTransCodeHeaderSoapIn" />
       <wsdl:output message="tns:InsertTransCodeHeaderSoapOut" />
     </wsdl:operation>
+    <wsdl:operation name="GetInventoryLotQty">
+      <wsdl:input message="tns:GetInventoryLotQtySoapIn" />
+      <wsdl:output message="tns:GetInventoryLotQtySoapOut" />
+    </wsdl:operation>
     <wsdl:operation name="SOA_GetLots">
       <wsdl:input message="tns:SOA_GetLotsSoapIn" />
       <wsdl:output message="tns:SOA_GetLotsSoapOut" />
@@ -1582,6 +1781,18 @@
     <wsdl:operation name="GetInventoryTasks">
       <wsdl:input message="tns:GetInventoryTasksSoapIn" />
       <wsdl:output message="tns:GetInventoryTasksSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetInventoryRecords">
+      <wsdl:input message="tns:GetInventoryRecordsSoapIn" />
+      <wsdl:output message="tns:GetInventoryRecordsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetInventoryRecord">
+      <wsdl:input message="tns:GetInventoryRecordSoapIn" />
+      <wsdl:output message="tns:GetInventoryRecordSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteInventoryRecord">
+      <wsdl:input message="tns:DeleteInventoryRecordSoapIn" />
+      <wsdl:output message="tns:DeleteInventoryRecordSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:portType name="WebServiceHttpGet">
@@ -1649,6 +1860,10 @@
       <wsdl:input message="tns:LotExistsHttpGetIn" />
       <wsdl:output message="tns:LotExistsHttpGetOut" />
     </wsdl:operation>
+    <wsdl:operation name="GetInventoryInfo">
+      <wsdl:input message="tns:GetInventoryInfoHttpGetIn" />
+      <wsdl:output message="tns:GetInventoryInfoHttpGetOut" />
+    </wsdl:operation>
     <wsdl:operation name="Sqlerrorlog">
       <wsdl:input message="tns:SqlerrorlogHttpGetIn" />
       <wsdl:output message="tns:SqlerrorlogHttpGetOut" />
@@ -1681,6 +1896,10 @@
       <wsdl:input message="tns:ClearlotlistHttpGetIn" />
       <wsdl:output message="tns:ClearlotlistHttpGetOut" />
     </wsdl:operation>
+    <wsdl:operation name="GetInventoryLotQty">
+      <wsdl:input message="tns:GetInventoryLotQtyHttpGetIn" />
+      <wsdl:output message="tns:GetInventoryLotQtyHttpGetOut" />
+    </wsdl:operation>
     <wsdl:operation name="SOA_GetLots">
       <wsdl:input message="tns:SOA_GetLotsHttpGetIn" />
       <wsdl:output message="tns:SOA_GetLotsHttpGetOut" />
@@ -1700,6 +1919,18 @@
     <wsdl:operation name="GetInventoryTasks">
       <wsdl:input message="tns:GetInventoryTasksHttpGetIn" />
       <wsdl:output message="tns:GetInventoryTasksHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetInventoryRecords">
+      <wsdl:input message="tns:GetInventoryRecordsHttpGetIn" />
+      <wsdl:output message="tns:GetInventoryRecordsHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetInventoryRecord">
+      <wsdl:input message="tns:GetInventoryRecordHttpGetIn" />
+      <wsdl:output message="tns:GetInventoryRecordHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteInventoryRecord">
+      <wsdl:input message="tns:DeleteInventoryRecordHttpGetIn" />
+      <wsdl:output message="tns:DeleteInventoryRecordHttpGetOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:portType name="WebServiceHttpPost">
@@ -1767,6 +1998,10 @@
       <wsdl:input message="tns:LotExistsHttpPostIn" />
       <wsdl:output message="tns:LotExistsHttpPostOut" />
     </wsdl:operation>
+    <wsdl:operation name="GetInventoryInfo">
+      <wsdl:input message="tns:GetInventoryInfoHttpPostIn" />
+      <wsdl:output message="tns:GetInventoryInfoHttpPostOut" />
+    </wsdl:operation>
     <wsdl:operation name="Sqlerrorlog">
       <wsdl:input message="tns:SqlerrorlogHttpPostIn" />
       <wsdl:output message="tns:SqlerrorlogHttpPostOut" />
@@ -1799,6 +2034,10 @@
       <wsdl:input message="tns:ClearlotlistHttpPostIn" />
       <wsdl:output message="tns:ClearlotlistHttpPostOut" />
     </wsdl:operation>
+    <wsdl:operation name="GetInventoryLotQty">
+      <wsdl:input message="tns:GetInventoryLotQtyHttpPostIn" />
+      <wsdl:output message="tns:GetInventoryLotQtyHttpPostOut" />
+    </wsdl:operation>
     <wsdl:operation name="SOA_GetLots">
       <wsdl:input message="tns:SOA_GetLotsHttpPostIn" />
       <wsdl:output message="tns:SOA_GetLotsHttpPostOut" />
@@ -1818,6 +2057,18 @@
     <wsdl:operation name="GetInventoryTasks">
       <wsdl:input message="tns:GetInventoryTasksHttpPostIn" />
       <wsdl:output message="tns:GetInventoryTasksHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetInventoryRecords">
+      <wsdl:input message="tns:GetInventoryRecordsHttpPostIn" />
+      <wsdl:output message="tns:GetInventoryRecordsHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetInventoryRecord">
+      <wsdl:input message="tns:GetInventoryRecordHttpPostIn" />
+      <wsdl:output message="tns:GetInventoryRecordHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteInventoryRecord">
+      <wsdl:input message="tns:DeleteInventoryRecordHttpPostIn" />
+      <wsdl:output message="tns:DeleteInventoryRecordHttpPostOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="WebServiceSoap" type="tns:WebServiceSoap">
@@ -1981,6 +2232,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetInventoryInfo">
+      <soap:operation soapAction="http://tempuri.org/GetInventoryInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="InsertNewItem">
       <soap:operation soapAction="http://tempuri.org/InsertNewItem" style="document" />
       <wsdl:input>
@@ -2134,6 +2394,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetInventoryLotQty">
+      <soap:operation soapAction="http://tempuri.org/GetInventoryLotQty" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="SOA_GetLots">
       <soap:operation soapAction="http://tempuri.org/SOA_GetLots" style="document" />
       <wsdl:input>
@@ -2181,6 +2450,33 @@
     </wsdl:operation>
     <wsdl:operation name="GetInventoryTasks">
       <soap:operation soapAction="http://tempuri.org/GetInventoryTasks" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInventoryRecords">
+      <soap:operation soapAction="http://tempuri.org/GetInventoryRecords" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInventoryRecord">
+      <soap:operation soapAction="http://tempuri.org/GetInventoryRecord" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteInventoryRecord">
+      <soap:operation soapAction="http://tempuri.org/DeleteInventoryRecord" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -2350,6 +2646,15 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetInventoryInfo">
+      <soap12:operation soapAction="http://tempuri.org/GetInventoryInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="InsertNewItem">
       <soap12:operation soapAction="http://tempuri.org/InsertNewItem" style="document" />
       <wsdl:input>
@@ -2503,6 +2808,15 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetInventoryLotQty">
+      <soap12:operation soapAction="http://tempuri.org/GetInventoryLotQty" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="SOA_GetLots">
       <soap12:operation soapAction="http://tempuri.org/SOA_GetLots" style="document" />
       <wsdl:input>
@@ -2550,6 +2864,33 @@
     </wsdl:operation>
     <wsdl:operation name="GetInventoryTasks">
       <soap12:operation soapAction="http://tempuri.org/GetInventoryTasks" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInventoryRecords">
+      <soap12:operation soapAction="http://tempuri.org/GetInventoryRecords" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInventoryRecord">
+      <soap12:operation soapAction="http://tempuri.org/GetInventoryRecord" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteInventoryRecord">
+      <soap12:operation soapAction="http://tempuri.org/DeleteInventoryRecord" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -2696,6 +3037,15 @@
         <mime:mimeXml part="Body" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetInventoryInfo">
+      <http:operation location="/GetInventoryInfo" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="Sqlerrorlog">
       <http:operation location="/Sqlerrorlog" />
       <wsdl:input>
@@ -2768,6 +3118,15 @@
         <mime:mimeXml part="Body" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetInventoryLotQty">
+      <http:operation location="/GetInventoryLotQty" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="SOA_GetLots">
       <http:operation location="/SOA_GetLots" />
       <wsdl:input>
@@ -2806,6 +3165,33 @@
     </wsdl:operation>
     <wsdl:operation name="GetInventoryTasks">
       <http:operation location="/GetInventoryTasks" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInventoryRecords">
+      <http:operation location="/GetInventoryRecords" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInventoryRecord">
+      <http:operation location="/GetInventoryRecord" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteInventoryRecord">
+      <http:operation location="/DeleteInventoryRecord" />
       <wsdl:input>
         <http:urlEncoded />
       </wsdl:input>
@@ -2952,6 +3338,15 @@
         <mime:mimeXml part="Body" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetInventoryInfo">
+      <http:operation location="/GetInventoryInfo" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="Sqlerrorlog">
       <http:operation location="/Sqlerrorlog" />
       <wsdl:input>
@@ -3024,6 +3419,15 @@
         <mime:mimeXml part="Body" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetInventoryLotQty">
+      <http:operation location="/GetInventoryLotQty" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="SOA_GetLots">
       <http:operation location="/SOA_GetLots" />
       <wsdl:input>
@@ -3062,6 +3466,33 @@
     </wsdl:operation>
     <wsdl:operation name="GetInventoryTasks">
       <http:operation location="/GetInventoryTasks" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInventoryRecords">
+      <http:operation location="/GetInventoryRecords" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInventoryRecord">
+      <http:operation location="/GetInventoryRecord" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteInventoryRecord">
+      <http:operation location="/DeleteInventoryRecord" />
       <wsdl:input>
         <mime:content type="application/x-www-form-urlencoded" />
       </wsdl:input>

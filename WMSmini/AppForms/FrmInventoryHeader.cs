@@ -13,15 +13,12 @@ namespace WMSMobileClient
     {
         bool iDateEntered = false;
         bool iCommentsEntered = false;
-        private readonly bool online = false;
 
         InventoryHeader invhdr = new InventoryHeader();
         InventoryHeaderHandler invhdrhandler = new InventoryHeaderHandler();
 
-        public FrmInventoryHeader(bool isonline)
+        public FrmInventoryHeader()
         {
-            online = isonline;
-
             InitializeComponent();
             GetDate();
             ShowMessageBox("ΠΡΟΣΟΧΗ , πρέπει να είστε online για να δημιουργήσετε νέα απογραφή");
@@ -239,36 +236,18 @@ namespace WMSMobileClient
             ShowMessageBox("Παρακαλώ περιμένετε ... ");
             Application.DoEvents();
 
-
-            //if (cb_forcedelete.Checked)
-            //{
-            //    if (!(MessageBox.Show("Έχετε επιλέξει να γίνει επανενημέρωση του καταλόγου Atlantis,είστε βέβαιοι ?", "Επιβεβαίωση", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk, MessageBoxDefaultButton.Button1) == DialogResult.Yes))
-            //    {
-            //        HideMessageBox();
-            //        Cursor.Current = Cursors.Default;
-            //        return;
-            //    }
-            //   result= invhdrhandler.GetAtlantisCurrentInventory(true);
-            //}
-            //else
-            //{
-            //   result= invhdrhandler.GetAtlantisCurrentInventory(false);
-            //}
-
-            //if (result < 0)
-            //{
-
-            //    ShowMessageBox("Συνέβη κάποιο σφάλμα,Ελέγξτε την συνδεσιμότητα");
-            //    Cursor.Current = Cursors.Default;
-            //    return;
-
-            //}
             HideMessageBox();
             Cursor.Current = Cursors.Default;
+            long newinvhdrid = 0;
 
-
-
-            long newinvhdrid = online ? invhdrhandler.UpdateInventoryHeaderOnline(invhdr) : invhdrhandler.UpdateInventoryHeader(invhdr);
+            if (AppGeneralSettings.OnlineMode)
+            {
+                newinvhdrid = invhdrhandler.UpdateInventoryHeaderOnline(invhdr);
+            }
+            else 
+            { 
+                 newinvhdrid = invhdrhandler.UpdateInventoryHeader(invhdr);
+            }
 
 
             if (newinvhdrid > 0)
@@ -299,8 +278,17 @@ namespace WMSMobileClient
 
         protected void GoBack()
         {
-            FrmSelectInventoryHeader FrmSelectInventoryHeader = new FrmSelectInventoryHeader();
-            FrmSelectInventoryHeader.Show();
+            if (AppGeneralSettings.OnlineMode)
+            {
+                FrmSelectInventoryHeaderOnline FrmSelectInventoryHeaderOnline = new FrmSelectInventoryHeaderOnline();
+                FrmSelectInventoryHeaderOnline.Show();
+            }
+            else
+            {
+                FrmSelectInventoryHeader FrmSelectInventoryHeader = new FrmSelectInventoryHeader();
+                FrmSelectInventoryHeader.Show();
+            }
+
             this.Close();
         }
 

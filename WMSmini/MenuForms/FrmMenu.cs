@@ -46,7 +46,7 @@ namespace WMSMobileClient
 
             FixREsolutionIssues();
 
-            
+
         }
 
 
@@ -57,7 +57,8 @@ namespace WMSMobileClient
         {
             PBReceiving.Image = Properties.Resources.receiving_big_off;
      //       MenuOptionsEnabled.receiving = true;
-            
+             
+           
         }
 
         protected void FixREsolutionIssues()
@@ -82,6 +83,7 @@ namespace WMSMobileClient
                 PBinventory.Location = new Point(130, 30);
                 PBinventory.SizeMode = PictureBoxSizeMode.StretchImage;
 
+                lb_online.Location = new Point(130, 100);
 
 
                 //PBPutaway.Width = 70;
@@ -463,8 +465,17 @@ namespace WMSMobileClient
         {
             Cursor.Current = Cursors.WaitCursor;
 
-            WMSForms.FrmInventory = new FrmInventory(0);
-            WMSForms.FrmInventory.Show();
+            if (AppGeneralSettings.OnlineMode)
+            {
+                WMSForms.FrmSelectInventoryHeaderOnline = new FrmSelectInventoryHeaderOnline();
+                WMSForms.FrmSelectInventoryHeaderOnline.Show();
+
+
+            }
+            else {
+                WMSForms.FrmInventory = new FrmInventory(0);
+                WMSForms.FrmInventory.Show();        
+            }
 
             Cursor.Current = Cursors.Default;
         }
@@ -508,6 +519,11 @@ namespace WMSMobileClient
         private void PBReceiving_MouseMove(object sender, MouseEventArgs e)
         {
             EnableMenuChoice(MenuOptions.receiving);
+        }
+
+        private void FrmMenu_GotFocus(object sender, EventArgs e)
+        {
+            lb_online.Visible = AppGeneralSettings.OnlineMode;
         }        
     }
 }

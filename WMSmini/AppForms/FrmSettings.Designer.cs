@@ -63,6 +63,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.cb_alterinvexport = new System.Windows.Forms.CheckBox();
+            this.cb_onlinemode = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // TBWebService
@@ -347,11 +348,21 @@
             // cb_alterinvexport
             // 
             this.cb_alterinvexport.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Regular);
-            this.cb_alterinvexport.Location = new System.Drawing.Point(7, 159);
+            this.cb_alterinvexport.Location = new System.Drawing.Point(7, 178);
             this.cb_alterinvexport.Name = "cb_alterinvexport";
             this.cb_alterinvexport.Size = new System.Drawing.Size(211, 15);
             this.cb_alterinvexport.TabIndex = 201;
             this.cb_alterinvexport.Text = "Εναλλακτική εξαγωγή απογραφής";
+            this.cb_alterinvexport.Visible = false;
+            // 
+            // cb_onlinemode
+            // 
+            this.cb_onlinemode.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Regular);
+            this.cb_onlinemode.Location = new System.Drawing.Point(7, 160);
+            this.cb_onlinemode.Name = "cb_onlinemode";
+            this.cb_onlinemode.Size = new System.Drawing.Size(211, 15);
+            this.cb_onlinemode.TabIndex = 222;
+            this.cb_onlinemode.Text = "Online Απογραφή";
             // 
             // FrmSettings
             // 
@@ -360,6 +371,7 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(240, 320);
             this.ControlBox = false;
+            this.Controls.Add(this.cb_onlinemode);
             this.Controls.Add(this.cb_alterinvexport);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);
@@ -431,5 +443,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.CheckBox cb_alterinvexport;
+        private System.Windows.Forms.CheckBox cb_onlinemode;
     }
 }

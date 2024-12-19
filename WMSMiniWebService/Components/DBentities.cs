@@ -2,6 +2,7 @@
 
 
 
+using System;
 namespace WMSMiniWebService
 {
 
@@ -457,8 +458,13 @@ namespace WMSMiniWebService
         }
     }
 
-
-
+    public class InventoryInfo
+    {
+        public int InvCount { get; set; }
+        public string LastBarcode { get; set; }
+        public DateTime LastInvdate { get; set; } 
+    
+    }
 
 
 

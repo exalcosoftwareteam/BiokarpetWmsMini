@@ -215,6 +215,15 @@ namespace WMSMobileClient.Components
         decimal erpqty2;
         string entrydate;
 
+        string itemCode;
+        string itemDesc;
+        int mUnitPrimary;
+        int mUnitSecondary;
+        decimal mUnitsRelation;
+        string mUnitDesc1;
+        string mUnitDesc2;
+
+
         public long LotID { get { return lotID; } set { lotID = value; } }
         public long ItemID { get { return itemID; } set { itemID = value; } }
         public short CompID { get { return compID; } set { compID = value; } }
@@ -228,7 +237,17 @@ namespace WMSMobileClient.Components
         public decimal ErpQty { get { return erpqty; } set { erpqty = value; } }
         public decimal ErpQty2 { get { return erpqty2; } set { erpqty2 = value; } }
         public string EntryDate { get { return entrydate; } set { entrydate = value; } }
+
+
+        public string ItemCode { get { return itemCode; } set { itemCode = value; } }
+        public string ItemDesc { get { return itemDesc; } set { itemDesc = value; } }
+        public int MUnitPrimary { get { return mUnitPrimary; } set { mUnitPrimary = value; } }
+        public int MUnitSecondary { get { return mUnitSecondary; } set { mUnitSecondary = value; } }
+        public decimal MUnitsRelation { get { return mUnitsRelation; } set { mUnitsRelation = value; } }
+        public string MUnitDesc1 { get { return mUnitDesc1; } set { mUnitDesc1 = value; } }
+        public string MUnitDesc2 { get { return mUnitDesc2; } set { mUnitDesc2 = value; } }
     }
+
 
     public class InventoryHeader
     {

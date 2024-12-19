@@ -417,6 +417,26 @@ namespace WMSMobileClient.WMSservice {
         }
         
         /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetInventoryInfo", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public InventoryInfo GetInventoryInfo(long invHeaderId) {
+            object[] results = this.Invoke("GetInventoryInfo", new object[] {
+                        invHeaderId});
+            return ((InventoryInfo)(results[0]));
+        }
+        
+        /// <remarks/>
+        public System.IAsyncResult BeginGetInventoryInfo(long invHeaderId, System.AsyncCallback callback, object asyncState) {
+            return this.BeginInvoke("GetInventoryInfo", new object[] {
+                        invHeaderId}, callback, asyncState);
+        }
+        
+        /// <remarks/>
+        public InventoryInfo EndGetInventoryInfo(System.IAsyncResult asyncResult) {
+            object[] results = this.EndInvoke(asyncResult);
+            return ((InventoryInfo)(results[0]));
+        }
+        
+        /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/InsertNewItem", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         public long InsertNewItem(ERPItem newitem) {
             object[] results = this.Invoke("InsertNewItem", new object[] {
@@ -759,6 +779,28 @@ namespace WMSMobileClient.WMSservice {
         }
         
         /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetInventoryLotQty", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public long GetInventoryLotQty(long invHrdId, long lotid) {
+            object[] results = this.Invoke("GetInventoryLotQty", new object[] {
+                        invHrdId,
+                        lotid});
+            return ((long)(results[0]));
+        }
+        
+        /// <remarks/>
+        public System.IAsyncResult BeginGetInventoryLotQty(long invHrdId, long lotid, System.AsyncCallback callback, object asyncState) {
+            return this.BeginInvoke("GetInventoryLotQty", new object[] {
+                        invHrdId,
+                        lotid}, callback, asyncState);
+        }
+        
+        /// <remarks/>
+        public long EndGetInventoryLotQty(System.IAsyncResult asyncResult) {
+            object[] results = this.EndInvoke(asyncResult);
+            return ((long)(results[0]));
+        }
+        
+        /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/SOA_GetLots", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         public System.Data.DataSet SOA_GetLots(int storeid, long startid, long endid) {
             object[] results = this.Invoke("SOA_GetLots", new object[] {
@@ -882,6 +924,70 @@ namespace WMSMobileClient.WMSservice {
         public System.Data.DataTable EndGetInventoryTasks(System.IAsyncResult asyncResult) {
             object[] results = this.EndInvoke(asyncResult);
             return ((System.Data.DataTable)(results[0]));
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetInventoryRecords", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public System.Data.DataTable GetInventoryRecords(long InvHdrID, string sqlfilter, bool top10rows) {
+            object[] results = this.Invoke("GetInventoryRecords", new object[] {
+                        InvHdrID,
+                        sqlfilter,
+                        top10rows});
+            return ((System.Data.DataTable)(results[0]));
+        }
+        
+        /// <remarks/>
+        public System.IAsyncResult BeginGetInventoryRecords(long InvHdrID, string sqlfilter, bool top10rows, System.AsyncCallback callback, object asyncState) {
+            return this.BeginInvoke("GetInventoryRecords", new object[] {
+                        InvHdrID,
+                        sqlfilter,
+                        top10rows}, callback, asyncState);
+        }
+        
+        /// <remarks/>
+        public System.Data.DataTable EndGetInventoryRecords(System.IAsyncResult asyncResult) {
+            object[] results = this.EndInvoke(asyncResult);
+            return ((System.Data.DataTable)(results[0]));
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetInventoryRecord", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public System.Data.DataTable GetInventoryRecord(long InvID) {
+            object[] results = this.Invoke("GetInventoryRecord", new object[] {
+                        InvID});
+            return ((System.Data.DataTable)(results[0]));
+        }
+        
+        /// <remarks/>
+        public System.IAsyncResult BeginGetInventoryRecord(long InvID, System.AsyncCallback callback, object asyncState) {
+            return this.BeginInvoke("GetInventoryRecord", new object[] {
+                        InvID}, callback, asyncState);
+        }
+        
+        /// <remarks/>
+        public System.Data.DataTable EndGetInventoryRecord(System.IAsyncResult asyncResult) {
+            object[] results = this.EndInvoke(asyncResult);
+            return ((System.Data.DataTable)(results[0]));
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/DeleteInventoryRecord", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public long DeleteInventoryRecord(long InvID) {
+            object[] results = this.Invoke("DeleteInventoryRecord", new object[] {
+                        InvID});
+            return ((long)(results[0]));
+        }
+        
+        /// <remarks/>
+        public System.IAsyncResult BeginDeleteInventoryRecord(long InvID, System.AsyncCallback callback, object asyncState) {
+            return this.BeginInvoke("DeleteInventoryRecord", new object[] {
+                        InvID}, callback, asyncState);
+        }
+        
+        /// <remarks/>
+        public long EndDeleteInventoryRecord(System.IAsyncResult asyncResult) {
+            object[] results = this.EndInvoke(asyncResult);
+            return ((long)(results[0]));
         }
     }
     
@@ -2214,6 +2320,49 @@ namespace WMSMobileClient.WMSservice {
             }
             set {
                 this.entryDateField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class InventoryInfo {
+        
+        private int invCountField;
+        
+        private string lastBarcodeField;
+        
+        private System.DateTime lastInvdateField;
+        
+        /// <remarks/>
+        public int InvCount {
+            get {
+                return this.invCountField;
+            }
+            set {
+                this.invCountField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string LastBarcode {
+            get {
+                return this.lastBarcodeField;
+            }
+            set {
+                this.lastBarcodeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public System.DateTime LastInvdate {
+            get {
+                return this.lastInvdateField;
+            }
+            set {
+                this.lastInvdateField = value;
             }
         }
     }

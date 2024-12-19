@@ -713,13 +713,10 @@ namespace WMSSyncService
 
             DataTable DT = new DataTable();
 
-
             sqlstr.Append("select id as ITEMID,comid as COMPID,mu1 as MUNITPRIMARY,mu2 as MUNITSECONDARY,code as ITEMCODE,description as ITEMDESC,to_char(ENTRYDATE, 'dd/mm/yyyy') as ENTRYDATE from material WHERE ID = " + itemid.ToString());
             DT = db.DBFillDataTable(sqlstr.ToString(), "DSITEMS");
 
             return ItemParse(DT.Rows[0]);
-            
-
         }
          
         public SyncLot FGetLot(long lotid)
@@ -752,6 +749,40 @@ namespace WMSSyncService
            DT = db.DBFillDataTable(sqlstr.ToString(), "DSITEMS");
 
             return FParseLot(DT.Rows[0]);
+
+        }
+
+        public SyncLot FGetLotbyCodeInventory(string lotcode)
+        {
+            StringBuilder sqlstr = new StringBuilder();
+            DataTable DT = new DataTable();
+
+            sqlstr.Append(" SELECT ");
+            sqlstr.Append(" ZVB.COMPID,   ");
+            sqlstr.Append(" ZVB.LOTID,   ");
+            sqlstr.Append(" ZVB.LOTCODE,   ");
+            sqlstr.Append(" ZVB.ITEMID,   ");
+            sqlstr.Append(" ZVB.WIDTH,   ");
+            sqlstr.Append(" ZVB.LENGTH,   ");
+            sqlstr.Append(" ZVB.DRAFT,   ");
+            sqlstr.Append(" ZVB.COLOR,");
+            sqlstr.Append(" MAT.CODE as ITEMCODE,");
+            sqlstr.Append(" MAT.DESCRIPTION as ITEMDESC,");
+            sqlstr.Append(" MAT.MU1 AS MUNITPRIMARY,");
+            sqlstr.Append(" MAT.MU2 AS MUNITSECONDARY,");
+            sqlstr.Append(" MU1.DESCR AS MUNITDESC1,");
+            sqlstr.Append(" MU2.DESCR AS MUNITDESC2, ");
+            sqlstr.Append(" MAT.ENTRYDATE,");
+            sqlstr.Append(" to_char(ZVB.ZENTRYDATE, 'dd/mm/yyyy') as ZENTRYDATE");
+            sqlstr.Append(" FROM ZVBRAPOGRAFH ZVB,MATERIAL MAT , MESUNIT MU1, MESUNIT MU2");
+            sqlstr.Append(" WHERE ZVB.ITEMID = MAT.ID(+) ");
+            sqlstr.Append(" AND MAT.MU1 = MU1.CODEID(+)");
+            sqlstr.Append(" AND MAT.MU2 = MU2.CODEID(+)");
+            sqlstr.Append(" AND ZVB.LOTCODE ='" + lotcode + "'");
+
+            DT = db.DBFillDataTable(sqlstr.ToString(), "DSLOT");
+
+            return FParseLotInventory(DT.Rows[0]);
 
         }
 
@@ -962,7 +993,53 @@ namespace WMSSyncService
             catch { }
            
             return lot;
+        }
+
+
+        private SyncLot FParseLotInventory(DataRow Dr)
+        {
+            SyncLot lot = new SyncLot();
+            try { lot.LotID = long.Parse(Dr["LOTID"].ToString()); }
+            catch { }
+            try { lot.ItemID = long.Parse(Dr["ITEMID"].ToString()); }
+            catch { }
+            try { lot.CompID = short.Parse(Dr["COMPID"].ToString()); }
+            catch { }
+            try { lot.BranchID = short.Parse(Dr["BRANCHID"].ToString()); }
+            catch { }
+            try { lot.StoreID = short.Parse(Dr["STOREID"].ToString()); }
+            catch { }
+            try { lot.Color = Dr["COLOR"].ToString(); }
+            catch { }
+            try { lot.Draft = Dr["DRAFT"].ToString(); }
+            catch { }
+            try { lot.Width = decimal.Parse(Dr["WIDTH"].ToString()); }
+            catch { }
+            try { lot.Length = decimal.Parse(Dr["LENGTH"].ToString()); }
+            catch { }
+            try { lot.LotCode = Dr["LOTCODE"].ToString(); }
+            catch { }
+            try { lot.EntryDate = Dr["ZENTRYDATE"].ToString(); }
+            catch { }
+             try { lot.ItemCode = Dr["ITEMCODE"].ToString(); }
+            catch { }
+            try { lot.ItemDesc = Dr["ITEMDESC"].ToString(); }
+            catch { }
+             try { lot.MunitPrimary = short.Parse(Dr["MUNITPRIMARY"].ToString()); }
+            catch { }
+           
+             try { lot.MunitSecondary = short.Parse(Dr["MUNITSECONDARY"].ToString()); }
+            catch { }
+
+            try { lot.MunitDesc1 = Dr["MUNITDESC1"].ToString(); }
+            catch { }
+
+            try { lot.MunitDesc2 = Dr["MUNITDESC2"].ToString(); }
+            catch { }
+
+            return lot;
         }       
+
 
         #endregion
     }

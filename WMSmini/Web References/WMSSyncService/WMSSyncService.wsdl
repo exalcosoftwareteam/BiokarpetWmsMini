@@ -318,6 +318,12 @@
           <s:element minOccurs="1" maxOccurs="1" name="ItemPrimaryQty" type="s:decimal" />
           <s:element minOccurs="1" maxOccurs="1" name="ItemSecondaryQty" type="s:decimal" />
           <s:element minOccurs="0" maxOccurs="1" name="EntryDate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ItemCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ItemDesc" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="MunitPrimary" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="MunitSecondary" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="MunitDesc1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MunitDesc2" type="s:string" />
         </s:sequence>
       </s:complexType>
       <s:element name="TestERPcon">
@@ -552,6 +558,20 @@
         <s:complexType>
           <s:sequence>
             <s:element minOccurs="0" maxOccurs="1" name="SOA_GetNewLotbyCodeResult" type="tns:SyncLot" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SOA_GetLotbyCodeInventory">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="lotcode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SOA_GetLotbyCodeInventoryResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SOA_GetLotbyCodeInventoryResult" type="tns:SyncLot" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -889,6 +909,12 @@
   <wsdl:message name="SOA_GetNewLotbyCodeSoapOut">
     <wsdl:part name="parameters" element="tns:SOA_GetNewLotbyCodeResponse" />
   </wsdl:message>
+  <wsdl:message name="SOA_GetLotbyCodeInventorySoapIn">
+    <wsdl:part name="parameters" element="tns:SOA_GetLotbyCodeInventory" />
+  </wsdl:message>
+  <wsdl:message name="SOA_GetLotbyCodeInventorySoapOut">
+    <wsdl:part name="parameters" element="tns:SOA_GetLotbyCodeInventoryResponse" />
+  </wsdl:message>
   <wsdl:message name="SOA_GetInventoryLotsSoapIn">
     <wsdl:part name="parameters" element="tns:SOA_GetInventoryLots" />
   </wsdl:message>
@@ -1043,6 +1069,10 @@
     <wsdl:operation name="SOA_GetNewLotbyCode">
       <wsdl:input message="tns:SOA_GetNewLotbyCodeSoapIn" />
       <wsdl:output message="tns:SOA_GetNewLotbyCodeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SOA_GetLotbyCodeInventory">
+      <wsdl:input message="tns:SOA_GetLotbyCodeInventorySoapIn" />
+      <wsdl:output message="tns:SOA_GetLotbyCodeInventorySoapOut" />
     </wsdl:operation>
     <wsdl:operation name="SOA_GetInventoryLots">
       <wsdl:input message="tns:SOA_GetInventoryLotsSoapIn" />
@@ -1301,6 +1331,15 @@
     </wsdl:operation>
     <wsdl:operation name="SOA_GetNewLotbyCode">
       <soap:operation soapAction="http://WMSSyncService.intranet.albio.gr/SOA_GetNewLotbyCode" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SOA_GetLotbyCodeInventory">
+      <soap:operation soapAction="http://WMSSyncService.intranet.albio.gr/SOA_GetLotbyCodeInventory" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -1617,6 +1656,15 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="SOA_GetLotbyCodeInventory">
+      <soap12:operation soapAction="http://WMSSyncService.intranet.albio.gr/SOA_GetLotbyCodeInventory" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="SOA_GetInventoryLots">
       <soap12:operation soapAction="http://WMSSyncService.intranet.albio.gr/SOA_GetInventoryLots" style="document" />
       <wsdl:input>
@@ -1701,10 +1749,10 @@
   </wsdl:binding>
   <wsdl:service name="WMSSyncService">
     <wsdl:port name="WMSSyncServiceSoap" binding="tns:WMSSyncServiceSoap">
-      <soap:address location="http://10.1.10.29/WMSSyncServ/WMSSyncService.asmx" />
+      <soap:address location="http://10.1.10.46/WMSSyncService/WMSSyncService.asmx" />
     </wsdl:port>
     <wsdl:port name="WMSSyncServiceSoap12" binding="tns:WMSSyncServiceSoap12">
-      <soap12:address location="http://10.1.10.29/WMSSyncServ/WMSSyncService.asmx" />
+      <soap12:address location="http://10.1.10.46/WMSSyncService/WMSSyncService.asmx" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

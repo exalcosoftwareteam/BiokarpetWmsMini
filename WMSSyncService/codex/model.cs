@@ -124,6 +124,16 @@ namespace WMSSyncService
         public decimal ItemPrimaryQty { get; set; }
         public decimal ItemSecondaryQty { get; set; }
         public string EntryDate { get; set; }
+
+        public string ItemCode { get; set; }
+        public string ItemDesc { get; set; }
+
+        public int MunitPrimary { get; set; }
+        public int MunitSecondary { get; set; }
+
+        public string MunitDesc1 { get; set; }
+        public string MunitDesc2 { get; set; }
+
     }
 
     public class SyncInfo

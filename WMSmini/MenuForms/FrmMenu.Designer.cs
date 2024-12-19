@@ -37,6 +37,7 @@
             this.PBpicking = new System.Windows.Forms.PictureBox();
             this.PBinventory = new System.Windows.Forms.PictureBox();
             this.PBMenuSettings = new System.Windows.Forms.PictureBox();
+            this.lb_online = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // PBPutaway
@@ -116,12 +117,25 @@
             this.PBMenuSettings.Click += new System.EventHandler(this.PBMenuSettings_Click);
             this.PBMenuSettings.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PBMenuSettings_MouseDown);
             // 
+            // lb_online
+            // 
+            this.lb_online.BackColor = System.Drawing.Color.ForestGreen;
+            this.lb_online.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
+            this.lb_online.ForeColor = System.Drawing.Color.White;
+            this.lb_online.Location = new System.Drawing.Point(68, 313);
+            this.lb_online.Name = "lb_online";
+            this.lb_online.Size = new System.Drawing.Size(68, 17);
+            this.lb_online.Text = "ONLINE";
+            this.lb_online.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.lb_online.Visible = false;
+            // 
             // FrmMenu
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(480, 640);
             this.ControlBox = false;
+            this.Controls.Add(this.lb_online);
             this.Controls.Add(this.PBPutaway);
             this.Controls.Add(this.PBReceiving);
             this.Controls.Add(this.PBexports);
@@ -135,6 +149,7 @@
             this.Name = "FrmMenu";
             this.Text = "WMSClient - ΗΟΜΕ";
             this.Load += new System.EventHandler(this.FrmMenu_Load);
+            this.GotFocus += new System.EventHandler(this.FrmMenu_GotFocus);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmMenu_KeyDown);
             this.ResumeLayout(false);
 
@@ -148,5 +163,6 @@
         private System.Windows.Forms.PictureBox PBexports;
         private System.Windows.Forms.PictureBox PBReceiving;
         private System.Windows.Forms.PictureBox PBPutaway;
+        private System.Windows.Forms.Label lb_online;
     }
 }

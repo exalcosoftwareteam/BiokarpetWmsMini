@@ -29,6 +29,11 @@ namespace WMSMobileClient.Components
         public static FrmReceivesHeader FrmReceivesHeader;      
         public static FrmCreateTradeCode FrmCreateTradeCode;
         public static FrmReceiveView FrmReceiveView;
+        public static FrmSelectInventoryHeaderOnline FrmSelectInventoryHeaderOnline;
+        public static FrmInventoryOnline FrmInventoryOnline;
+        public static FrmInventoryViewOnline FrmInventoryViewOnline;       
+
+        
     }
 
     public static class  AppGeneralSettings
@@ -57,6 +62,7 @@ namespace WMSMobileClient.Components
         public static string successmsg = "";
         public static string SERVERIP;
         public static bool ALTERINVEXPORT;
+        public static bool OnlineMode;
         public static ReceivesController receives = new ReceivesController();
         //public static SOARetailWMSMiniProvider.SOARetailWMSMiniProvider webServiceProvider;
         public static WMSservice.WebService webServiceProvider = new WebService();
@@ -71,6 +77,7 @@ namespace WMSMobileClient.Components
 
     public  class AppSettings
     {
+         bool onlinemode;
          short compid;
          short branchid;
          short kindid;
@@ -91,7 +98,7 @@ namespace WMSMobileClient.Components
          string dbfile = "WMSMINIDB";
          string dbpass = "bidata";
          string configfile = "MyConfig.xml";
-        string customerCode;
+         string customerCode;
          string itemcodeprefix;
          bool removeprefixonScanning;
          char wildchar;
@@ -170,7 +177,11 @@ namespace WMSMobileClient.Components
 
          public string WebSyncSvcUrl
         { get { return websyncsvcurl; } set { websyncsvcurl = value; } }
-        
+
+
+         public bool OnlineMode
+         { get { return onlinemode; } set { onlinemode = value; } }
+
 
         public string TransCode
         { get { return transcode; } set { transcode = value; } }
@@ -369,6 +380,14 @@ namespace WMSMobileClient.Components
                                 if (ALTERINVEXPORT > 0) { AppGeneralSettings.ALTERINVEXPORT = true; } else { AppGeneralSettings.ALTERINVEXPORT = false; }
                             }
                             catch { }
+                            break;
+                   case "ONLINEMODE":
+                            try
+                            {
+                                onlinemode = short.Parse(XMLConftReader.ReadString()) > 0;
+                                AppGeneralSettings.OnlineMode = onlinemode;
+                            }
+                            catch { }
                             break;    
 
                         
@@ -470,6 +489,17 @@ namespace WMSMobileClient.Components
             {
                 XmlStr.AppendLine("<ALTERINVEXPORT>0</ALTERINVEXPORT>");
             }
+
+
+            if (AppGeneralSettings.OnlineMode)
+            {
+                XmlStr.AppendLine("<ONLINEMODE>1</ONLINEMODE>");
+            }
+            else
+            {
+                XmlStr.AppendLine("<ONLINEMODE>0</ONLINEMODE>");
+            }
+
             XmlStr.AppendLine("</AppConfig>");
 
             XMLFilePath = System.Reflection.Assembly.GetExecutingAssembly().GetName().CodeBase;

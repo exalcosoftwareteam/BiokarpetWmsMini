@@ -65,6 +65,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AppForms\FrmInventoryViewOnline.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AppForms\FrmInventoryViewOnline.Designer.cs">
+      <DependentUpon>FrmInventoryViewOnline.cs</DependentUpon>
+    </Compile>
     <Compile Include="AppForms\FrmInventoryOnline.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -378,6 +384,9 @@
     <Content Include="MyConfig.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <EmbeddedResource Include="AppForms\FrmInventoryViewOnline.resx">
+      <DependentUpon>FrmInventoryViewOnline.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AppForms\FrmInventoryOnline.resx">
       <DependentUpon>FrmInventoryOnline.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -493,6 +502,9 @@
     <None Include="Web References\WMSservice\ERPLot.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </None>
+    <None Include="Web References\WMSservice\InventoryInfo.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
     <None Include="Web References\WMSservice\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
@@ -570,10 +582,10 @@
     <WebReferences Include="Web References\" />
   </ItemGroup>
   <ItemGroup>
-    <WebReferenceUrl Include="http://10.1.10.29/WMSSyncServ">
-      <UrlBehavior>Dynamic</UrlBehavior>
+    <WebReferenceUrl Include="http://10.1.10.46/WMSSyncService">
+      <UrlBehavior>Static</UrlBehavior>
       <RelPath>Web References\WMSSyncService\</RelPath>
-      <UpdateFromURL>http://10.1.10.29/WMSSyncServ</UpdateFromURL>
+      <UpdateFromURL>http://10.1.10.46/WMSSyncService</UpdateFromURL>
       <ServiceLocationURL>
       </ServiceLocationURL>
       <CachedDynamicPropName>
