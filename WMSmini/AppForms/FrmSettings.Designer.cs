@@ -242,7 +242,7 @@
             // BtnDBSettings
             // 
             this.BtnDBSettings.Image = ((System.Drawing.Image)(resources.GetObject("BtnDBSettings.Image")));
-            this.BtnDBSettings.Location = new System.Drawing.Point(179, 197);
+            this.BtnDBSettings.Location = new System.Drawing.Point(179, 176);
             this.BtnDBSettings.Name = "BtnDBSettings";
             this.BtnDBSettings.Size = new System.Drawing.Size(50, 50);
             this.BtnDBSettings.Click += new System.EventHandler(this.BtnDBSettings_Click);
@@ -348,7 +348,7 @@
             // cb_alterinvexport
             // 
             this.cb_alterinvexport.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Regular);
-            this.cb_alterinvexport.Location = new System.Drawing.Point(7, 178);
+            this.cb_alterinvexport.Location = new System.Drawing.Point(3, 235);
             this.cb_alterinvexport.Name = "cb_alterinvexport";
             this.cb_alterinvexport.Size = new System.Drawing.Size(211, 15);
             this.cb_alterinvexport.TabIndex = 201;

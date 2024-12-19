@@ -585,7 +585,7 @@ namespace WMSMobileClient
             }
             if(AppGeneralSettings.StoreID > 0 )
             {
-                storename = cdp.db.DBWmsExSelectCmdRStr2Str("SELECT STORENAME FROM TSTORES WHERE STOREID=" + AppGeneralSettings.StoreID.ToString());
+              storename = cdp.db.DBWmsExSelectCmdRStr2Str("SELECT STORENAME FROM TSTORES WHERE STOREID=" + AppGeneralSettings.StoreID.ToString());
               cbStores.SelectedItem = storename;
               AppGeneralSettings.StoreName = storename;
             }

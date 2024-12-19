@@ -453,12 +453,22 @@ namespace WMSMobileClient
 
         protected void GoToSettings()
         {
-            Cursor.Current = Cursors.WaitCursor;
+            CompactDB cdp = new CompactDB();
+            if (!cdp.FileExists())
+            {
+                Cursor.Current = Cursors.WaitCursor;
+                WMSForms.FrmDBSettings = new FrmDBSettings();
+                WMSForms.FrmDBSettings.Show();
+                Cursor.Current = Cursors.Default;
+            }
+            else 
+            {
 
-            WMSForms.FrmSettings = new FrmSettings();
-            WMSForms.FrmSettings.Show();
-
-            Cursor.Current = Cursors.Default;
+                Cursor.Current = Cursors.WaitCursor;
+                WMSForms.FrmSettings = new FrmSettings();
+                WMSForms.FrmSettings.Show();
+                Cursor.Current = Cursors.Default;
+            }
         }
 
         protected void GotoInventory()

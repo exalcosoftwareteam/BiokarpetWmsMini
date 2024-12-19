@@ -86,3 +86,6 @@ D:\!WORK\Projects\Biokarpet\WMSmini\WMSmini\obj\Release\WMSMobileClient.Componen
 D:\!WORK\Projects\Biokarpet\WMSmini\WMSmini\obj\Release\WMSmini.csproj.GenerateResource.Cache
 D:\!WORK\Projects\Biokarpet\WMSmini\WMSmini\obj\Release\WMSRetailClient.exe
 D:\!WORK\Projects\Biokarpet\WMSmini\WMSmini\obj\Release\WMSRetailClient.pdb
+D:\!WORK\Projects\Biokarpet\WMSmini\WMSmini\obj\Release\WMSMobileClient.FrmInventoryViewOnline.resources
+D:\!WORK\Projects\Biokarpet\WMSmini\WMSmini\obj\Release\WMSMobileClient.FrmInventoryOnline.resources
+D:\!WORK\Projects\Biokarpet\WMSmini\WMSmini\obj\Release\WMSMobileClient.FrmSelectInventoryHeaderOnline.resources
