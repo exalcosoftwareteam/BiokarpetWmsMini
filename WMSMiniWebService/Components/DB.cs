@@ -588,9 +588,7 @@ namespace WMSMiniWebService
             {
                 MSSQLConnection.Close();
                 return -1;
-
-
-            } //MULTIDATABASE READY
+            }
         }
 
         public DataSet FDBFillDatasetFromSPWithParm(SqlCommand MyCommand, String FillTbl)

@@ -32,7 +32,7 @@ namespace WMSMiniWebService
         AtlantisWebService AtlService = new AtlantisWebService();
         ReceivesController receives = new ReceivesController();
         AtlantisInventoryController atlcontroller = new AtlantisInventoryController();
-
+        InventoryHandler invhandler = new InventoryHandler();
 
         [WebMethod]
         public string CheckDBConnection()
@@ -249,9 +249,7 @@ namespace WMSMiniWebService
 
         [WebMethod]
         public long ImportInventoryOnline(TInventory inv)
-        {
-            InventoryHandler invhandler = new InventoryHandler();
-
+        {   
             long affectrows = 0;
             try
             {
@@ -268,8 +266,6 @@ namespace WMSMiniWebService
         [WebMethod]
         public long ImportInventoryCTypeList(List<TInventory> inv, bool clearprevious)
         {
-            InventoryHandler invhandler = new InventoryHandler();
-
             long affectrows = 0;
             long InvHdrIDServer = 0;
 
@@ -339,8 +335,6 @@ namespace WMSMiniWebService
         [WebMethod]
         public long ImportInventoryCType(TInventory[] inv,bool clearprevious)
         {
-            InventoryHandler invhandler = new InventoryHandler();
-
             long affectrows = 0;
             long InvHdrIDServer = 0;
 
@@ -413,8 +407,6 @@ namespace WMSMiniWebService
         [WebMethod]
         public long ImportInventoryAlter(TInventory inv, bool clearprevious)
         {
-            InventoryHandler invhandler = new InventoryHandler();
-
             long affectrows = 0;
 
             try
@@ -451,15 +443,15 @@ namespace WMSMiniWebService
         [WebMethod]
         public DataSet GetItemMunits()
         {
-            WMSInvOffline invhandler = new WMSInvOffline();
-            return invhandler.GetItemsMunits();
+            WMSInvOffline invhandlerOffline = new WMSInvOffline();
+            return invhandlerOffline.GetItemsMunits();
         }
 
         [WebMethod]
         public SyncInfo GetSyncInfo()
         {
-            WMSInvOffline invhandler = new WMSInvOffline();
-            return invhandler.GetSyncInfo();
+            WMSInvOffline invhandlerOffline = new WMSInvOffline();
+            return invhandlerOffline.GetSyncInfo();
         }
 
         //NEW METHODS FOR INV
@@ -474,7 +466,6 @@ namespace WMSMiniWebService
         [WebMethod]
         public ResultWithMessage UploadInventoryStatusCheck(TInventoryHeader invhdr) 
         {
-            InventoryHandler invhandler = new InventoryHandler();
             return invhandler.CheckIfInventoryCanUpload(invhdr);
         }
 
@@ -678,32 +669,24 @@ namespace WMSMiniWebService
         [WebMethod]
         public DataTable GetInventoryTasks(int branchid)
         {
-            InventoryHandler invhandler = new InventoryHandler();
-
             return invhandler.GetInventoryTasks(branchid);
         }
 
         [WebMethod]
         public DataTable GetInventoryRecords(long InvHdrID,string sqlfilter,bool top10rows)
         {
-            InventoryHandler invhandler = new InventoryHandler();
-
             return invhandler.GetInventoryRecords(InvHdrID,sqlfilter,top10rows);
         }
 
         [WebMethod]
         public DataTable GetInventoryRecord (long InvID)
         {
-            InventoryHandler invhandler = new InventoryHandler();
-
             return invhandler.GetInventoryRecord(InvID);
         }
 
         [WebMethod]
         public long DeleteInventoryRecord(long InvID)
         {
-            InventoryHandler invhandler = new InventoryHandler();
-
             return invhandler.DeleteInventoryRecord(InvID);
         }
 
