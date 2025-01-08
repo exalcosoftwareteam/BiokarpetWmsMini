@@ -25,13 +25,9 @@ namespace WMSMiniWebService
     public class WebService : System.Web.Services.WebService
     {
 
-        DB db = new DB();
         static List<ERPItem> GItemList { get; set; }
         static List<ERPLot> GLotList { get; set; }
-        WMSInvOffline InvOfflineHandler = new WMSInvOffline();
-        AtlantisWebService AtlService = new AtlantisWebService();
-        ReceivesController receives = new ReceivesController();
-        AtlantisInventoryController atlcontroller = new AtlantisInventoryController();
+
         InventoryHandler invhandler = new InventoryHandler();
 
         [WebMethod]
@@ -52,6 +48,7 @@ namespace WMSMiniWebService
         [WebMethod]
         public DataTable GetOpenReceivesList(short branchid)
         {
+            ReceivesController receives = new ReceivesController();
             DataTable dt = new DataTable();
             try { dt = receives.GetTransList(branchid); }
             catch { }
@@ -62,7 +59,7 @@ namespace WMSMiniWebService
         [WebMethod]
         public long InsertNewReceivesTranscode(TransCodeHeader thistranscode)
         {
-
+            ReceivesController receives = new ReceivesController();
            // WriteToLog(" InsertNewReceivesTranscode hitted t = " + thistranscode.tradecode); 
             return receives.InsertNewTranscode(thistranscode);
 
@@ -89,7 +86,7 @@ namespace WMSMiniWebService
         [SoapDocumentMethod(OneWay = true)] 
         public void AtlSyncItemsAndLots()
         {
-            
+            AtlantisInventoryController atlcontroller = new AtlantisInventoryController();
             atlcontroller.SyncItemsAndLots();
         }
 
@@ -97,7 +94,7 @@ namespace WMSMiniWebService
         [SoapDocumentMethod(OneWay = true)]
         public void AtlDetailsQtyFromWmsMiniDB(short branchid,short storeid,short comid)
         {
-
+            AtlantisInventoryController atlcontroller = new AtlantisInventoryController();
             atlcontroller.GetDetailsQtyFromWmsMiniDB(branchid, storeid , comid);
         }
 
@@ -105,6 +102,7 @@ namespace WMSMiniWebService
         [SoapDocumentMethod(OneWay = true)]
         public void TESTGetDetailsQtyFromWmsMiniDB(short branchid, short storeid, short comid)
         {
+            AtlantisInventoryController atlcontroller = new AtlantisInventoryController();
             atlcontroller.TESTGetDetailsQtyFromWmsMiniDB(branchid, storeid , comid);
         }
 
@@ -113,6 +111,7 @@ namespace WMSMiniWebService
         [SoapDocumentMethod(OneWay = true)]
         public void AtlGeInventoryNow(int branchid, bool forcedelete)
         {
+            AtlantisInventoryController atlcontroller = new AtlantisInventoryController();
             atlcontroller.GetDetailsQtyNow(branchid, forcedelete);
         }
 
@@ -120,6 +119,7 @@ namespace WMSMiniWebService
         [WebMethod]
         public long AtlGeInventory(int branchid,bool forcedelete)
         {
+            AtlantisInventoryController atlcontroller = new AtlantisInventoryController();
             return atlcontroller.GetDetailsQty(branchid, forcedelete);
         }
 
@@ -179,6 +179,7 @@ namespace WMSMiniWebService
         [WebMethod]
         public long ItemExists(long itemid)
         {
+            DB db = new DB();
             long fitemid = 0;
             fitemid = db.DBFastGetNumResultFromSQLSelect("SELECT ITEMID FROM TITEMS WHERE ITEMID = " + itemid.ToString());
             if (fitemid > 0)
@@ -195,6 +196,7 @@ namespace WMSMiniWebService
         [WebMethod]
         public long LotExists(long lotid)
         {
+            DB db = new DB();
             long flotid = 0;
             flotid = db.DBFastGetNumResultFromSQLSelect("SELECT LOTID FROM TITEMLOT WHERE LOTID = " + lotid.ToString());
             if (flotid > 0)
@@ -209,6 +211,7 @@ namespace WMSMiniWebService
         [WebMethod]
         public InventoryInfo GetInventoryInfo(long invHeaderId)
         {
+            DB db = new DB();
             StringBuilder sqlstr = new StringBuilder();
             InventoryInfo i = new InventoryInfo();
 
@@ -223,6 +226,8 @@ namespace WMSMiniWebService
             }
             dr.Close();
             dr.Dispose();
+
+            db.DBDisconnect();
 
             return i;
         }
@@ -266,6 +271,7 @@ namespace WMSMiniWebService
         [WebMethod]
         public long ImportInventoryCTypeList(List<TInventory> inv, bool clearprevious)
         {
+            DB db = new DB();
             long affectrows = 0;
             long InvHdrIDServer = 0;
 
@@ -335,6 +341,7 @@ namespace WMSMiniWebService
         [WebMethod]
         public long ImportInventoryCType(TInventory[] inv,bool clearprevious)
         {
+            DB db = new DB();
             long affectrows = 0;
             long InvHdrIDServer = 0;
 
@@ -407,6 +414,7 @@ namespace WMSMiniWebService
         [WebMethod]
         public long ImportInventoryAlter(TInventory inv, bool clearprevious)
         {
+            DB db = new DB();
             long affectrows = 0;
 
             try
@@ -435,6 +443,7 @@ namespace WMSMiniWebService
         [WebMethod]
         public long Sqlerrorlog()
         {
+            DB db = new DB();
             db.f_sqlerrorlog(1, "test", "test");
 
             return 1;
@@ -472,6 +481,7 @@ namespace WMSMiniWebService
         [WebMethod]
         public List<ERPItem> SOA_GetItemsList(int storeid, long startindex, long endindex)
         {
+            WMSInvOffline InvOfflineHandler = new WMSInvOffline();
             List<ERPItem> partiallist = new List<ERPItem>();
 
             long range = 0;
@@ -504,6 +514,7 @@ namespace WMSMiniWebService
         [WebMethod]
         public List<ERPLot> SOA_GetLotsList(int storeid, long startindex, long endindex)
         {
+            WMSInvOffline InvOfflineHandler = new WMSInvOffline();
             List<ERPLot> partiallist = new List<ERPLot>();
 
             long range = 0;
@@ -550,6 +561,7 @@ namespace WMSMiniWebService
         [WebMethod]
         public int InsertTransCodeDetails(List<TransCodeDetail> ldtl)
         {
+            ReceivesController receives = new ReceivesController();
             long receiveid = receives.GetReceiveIDfromFTRID(ldtl[0].FtrID);
 
           
@@ -564,12 +576,13 @@ namespace WMSMiniWebService
         [WebMethod]
         public long InsertTransCodeHeader(TransCodeHeader t) 
         {
-
+            ReceivesController receives = new ReceivesController();
             return receives.InsertNewTranscode(t); 
         }
         [WebMethod]
         public long GetInventoryLotQty(long invHrdId,long lotid) 
         {
+            DB db = new DB();
             long lotqty = db.DBGetNumResultwithZero(" select CAST(SUM(ISNULL(invqtysecondary,invqty)) AS INTEGER) from TWMSInventory where invhdrid = " + invHrdId.ToString() + " and lotid = " + lotid.ToString());
             
             if (lotqty >= 0)
@@ -586,6 +599,7 @@ namespace WMSMiniWebService
         [WebMethod]
         public DataSet SOA_GetLots(int storeid, long startid, long endid)
         {
+            WMSInvOffline InvOfflineHandler = new WMSInvOffline();
             //WMSInvOffline InvOfflineHandler = new WMSInvOffline();
             return InvOfflineHandler.GetLots(storeid, startid, endid);
         }
@@ -593,6 +607,7 @@ namespace WMSMiniWebService
         [WebMethod]
         public decimal SOA_GetERPLotSecondQTY(long lotid,int branchid)
         {
+            WMSInvOffline InvOfflineHandler = new WMSInvOffline();
             return InvOfflineHandler.GetERPLotSecondQTY(branchid, lotid);
         }
 
@@ -600,6 +615,7 @@ namespace WMSMiniWebService
         [WebMethod]
         public TransCodeDetail GetTransCodeDetails(string zbarcode) 
         {
+            ReceivesController receives = new ReceivesController();
             TransCodeDetail tdtl = new TransCodeDetail();
 
             tdtl = receives.GetTransCodeDetail(zbarcode);
@@ -613,7 +629,7 @@ namespace WMSMiniWebService
         [WebMethod]
         public DataTable  InsertIntoReceives(TransCodeDetail treceive)
         {
-
+            ReceivesController receives = new ReceivesController();
             return receives.InsertNewReceiveDTL(treceive);
     
         }
@@ -621,7 +637,7 @@ namespace WMSMiniWebService
         [WebMethod]
         public DataTable GetTransRemains(long ftrid)
         {
-
+            ReceivesController receives = new ReceivesController();
             return receives.GetTransRemains(ftrid);
 
         }
