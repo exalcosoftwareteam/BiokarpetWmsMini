@@ -338,6 +338,7 @@ namespace WMSMiniWebService
             return affectrows;
         }
 
+        //THIS IS THE METHOD USED FOR LEGACY OFFLINE DB INVENTORY
         [WebMethod]
         public long ImportInventoryCType(TInventory[] inv,bool clearprevious)
         {
@@ -369,7 +370,8 @@ namespace WMSMiniWebService
                     linv.InvDate = inv[i].InvDate;
                     linv.InvHdrID = inv[i].InvHdrID;
                     linv.InvHdrIDServer = inv[i].InvHdrIDServer;
-                    linv.InvID = inv[i].InvID;
+                    // FORCE INSERT , FOR LOCAL SQL INVENTORIES
+                    linv.InvID = 0;
                     linv.InvQty = inv[i].InvQty;
                     linv.InvQtySecondary = inv[i].InvQtySecondary;
                     linv.ItemCode = inv[i].ItemCode;
@@ -380,28 +382,6 @@ namespace WMSMiniWebService
                     linv.MUnitSecondary = inv[i].MUnitSecondary;
                     linv.StoreID = inv[i].StoreID;
                     linv.MobInvID = inv[i].InvID;
-
-
-                    //COMMENTED 03/01/2018 items and lots syncs in agent process
-
-                    //if (ItemExists(linv.ItemID) < 0)
-                    //{
-                    //    if (linv.ItemID > 0)
-                    //    {
-                    //        AtlService.GetItemFromERP(linv.ItemID);
-                    //    }
-                    //}
-
-                    //if (LotExists(linv.LotID) < 0)
-                    //{
-
-                    //    if (linv.LotID > 0)
-                    //    {
-                    //        AtlService.GetLotFromERP(linv.LotID);
-                    //    }
-                    //}
-
-                    
 
                     affectrows += invhandler.UpdateInventory(linv);
                 }
