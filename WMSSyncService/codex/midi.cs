@@ -234,7 +234,7 @@ namespace WMSSyncService
             StringBuilder sqlstr = new StringBuilder();
             long rtrn = 0;
 
-            sqlstr.Append("INSERT INTO ZCLEANINGCARPETSTRANS (TRANSID,ERPCompID, ERPBRACHID ,AlpisStoreTransID,WMSTRANSID, AlpisStoreTransDate,ERPTransSeriesID, ERPCustomerID,ERPSupplierID,");
+            sqlstr.Append("INSERT INTO ZCLEANINGCARPETSTRANS (TRANSID,ERPCompID, ERPBRACHID ,AlpisStoreTransID,WMSTRANSID, AlpisStoreTransDate,DispatchDate,ERPTransSeriesID, ERPCustomerID,ERPSupplierID,");
             sqlstr.Append("ERPFromStoreID,ERPToStoreID, ERPItemID, ERPItemMUnit,ERPITEMSMUNIT,ERPItemQty,ERPITEMSQTY,ERPItemUnitPrice, ERPItemQtyPrice,EXTRASERVICE,ERPTRANSCODE,DOCTYPE,isnew) VALUES (");
             if (trans.TRANSID > 0) sqlstr.Append(trans.TRANSID.ToString() + ","); else return -1;
             if (trans.ERPCompID > 0) sqlstr.Append(trans.ERPCompID.ToString() + ","); else sqlstr.Append("NULL,");
@@ -242,6 +242,7 @@ namespace WMSSyncService
             if (trans.AlpisStoreTransID > 0) sqlstr.Append(trans.AlpisStoreTransID.ToString() + ","); else sqlstr.Append("NULL,");
             if (trans.WMSTRANSID > 0) sqlstr.Append(trans.WMSTRANSID.ToString() + ","); else sqlstr.Append("NULL,");
             if (!string.IsNullOrEmpty(trans.AlpisStoreTransDate)) sqlstr.Append(" TO_DATE('" + trans.AlpisStoreTransDate + "','DD/MM/YYYY')" + ","); else sqlstr.Append("NULL,");
+            if (!string.IsNullOrEmpty(trans.DispatchDate)) sqlstr.Append(" TO_DATE('" + trans.DispatchDate + "','DD/MM/YYYY')" + ","); else sqlstr.Append("NULL,");
             if (trans.ERPTransSeriesID > 0) sqlstr.Append(trans.ERPTransSeriesID.ToString() + ","); else sqlstr.Append("NULL,");
             if (trans.ERPCustomerID > 0) sqlstr.Append(trans.ERPCustomerID.ToString() + ","); else sqlstr.Append("NULL,");
             if (trans.ERPSupplierID > 0) sqlstr.Append(trans.ERPSupplierID.ToString() + ","); else sqlstr.Append("NULL,");

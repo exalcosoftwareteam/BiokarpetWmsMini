@@ -493,6 +493,7 @@ namespace WMSSyncService
                     trans.AlpisStoreTransID = storetranslist[i].AlpisStoreTransID;
                     trans.WMSTRANSID = storetranslist[i].WMSTRANSID;
                     trans.AlpisStoreTransDate = storetranslist[i].AlpisStoreTransDate;
+                    trans.DispatchDate = storetranslist[i].DispatchDate;
                     trans.ERPTransSeriesID = storetranslist[i].ERPTransSeriesID;
                     trans.ERPCustomerID = storetranslist[i].ERPCustomerID;
                     trans.ERPSupplierID = storetranslist[i].ERPSupplierID;

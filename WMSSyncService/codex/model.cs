@@ -280,6 +280,7 @@ namespace WMSSyncService
         public long AlpisStoreTransID { get; set; }
         public long WMSTRANSID { get; set; }
         public string AlpisStoreTransDate { get; set; }
+        public string DispatchDate { get; set; }
         public long ERPTransSeriesID { get; set; }
         public long ERPCustomerID { get; set; }
         public long ERPSupplierID { get; set; }
